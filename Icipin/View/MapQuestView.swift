@@ -26,7 +26,6 @@ struct MapQuestView: View {
                 }
         }
         .ignoresSafeArea()
-        
     }
 }
 
@@ -46,7 +45,6 @@ struct MapView: UIViewRepresentable {
         mapView.showsUserLocation = true
         mapView.pointOfInterestFilter = .excludingAll
         
-        mapView.setRegion(region, animated: true)
         return mapView
     }
     
@@ -56,7 +54,7 @@ struct MapView: UIViewRepresentable {
     
     class MapViewCoordinator: NSObject, MKMapViewDelegate {
         func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
-            let region = MKCoordinateRegion(center: userLocation.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5))
+            let region = MKCoordinateRegion(center: userLocation.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005))
             mapView.setRegion(region, animated: true)
         }
     }
