@@ -5,4 +5,43 @@
 //  Created by Rivaldo Fernandes on 21/08/22.
 //
 
-import Foundation
+import SwiftUI
+import UIKit
+import MapKit
+
+
+struct MapQuestView {
+    @State private var directions: [String] = []
+    @State private var showDirections = false
+    
+    
+    var body: some View {
+        VStack {
+            
+        }
+    }
+}
+
+struct MapView: UIViewRepresentable {
+    typealias UIViewType = MKMapView //create alias for easiness
+    
+    @Binding var directions: [String]
+    
+    func makeCoordinator() -> MapViewCoordinator {
+        return MapViewCoordinator()
+    }
+    
+    func makeUIView(context: Context) -> MKMapView {
+        let mapView = MKMapView()
+        
+        return mapView
+    }
+    
+    func updateUIView(_ uiView: MKMapView, context: Context) {
+        
+    }
+    
+    class MapViewCoordinator: NSObject, MKMapViewDelegate {
+        
+    }
+}
