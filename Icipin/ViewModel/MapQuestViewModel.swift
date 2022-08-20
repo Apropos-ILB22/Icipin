@@ -11,7 +11,7 @@ import CoreData
 
 class MapQuestViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
     var locationManager: CLLocationManager?
-    @Published var userLocation = CLLocationCoordinate2D(latitude: -6.244702866167007, longitude: 106.79875999598278)
+    @Published var userLocation = CLLocationManager().location?.coordinate
     
     @Published var quests: [Quest] = []
     

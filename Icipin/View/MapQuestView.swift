@@ -23,8 +23,8 @@ struct MapQuestView: View {
             MapView(directions: self.$directions, mapQuestViewModel: self.mapQuestViewModel)
                 .onAppear{
                     mapQuestViewModel.checkLocationServicedIsEnabled()
-//                    mapQuestViewModel.saveQuest()
-//                    mapQuestViewModel.getAllQuest()
+                    //                    mapQuestViewModel.saveQuest()
+                    //                    mapQuestViewModel.getAllQuest()
                 }
         }
         .ignoresSafeArea()
@@ -36,9 +36,11 @@ struct MapView: UIViewRepresentable {
     
     @Binding var directions: [String]
     @StateObject var mapQuestViewModel: MapQuestViewModel
+    var currentLocation = CLLocationManager().location?.coordinate
+    
     
     func makeCoordinator() -> MapViewCoordinator {
-        return MapViewCoordinator()
+        return MapViewCoordinator(customView: self)
     }
     
     func makeUIView(context: Context) -> MKMapView {
@@ -68,10 +70,35 @@ struct MapView: UIViewRepresentable {
     }
     
     class MapViewCoordinator: NSObject, MKMapViewDelegate {
+        var parent: MapView
+        
+        init(customView: MapView) {
+            self.parent = customView
+        }
+        
         func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
             let region = MKCoordinateRegion(center: userLocation.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005))
             mapView.setRegion(region, animated: true)
         }
         
+        func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+            let p1 = MKPlacemark(coordinate: parent.currentLocation!)
+            let p2 = MKPlacemark(coordinate: view.annotation!.coordinate)
+            
+            let request = MKDirections.Request()
+            request.source = MKMapItem(placemark: p1)
+            request.destination = MKMapItem(placemark: p2)
+            request.transportType = .walking
+
+            let directions = MKDirections(request: request)
+            directions.calculate{response, error in
+                guard let route = response?.routes.first else {return}
+                print(route)
+
+                mapView.addOverlay(route.polyline)
+                mapView.setVisibleMapRect(route.polyline.boundingMapRect,edgePadding: UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20),  animated: true)
+            }
+            
+        }
     }
 }
