@@ -60,6 +60,12 @@ class MapQuestViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
     
     func getAllQuest(){
         quests = CoreDataManager.shared.getAllQuest()
+        for quest in quests {
+                    print(quest.food_name)
+                    for clue in quest.clues?.allObjects as! [Clue]{
+                        print(clue.title)
+                    }
+                }
     }
     
     func saveQuest() {

@@ -23,8 +23,8 @@ struct MapQuestView: View {
             MapView(directions: self.$directions, mapQuestViewModel: self.mapQuestViewModel)
                 .onAppear{
                     mapQuestViewModel.checkLocationServicedIsEnabled()
-                    mapQuestViewModel.saveQuest()
-                    mapQuestViewModel.getAllQuest()
+//                    mapQuestViewModel.saveQuest()
+//                    mapQuestViewModel.getAllQuest()
                 }
         }
         .ignoresSafeArea()
@@ -47,6 +47,19 @@ struct MapView: UIViewRepresentable {
         mapView.showsUserLocation = true
         mapView.pointOfInterestFilter = .excludingAll
         
+        mapQuestViewModel.getAllQuest()
+        let quests = mapQuestViewModel.quests
+        
+        for quest in quests {
+            for place in quest.places?.allObjects as! [Place] {
+                let annotation = MKPointAnnotation()
+                annotation.title = quest.title!
+                annotation.coordinate = CLLocationCoordinate2D(latitude: place.latitude, longitude: place.longitude)
+                mapView.addAnnotation(annotation)
+                
+                print(quest.title!)
+            }
+        }
         return mapView
     }
     
@@ -59,5 +72,6 @@ struct MapView: UIViewRepresentable {
             let region = MKCoordinateRegion(center: userLocation.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005))
             mapView.setRegion(region, animated: true)
         }
+        
     }
 }
