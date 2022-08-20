@@ -4,7 +4,7 @@
         <attribute name="title" optional="YES" attributeType="String"/>
         <relationship name="quest" maxCount="1" deletionRule="Nullify" destinationEntity="Quest" inverseName="clues" inverseEntity="Quest"/>
     </entity>
-    <entity name="Places" representedClassName="Places" syncable="YES" codeGenerationType="class">
+    <entity name="Place" representedClassName="Place" syncable="YES" codeGenerationType="class">
         <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="name" optional="YES" attributeType="String"/>
@@ -19,11 +19,11 @@
         <attribute name="title" optional="YES" attributeType="String"/>
         <attribute name="uuid" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <relationship name="clues" toMany="YES" deletionRule="Nullify" destinationEntity="Clue" inverseName="quest" inverseEntity="Clue"/>
-        <relationship name="places" toMany="YES" deletionRule="Nullify" destinationEntity="Places" inverseName="quest" inverseEntity="Places"/>
+        <relationship name="places" toMany="YES" deletionRule="Nullify" destinationEntity="Place" inverseName="quest" inverseEntity="Place"/>
     </entity>
     <elements>
         <element name="Quest" positionX="13.32421875" positionY="118.90625" width="128" height="134"/>
-        <element name="Places" positionX="414.8125" positionY="101.5703125" width="128" height="119"/>
+        <element name="Place" positionX="414.8125" positionY="101.5703125" width="128" height="133"/>
         <element name="Clue" positionX="-21.8125" positionY="-67.91015625" width="128" height="59"/>
     </elements>
 </model>

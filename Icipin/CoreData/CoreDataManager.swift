@@ -26,6 +26,15 @@ class CoreDataManager {
         }
     }
     
+    func getAllQuest() -> [Quest] {
+        let request: NSFetchRequest<Quest> = Quest.fetchRequest()
+        do {
+            return try viewContext.fetch(request)
+        } catch {
+            return []
+        }
+    }
+    
     func saveContext(){
         do {
             try viewContext.save()
@@ -34,5 +43,4 @@ class CoreDataManager {
             print(error.localizedDescription)
         }
     }
-    
 }

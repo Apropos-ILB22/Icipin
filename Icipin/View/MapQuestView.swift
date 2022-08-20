@@ -23,6 +23,8 @@ struct MapQuestView: View {
             MapView(directions: self.$directions, mapQuestViewModel: self.mapQuestViewModel)
                 .onAppear{
                     mapQuestViewModel.checkLocationServicedIsEnabled()
+                    mapQuestViewModel.saveQuest()
+                    mapQuestViewModel.getAllQuest()
                 }
         }
         .ignoresSafeArea()
