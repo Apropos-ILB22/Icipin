@@ -11,6 +11,9 @@ import MapKit
 
 
 struct MapQuestView: View {
+    @StateObject private var mapQuestViewModel = MapQuestViewModel()
+    
+    
     @State private var directions: [String] = []
     @State private var showDirections = false
     
@@ -18,7 +21,12 @@ struct MapQuestView: View {
     var body: some View {
         VStack {
             MapView(directions: self.$directions)
-        }.ignoresSafeArea()
+                .onAppear{
+                    mapQuestViewModel.checkLocationServicedIsEnabled()
+                }
+        }
+        .ignoresSafeArea()
+        
     }
 }
 
@@ -36,8 +44,7 @@ struct MapView: UIViewRepresentable {
         mapView.delegate = context.coordinator
         mapView.showsUserLocation = true
         mapView.pointOfInterestFilter = .excludingAll
-        mapView.showsUserLocation = true
-        
+
         return mapView
     }
     
