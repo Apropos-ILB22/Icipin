@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		7E029BF828B16E530055C481 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E029BF728B16E530055C481 /* CoreDataManager.swift */; };
 		7E029BFB28B16E710055C481 /* Icipin.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7E029BF928B16E710055C481 /* Icipin.xcdatamodeld */; };
+		7E029C0128B173030055C481 /* MapQuestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E029C0028B173030055C481 /* MapQuestView.swift */; };
 		7ECF0CC428A9E50C0018C0BA /* IcipinApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ECF0CC328A9E50C0018C0BA /* IcipinApp.swift */; };
 		7ECF0CC628A9E50C0018C0BA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ECF0CC528A9E50C0018C0BA /* ContentView.swift */; };
 		7ECF0CC828A9E50D0018C0BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7ECF0CC728A9E50D0018C0BA /* Assets.xcassets */; };
@@ -18,6 +19,7 @@
 /* Begin PBXFileReference section */
 		7E029BF728B16E530055C481 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		7E029BFA28B16E710055C481 /* Icipin.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Icipin.xcdatamodel; sourceTree = "<group>"; };
+		7E029C0028B173030055C481 /* MapQuestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapQuestView.swift; sourceTree = "<group>"; };
 		7ECF0CC028A9E50C0018C0BA /* Icipin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Icipin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7ECF0CC328A9E50C0018C0BA /* IcipinApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IcipinApp.swift; sourceTree = "<group>"; };
 		7ECF0CC528A9E50C0018C0BA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -51,6 +53,14 @@
 			path = CoreData;
 			sourceTree = "<group>";
 		};
+		7E029BFE28B1729C0055C481 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7E029C0028B173030055C481 /* MapQuestView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		7ECF0CB728A9E50C0018C0BA = {
 			isa = PBXGroup;
 			children = (
@@ -70,6 +80,7 @@
 		7ECF0CC228A9E50C0018C0BA /* Icipin */ = {
 			isa = PBXGroup;
 			children = (
+				7E029BFE28B1729C0055C481 /* View */,
 				7E029BF628B16E450055C481 /* CoreData */,
 				7E029BF528B16E340055C481 /* Model */,
 				7ECF0CC328A9E50C0018C0BA /* IcipinApp.swift */,
@@ -161,6 +172,7 @@
 			files = (
 				7E029BF828B16E530055C481 /* CoreDataManager.swift in Sources */,
 				7ECF0CC628A9E50C0018C0BA /* ContentView.swift in Sources */,
+				7E029C0128B173030055C481 /* MapQuestView.swift in Sources */,
 				7ECF0CC428A9E50C0018C0BA /* IcipinApp.swift in Sources */,
 				7E029BFB28B16E710055C481 /* Icipin.xcdatamodeld in Sources */,
 			);
