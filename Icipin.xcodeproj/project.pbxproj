@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7E029BF828B16E530055C481 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E029BF728B16E530055C481 /* CoreDataManager.swift */; };
+		7E029BFB28B16E710055C481 /* Icipin.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7E029BF928B16E710055C481 /* Icipin.xcdatamodeld */; };
 		7ECF0CC428A9E50C0018C0BA /* IcipinApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ECF0CC328A9E50C0018C0BA /* IcipinApp.swift */; };
 		7ECF0CC628A9E50C0018C0BA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ECF0CC528A9E50C0018C0BA /* ContentView.swift */; };
 		7ECF0CC828A9E50D0018C0BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7ECF0CC728A9E50D0018C0BA /* Assets.xcassets */; };
@@ -14,6 +16,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7E029BF728B16E530055C481 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		7E029BFA28B16E710055C481 /* Icipin.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Icipin.xcdatamodel; sourceTree = "<group>"; };
 		7ECF0CC028A9E50C0018C0BA /* Icipin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Icipin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7ECF0CC328A9E50C0018C0BA /* IcipinApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IcipinApp.swift; sourceTree = "<group>"; };
 		7ECF0CC528A9E50C0018C0BA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -32,6 +36,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7E029BF528B16E340055C481 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7E029BF628B16E450055C481 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				7E029BF728B16E530055C481 /* CoreDataManager.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
 		7ECF0CB728A9E50C0018C0BA = {
 			isa = PBXGroup;
 			children = (
@@ -51,10 +70,13 @@
 		7ECF0CC228A9E50C0018C0BA /* Icipin */ = {
 			isa = PBXGroup;
 			children = (
+				7E029BF628B16E450055C481 /* CoreData */,
+				7E029BF528B16E340055C481 /* Model */,
 				7ECF0CC328A9E50C0018C0BA /* IcipinApp.swift */,
 				7ECF0CC528A9E50C0018C0BA /* ContentView.swift */,
 				7ECF0CC728A9E50D0018C0BA /* Assets.xcassets */,
 				7ECF0CC928A9E50D0018C0BA /* Preview Content */,
+				7E029BF928B16E710055C481 /* Icipin.xcdatamodeld */,
 			);
 			path = Icipin;
 			sourceTree = "<group>";
@@ -137,8 +159,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E029BF828B16E530055C481 /* CoreDataManager.swift in Sources */,
 				7ECF0CC628A9E50C0018C0BA /* ContentView.swift in Sources */,
 				7ECF0CC428A9E50C0018C0BA /* IcipinApp.swift in Sources */,
+				7E029BFB28B16E710055C481 /* Icipin.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,6 +363,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		7E029BF928B16E710055C481 /* Icipin.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				7E029BFA28B16E710055C481 /* Icipin.xcdatamodel */,
+			);
+			currentVersion = 7E029BFA28B16E710055C481 /* Icipin.xcdatamodel */;
+			path = Icipin.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 7ECF0CB828A9E50C0018C0BA /* Project object */;
 }
