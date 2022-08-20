@@ -6,7 +6,7 @@
             "uuid": 200,
             "title": "Santan Kental",
             "food_name": "Soto Betawi",
-            "story_behind": "lorem ipsum dolor sit amet",
+            "story": "lorem ipsum dolor sit amet",
             "status": 0,
             "places": [
                 {
@@ -37,7 +37,7 @@
             "uuid": 201,
             "title": "Santan Kental",
             "food_name": "Soto Betawi",
-            "story_behind": "lorem ipsum dolor sit amet",
+            "story": "lorem ipsum dolor sit amet",
             "status": 0,
             "places": [
                 {

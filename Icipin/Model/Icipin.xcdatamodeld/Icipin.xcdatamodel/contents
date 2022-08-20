@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21F79" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Clue" representedClassName="Clue" syncable="YES" codeGenerationType="class">
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <relationship name="quest" maxCount="1" deletionRule="Nullify" destinationEntity="Quest" inverseName="clues" inverseEntity="Quest"/>
+    </entity>
+    <entity name="Places" representedClassName="Places" syncable="YES" codeGenerationType="class">
+        <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="rating" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="uuid" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <relationship name="quest" toMany="YES" deletionRule="Nullify" destinationEntity="Quest" inverseName="places" inverseEntity="Quest"/>
+    </entity>
+    <entity name="Quest" representedClassName="Quest" syncable="YES" codeGenerationType="class">
+        <attribute name="food_name" optional="YES" attributeType="String"/>
+        <attribute name="status" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="story" optional="YES" attributeType="String"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <attribute name="uuid" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <relationship name="clues" toMany="YES" deletionRule="Nullify" destinationEntity="Clue" inverseName="quest" inverseEntity="Clue"/>
+        <relationship name="places" toMany="YES" deletionRule="Nullify" destinationEntity="Places" inverseName="quest" inverseEntity="Places"/>
+    </entity>
+    <elements>
+        <element name="Quest" positionX="13.32421875" positionY="118.90625" width="128" height="134"/>
+        <element name="Places" positionX="414.8125" positionY="101.5703125" width="128" height="119"/>
+        <element name="Clue" positionX="-21.8125" positionY="-67.91015625" width="128" height="59"/>
+    </elements>
+</model>
