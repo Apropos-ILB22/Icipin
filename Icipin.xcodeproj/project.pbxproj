@@ -11,6 +11,12 @@
 		7ECF0CC628A9E50C0018C0BA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ECF0CC528A9E50C0018C0BA /* ContentView.swift */; };
 		7ECF0CC828A9E50D0018C0BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7ECF0CC728A9E50D0018C0BA /* Assets.xcassets */; };
 		7ECF0CCB28A9E50D0018C0BA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7ECF0CCA28A9E50D0018C0BA /* Preview Assets.xcassets */; };
+		AC14776928B0BF0100F84928 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC14776828B0BF0100F84928 /* WelcomeView.swift */; };
+		AC14777528B0FB6200F84928 /* HalfASheet in Frameworks */ = {isa = PBXBuildFile; productRef = AC14777428B0FB6200F84928 /* HalfASheet */; };
+		AC14777728B0FBA500F84928 /* ToScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC14777628B0FBA500F84928 /* ToScanView.swift */; };
+		AC14777928B0FBBE00F84928 /* ToScanExtendedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC14777828B0FBBE00F84928 /* ToScanExtendedView.swift */; };
+		AC709CB728AFCCB6002DA525 /* QuestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC709CB628AFCCB6002DA525 /* QuestView.swift */; };
+		AC709CBB28B0A225002DA525 /* QuestExtendedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC709CBA28B0A225002DA525 /* QuestExtendedView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +25,11 @@
 		7ECF0CC528A9E50C0018C0BA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7ECF0CC728A9E50D0018C0BA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7ECF0CCA28A9E50D0018C0BA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		AC14776828B0BF0100F84928 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
+		AC14777628B0FBA500F84928 /* ToScanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToScanView.swift; sourceTree = "<group>"; };
+		AC14777828B0FBBE00F84928 /* ToScanExtendedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToScanExtendedView.swift; sourceTree = "<group>"; };
+		AC709CB628AFCCB6002DA525 /* QuestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestView.swift; sourceTree = "<group>"; };
+		AC709CBA28B0A225002DA525 /* QuestExtendedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestExtendedView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC14777528B0FB6200F84928 /* HalfASheet in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -53,6 +65,11 @@
 			children = (
 				7ECF0CC328A9E50C0018C0BA /* IcipinApp.swift */,
 				7ECF0CC528A9E50C0018C0BA /* ContentView.swift */,
+				AC14776828B0BF0100F84928 /* WelcomeView.swift */,
+				AC709CB628AFCCB6002DA525 /* QuestView.swift */,
+				AC709CBA28B0A225002DA525 /* QuestExtendedView.swift */,
+				AC14777628B0FBA500F84928 /* ToScanView.swift */,
+				AC14777828B0FBBE00F84928 /* ToScanExtendedView.swift */,
 				7ECF0CC728A9E50D0018C0BA /* Assets.xcassets */,
 				7ECF0CC928A9E50D0018C0BA /* Preview Content */,
 			);
@@ -83,6 +100,9 @@
 			dependencies = (
 			);
 			name = Icipin;
+			packageProductDependencies = (
+				AC14777428B0FB6200F84928 /* HalfASheet */,
+			);
 			productName = Icipin;
 			productReference = 7ECF0CC028A9E50C0018C0BA /* Icipin.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +131,9 @@
 				Base,
 			);
 			mainGroup = 7ECF0CB728A9E50C0018C0BA;
+			packageReferences = (
+				AC14777328B0FB6200F84928 /* XCRemoteSwiftPackageReference "HalfASheet" */,
+			);
 			productRefGroup = 7ECF0CC128A9E50C0018C0BA /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -137,7 +160,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC14776928B0BF0100F84928 /* WelcomeView.swift in Sources */,
+				AC709CBB28B0A225002DA525 /* QuestExtendedView.swift in Sources */,
 				7ECF0CC628A9E50C0018C0BA /* ContentView.swift in Sources */,
+				AC709CB728AFCCB6002DA525 /* QuestView.swift in Sources */,
+				AC14777728B0FBA500F84928 /* ToScanView.swift in Sources */,
+				AC14777928B0FBBE00F84928 /* ToScanExtendedView.swift in Sources */,
 				7ECF0CC428A9E50C0018C0BA /* IcipinApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -339,6 +367,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		AC14777328B0FB6200F84928 /* XCRemoteSwiftPackageReference "HalfASheet" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/franklynw/HalfASheet";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		AC14777428B0FB6200F84928 /* HalfASheet */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AC14777328B0FB6200F84928 /* XCRemoteSwiftPackageReference "HalfASheet" */;
+			productName = HalfASheet;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 7ECF0CB828A9E50C0018C0BA /* Project object */;
 }
