@@ -20,7 +20,7 @@ struct MapQuestView: View {
     
     var body: some View {
         VStack {
-            MapView(directions: self.$directions)
+            MapView(directions: self.$directions, mapQuestViewModel: self.mapQuestViewModel)
                 .onAppear{
                     mapQuestViewModel.checkLocationServicedIsEnabled()
                 }
@@ -34,6 +34,7 @@ struct MapView: UIViewRepresentable {
     typealias UIViewType = MKMapView //create alias for easiness
     
     @Binding var directions: [String]
+    @StateObject var mapQuestViewModel: MapQuestViewModel
     
     func makeCoordinator() -> MapViewCoordinator {
         return MapViewCoordinator()
@@ -44,7 +45,8 @@ struct MapView: UIViewRepresentable {
         mapView.delegate = context.coordinator
         mapView.showsUserLocation = true
         mapView.pointOfInterestFilter = .excludingAll
-
+        
+        mapView.setRegion(region, animated: true)
         return mapView
     }
     
@@ -53,6 +55,9 @@ struct MapView: UIViewRepresentable {
     }
     
     class MapViewCoordinator: NSObject, MKMapViewDelegate {
-        
+        func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
+            let region = MKCoordinateRegion(center: userLocation.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5))
+            mapView.setRegion(region, animated: true)
+        }
     }
 }

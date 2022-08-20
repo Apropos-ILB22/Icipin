@@ -22,6 +22,14 @@ class MapQuestViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
         }
     }
     
+    func getUserLocation(){
+        guard let locationManager = locationManager else {
+            return
+        }
+        userLocation = locationManager.location!.coordinate
+    }
+    
+    
     private func checkLocationAuthorization() {
         guard let locationManager = locationManager else {
             return
