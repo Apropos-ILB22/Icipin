@@ -36,6 +36,7 @@ struct MapView: UIViewRepresentable {
         mapView.delegate = context.coordinator
         mapView.showsUserLocation = true
         mapView.pointOfInterestFilter = .excludingAll
+        mapView.showsUserLocation = true
         
         return mapView
     }
