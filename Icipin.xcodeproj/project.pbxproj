@@ -11,7 +11,7 @@
 		7E029BFB28B16E710055C481 /* Icipin.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7E029BF928B16E710055C481 /* Icipin.xcdatamodeld */; };
 		7E029C0128B173030055C481 /* MapQuestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E029C0028B173030055C481 /* MapQuestView.swift */; };
 		7ECF0CC428A9E50C0018C0BA /* IcipinApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ECF0CC328A9E50C0018C0BA /* IcipinApp.swift */; };
-		7ECF0CC628A9E50C0018C0BA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ECF0CC528A9E50C0018C0BA /* ContentView.swift */; };
+		7ECF0CC628A9E50C0018C0BA /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ECF0CC528A9E50C0018C0BA /* MainView.swift */; };
 		7ECF0CC828A9E50D0018C0BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7ECF0CC728A9E50D0018C0BA /* Assets.xcassets */; };
 		7ECF0CCB28A9E50D0018C0BA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7ECF0CCA28A9E50D0018C0BA /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
@@ -22,7 +22,7 @@
 		7E029C0028B173030055C481 /* MapQuestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapQuestView.swift; sourceTree = "<group>"; };
 		7ECF0CC028A9E50C0018C0BA /* Icipin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Icipin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7ECF0CC328A9E50C0018C0BA /* IcipinApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IcipinApp.swift; sourceTree = "<group>"; };
-		7ECF0CC528A9E50C0018C0BA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		7ECF0CC528A9E50C0018C0BA /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		7ECF0CC728A9E50D0018C0BA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7ECF0CCA28A9E50D0018C0BA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -56,6 +56,7 @@
 		7E029BFE28B1729C0055C481 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				7ECF0CC528A9E50C0018C0BA /* MainView.swift */,
 				7E029C0028B173030055C481 /* MapQuestView.swift */,
 			);
 			path = View;
@@ -84,7 +85,6 @@
 				7E029BF628B16E450055C481 /* CoreData */,
 				7E029BF528B16E340055C481 /* Model */,
 				7ECF0CC328A9E50C0018C0BA /* IcipinApp.swift */,
-				7ECF0CC528A9E50C0018C0BA /* ContentView.swift */,
 				7ECF0CC728A9E50D0018C0BA /* Assets.xcassets */,
 				7ECF0CC928A9E50D0018C0BA /* Preview Content */,
 				7E029BF928B16E710055C481 /* Icipin.xcdatamodeld */,
@@ -171,7 +171,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7E029BF828B16E530055C481 /* CoreDataManager.swift in Sources */,
-				7ECF0CC628A9E50C0018C0BA /* ContentView.swift in Sources */,
+				7ECF0CC628A9E50C0018C0BA /* MainView.swift in Sources */,
 				7E029C0128B173030055C481 /* MapQuestView.swift in Sources */,
 				7ECF0CC428A9E50C0018C0BA /* IcipinApp.swift in Sources */,
 				7E029BFB28B16E710055C481 /* Icipin.xcdatamodeld in Sources */,

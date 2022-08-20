@@ -10,15 +10,15 @@ import UIKit
 import MapKit
 
 
-struct MapQuestView {
+struct MapQuestView: View {
     @State private var directions: [String] = []
     @State private var showDirections = false
     
     
     var body: some View {
         VStack {
-            
-        }
+            MapView(directions: self.$directions)
+        }.ignoresSafeArea()
     }
 }
 
@@ -33,6 +33,8 @@ struct MapView: UIViewRepresentable {
     
     func makeUIView(context: Context) -> MKMapView {
         let mapView = MKMapView()
+        mapView.delegate = context.coordinator
+        mapView.showsUserLocation = true
         
         return mapView
     }
