@@ -60,19 +60,12 @@ class MapQuestViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
     
     func getAllQuest(){
         quests = CoreDataManager.shared.getAllQuest()
-        
-        for quest in quests {
-            print(quest.food_name)
-            for clue in quest.clues?.allObjects as! [Clue]{
-                print(clue.title)
-            }
-        }
     }
     
     func saveQuest() {
         let quest = Quest(context: CoreDataManager.shared.viewContext)
-        quest.title = "Santan Kental"
-        quest.food_name = "Soto Betawi"
+        quest.title = "Bola Gurita"
+        quest.food_name = "Takoyaki"
         quest.status = false
         quest.story = "Makanan Khas Jakarta"
         quest.uuid = UUID()
@@ -91,24 +84,24 @@ class MapQuestViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
         
         let place1 = Place(context: CoreDataManager.shared.viewContext)
         place1.uuid = UUID()
-        place1.latitude = 4.143343
-        place1.longitude = 151.23525335
+        place1.latitude = -6.243657677945562
+        place1.longitude = 106.79665714354027
         place1.rating = 4.5
-        place1.name = "Rumah Jakarta"
+        place1.name = "Rumah Bola"
         
         let place2 = Place(context: CoreDataManager.shared.viewContext)
         place2.uuid = UUID()
-        place2.latitude = 4.143343
-        place2.longitude = 151.23525335
+        place2.latitude = -6.243764329899769
+        place2.longitude = 106.79967194645788
         place2.rating = 4.5
-        place2.name = "Rumah Betawi"
+        place2.name = "Toko Bola"
         
         let place3 = Place(context: CoreDataManager.shared.viewContext)
         place3.uuid = UUID()
-        place3.latitude = 4.143343
-        place3.longitude = 151.23525335
+        place3.latitude = -6.245833373512986
+        place3.longitude = 106.7963030919521
         place3.rating = 4.5
-        place3.name = "Rumah Adat"
+        place3.name = "Kios Bola"
         
         quest.addToClues(clue1)
         quest.addToClues(clue2)
