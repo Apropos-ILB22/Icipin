@@ -8,17 +8,24 @@
 import SwiftUI
 
 struct UnsuccessView: View {
+    @State var status: Bool
+    
+    
     var body: some View {
         VStack{
             
             Spacer()
             
-            Text("Yahh, maaf waktu scanmu \n sudah habis")
+            Text(self.status ? "Yahh, maaf waktu scanmu \n sudah habis"
+                 : "Mmmm… bukan ini loh makanan yang dimaksud"
+            )
                 .font(.title2).fontWeight(.semibold)
                 .foregroundColor(Color("textcolor"))
                 .multilineTextAlignment(.center)
             
-            Text("Tapi tenang aja, kamu masih bisa scan \n ulang kok!")
+            Text(self.status ? "Tapi tenang aja, kamu masih bisa scan \n ulang kok!"
+                 : "Kamu boleh scan lagi loh untuk \n memastikan kesalahan dalam scan \n makanmu"
+            )
                 .font(.body)
                 .foregroundColor(Color("textcolor"))
                 .multilineTextAlignment(.center)
@@ -26,7 +33,7 @@ struct UnsuccessView: View {
             
             Spacer()
             
-            Image("fail")
+            Image(self.status ? "timeout" : "failed")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: UIScreen.main.bounds.width * 0.6, height: UIScreen.main.bounds.height * 0.3)
@@ -57,8 +64,8 @@ struct UnsuccessView: View {
     }
 }
 
-struct UnsuccessView_Previews: PreviewProvider {
-    static var previews: some View {
-        UnsuccessView()
-    }
-}
+//struct UnsuccessView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        UnsuccessView()
+//    }
+//}
