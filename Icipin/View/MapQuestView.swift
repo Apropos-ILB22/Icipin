@@ -23,8 +23,8 @@ struct MapQuestView: View {
             MapView(directions: self.$directions, mapQuestViewModel: self.mapQuestViewModel)
                 .onAppear{
                     mapQuestViewModel.checkLocationServicedIsEnabled()
-                    //                    mapQuestViewModel.saveQuest()
-                    //                    mapQuestViewModel.getAllQuest()
+//                                        mapQuestViewModel.saveQuest()
+//                                        mapQuestViewModel.getAllQuest()
                 }
         }
         .ignoresSafeArea()
@@ -88,7 +88,7 @@ struct MapView: UIViewRepresentable {
             let request = MKDirections.Request()
             request.source = MKMapItem(placemark: p1)
             request.destination = MKMapItem(placemark: p2)
-            request.transportType = .walking
+            request.transportType = .automobile
 
             let directions = MKDirections(request: request)
             directions.calculate{response, error in
