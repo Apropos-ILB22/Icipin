@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct SuccessView: View {
+    @State var animate = false
+    
     var body: some View {
         VStack{
             
@@ -18,10 +20,28 @@ struct SuccessView: View {
                 .foregroundColor(Color("textcolor"))
                 .multilineTextAlignment(.center)
             Spacer()
-            Image("sandwich")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: UIScreen.main.bounds.width * 0.6, height: UIScreen.main.bounds.height * 0.3)
+            ZStack{
+                
+                Circle().fill(Color.gray.opacity(0.45)).frame(width: UIScreen.main.bounds.width * 0.5 + 250, height: UIScreen.main.bounds.width * 0.5 + 250)
+                    .scaleEffect(self.animate ? 1 : 0)
+                
+                Circle().fill(Color.gray.opacity(0.35)).frame(width: UIScreen.main.bounds.width * 0.5 + 200, height: UIScreen.main.bounds.width * 0.5 + 200)
+                    .scaleEffect(self.animate ? 1 : 0)
+                
+                Circle().fill(Color.gray.opacity(0.25)).frame(width: UIScreen.main.bounds.width * 0.5 + 150, height: UIScreen.main.bounds.width * 0.5 + 150)
+                    .scaleEffect(self.animate ? 1 : 0)
+                
+                Image("sandwich")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: UIScreen.main.bounds.width * 0.5, height: UIScreen.main.bounds.height * 0.3)
+                    .padding(UIScreen.main.bounds.width * 0.1)
+                    .background(Circle().foregroundColor(.white))
+            }.onAppear{
+                withAnimation(.linear(duration: 1).repeatForever(autoreverses: true)){
+                    self.animate.toggle()
+                }
+            }
             
 
             Text("TAKOYAKI")
