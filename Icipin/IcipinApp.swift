@@ -12,7 +12,8 @@ struct IcipinApp: App {
     var body: some Scene {
         WindowGroup {
 //            ContentView()
-            MapQuestView()
+//            MapQuestView()
+            SuccessView()
         }
     }
 }
