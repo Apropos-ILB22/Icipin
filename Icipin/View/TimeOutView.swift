@@ -33,7 +33,6 @@ struct TimeOutView: View {
                 .padding(UIScreen.main.bounds.width * 0.1)
                 .background(Circle().foregroundColor(.white))
             
-            
             Spacer()
             
             Button(action: {}){
