@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TimeOutView: View {
+struct UnsuccessView: View {
     var body: some View {
         VStack{
             
@@ -57,8 +57,8 @@ struct TimeOutView: View {
     }
 }
 
-struct TimeOutView_Previews: PreviewProvider {
+struct UnsuccessView_Previews: PreviewProvider {
     static var previews: some View {
-        TimeOutView()
+        UnsuccessView()
     }
 }
