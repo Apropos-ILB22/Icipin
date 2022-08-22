@@ -33,10 +33,12 @@ struct MapQuestView: View {
 
 struct MapView: UIViewRepresentable {
     typealias UIViewType = MKMapView //create alias for easiness
+    let mapView = MKMapView()
+    
     
     @Binding var directions: [String]
     @StateObject var mapQuestViewModel: MapQuestViewModel
-    var currentLocation = CLLocationManager().location?.coordinate
+    var prevLocation = CLLocationManager().location?.coordinate
     
     
     func makeCoordinator() -> MapViewCoordinator {
@@ -44,10 +46,17 @@ struct MapView: UIViewRepresentable {
     }
     
     func makeUIView(context: Context) -> MKMapView {
-        let mapView = MKMapView()
+        
         mapView.delegate = context.coordinator
         mapView.showsUserLocation = true
+        mapView.userTrackingMode = .followWithHeading
         mapView.pointOfInterestFilter = .excludingAll
+        
+        
+        let locationManager = CLLocationManager()
+//        locationManager.delegate = context.coordinator
+//        locationManager.startUpdatingHeading()
+        
         
         mapQuestViewModel.getAllQuest()
         let quests = mapQuestViewModel.quests
@@ -69,8 +78,9 @@ struct MapView: UIViewRepresentable {
         
     }
     
-    class MapViewCoordinator: NSObject, MKMapViewDelegate {
+    class MapViewCoordinator: NSObject, MKMapViewDelegate{
         var parent: MapView
+        var cameraHeading: CLHeading?
         
         init(customView: MapView) {
             self.parent = customView
@@ -81,14 +91,21 @@ struct MapView: UIViewRepresentable {
             mapView.setRegion(region, animated: true)
         }
         
+        func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+            let renderer = MKPolylineRenderer(overlay: overlay)
+            renderer.strokeColor = .blue
+            renderer.lineWidth = 5
+            return renderer
+        }
+        
         func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-            let p1 = MKPlacemark(coordinate: parent.currentLocation!)
+            let p1 = MKPlacemark(coordinate: parent.prevLocation!)
             let p2 = MKPlacemark(coordinate: view.annotation!.coordinate)
             
             let request = MKDirections.Request()
             request.source = MKMapItem(placemark: p1)
             request.destination = MKMapItem(placemark: p2)
-            request.transportType = .automobile
+            request.transportType = .walking
 
             let directions = MKDirections(request: request)
             directions.calculate{response, error in
@@ -99,6 +116,7 @@ struct MapView: UIViewRepresentable {
                 mapView.setVisibleMapRect(route.polyline.boundingMapRect,edgePadding: UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20),  animated: true)
             }
             
+            parent.prevLocation = view.annotation!.coordinate
         }
     }
 }

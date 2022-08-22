@@ -11,8 +11,9 @@ import SwiftUI
 struct IcipinApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
-//            MapQuestView()
+//            ContentView()
+            MapQuestView()
+//            MapExplore()
 //            SuccessView()
 //            UnsuccessView(status: false)
         }
