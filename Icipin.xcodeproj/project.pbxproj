@@ -19,6 +19,8 @@
 		7ED1DA7828B37A9C00609519 /* HalfASheet in Frameworks */ = {isa = PBXBuildFile; productRef = 7ED1DA7728B37A9C00609519 /* HalfASheet */; };
 		7ED1DA7A28B37ABA00609519 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED1DA7928B37ABA00609519 /* ContentView.swift */; };
 		7ED1DA7C28B37AFD00609519 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED1DA7B28B37AFD00609519 /* WelcomeView.swift */; };
+		7ED1DA7E28B37B4B00609519 /* QuestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED1DA7D28B37B4B00609519 /* QuestView.swift */; };
+		7ED1DA8028B37BDE00609519 /* QuestExtendedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED1DA7F28B37BDE00609519 /* QuestExtendedView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +37,8 @@
 		7ECF0CCA28A9E50D0018C0BA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		7ED1DA7928B37ABA00609519 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7ED1DA7B28B37AFD00609519 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
+		7ED1DA7D28B37B4B00609519 /* QuestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestView.swift; sourceTree = "<group>"; };
+		7ED1DA7F28B37BDE00609519 /* QuestExtendedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestExtendedView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +77,8 @@
 				7E5B469128B23A250086199C /* UnsuccessView.swift */,
 				7ED1DA7928B37ABA00609519 /* ContentView.swift */,
 				7ED1DA7B28B37AFD00609519 /* WelcomeView.swift */,
+				7ED1DA7D28B37B4B00609519 /* QuestView.swift */,
+				7ED1DA7F28B37BDE00609519 /* QuestExtendedView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -203,8 +209,10 @@
 				7E029BF828B16E530055C481 /* CoreDataManager.swift in Sources */,
 				7E029C0428B17A000055C481 /* MapQuestViewModel.swift in Sources */,
 				7E029C0128B173030055C481 /* MapQuestView.swift in Sources */,
+				7ED1DA7E28B37B4B00609519 /* QuestView.swift in Sources */,
 				7ECF0CC428A9E50C0018C0BA /* IcipinApp.swift in Sources */,
 				7ED1DA7C28B37AFD00609519 /* WelcomeView.swift in Sources */,
+				7ED1DA8028B37BDE00609519 /* QuestExtendedView.swift in Sources */,
 				7ED1DA7A28B37ABA00609519 /* ContentView.swift in Sources */,
 				7E029BFB28B16E710055C481 /* Icipin.xcdatamodeld in Sources */,
 				7E5B469228B23A250086199C /* UnsuccessView.swift in Sources */,
