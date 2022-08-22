@@ -16,7 +16,6 @@ struct MapQuestView: View {
     @State private var showWelcomeModal = true
     @State private var showQuestModal = false
     @State private var showToScanModal = false
-    
     @State private var directions: [String] = []
     @State private var showDirections = false
     
@@ -24,7 +23,7 @@ struct MapQuestView: View {
     var body: some View {
         ZStack {
             VStack {
-                MapView(directions: self.$directions, mapQuestViewModel: self.mapQuestViewModel)
+                MapView(directions: self.$directions, showQuestModal: self.$showQuestModal , showWelcomeModal: self.$showWelcomeModal ,mapQuestViewModel: self.mapQuestViewModel)
                     .onAppear{
                         mapQuestViewModel.checkLocationServicedIsEnabled()
     //                                        mapQuestViewModel.saveQuest()
@@ -46,8 +45,10 @@ struct MapView: UIViewRepresentable {
     typealias UIViewType = MKMapView //create alias for easiness
     let mapView = MKMapView()
     
-    
     @Binding var directions: [String]
+    @Binding var showQuestModal: Bool
+    @Binding var showWelcomeModal: Bool
+
     @StateObject var mapQuestViewModel: MapQuestViewModel
     var prevLocation = CLLocationManager().location?.coordinate
     
@@ -64,7 +65,7 @@ struct MapView: UIViewRepresentable {
         mapView.pointOfInterestFilter = .excludingAll
         
         
-        let locationManager = CLLocationManager()
+//        let locationManager = CLLocationManager()
 //        locationManager.delegate = context.coordinator
 //        locationManager.startUpdatingHeading()
         
@@ -103,6 +104,7 @@ struct MapView: UIViewRepresentable {
         }
         
         func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+            
             let renderer = MKPolylineRenderer(overlay: overlay)
             renderer.strokeColor = .blue
             renderer.lineWidth = 5
@@ -110,6 +112,10 @@ struct MapView: UIViewRepresentable {
         }
         
         func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+            
+            parent.showQuestModal = true
+            parent.showWelcomeModal = false
+            
             let p1 = MKPlacemark(coordinate: parent.prevLocation!)
             let p2 = MKPlacemark(coordinate: view.annotation!.coordinate)
             
