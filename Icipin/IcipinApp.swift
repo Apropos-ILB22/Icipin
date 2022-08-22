@@ -11,10 +11,10 @@ import SwiftUI
 struct IcipinApp: App {
     var body: some Scene {
         WindowGroup {
-//            ContentView()
+            ContentView()
 //            MapQuestView()
 //            SuccessView()
-            UnsuccessView(status: false)
+//            UnsuccessView(status: false)
         }
     }
 }

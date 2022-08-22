@@ -1,18 +1,16 @@
 //
-//  QuestExtendedView.swift
+//  ToScanViewExtended.swift
 //  Icipin
 //
 //  Created by Rivaldo Fernandes on 22/08/22.
 //
 
-import Foundation
 import SwiftUI
 
-struct QuestExtendedView: View {
+struct ToScanExtendedView: View {
     
-    @Binding var isShowingClue: Bool
+    @Binding var isShowing: Bool
     @State private var isDragging = false
-    @State private var showQuestModal = false
     
     @State private var curHeight: CGFloat = 550
     let minHeight: CGFloat = 550
@@ -20,18 +18,15 @@ struct QuestExtendedView: View {
     
     var body: some View {
         ZStack(alignment: .bottom){
-            if isShowingClue {
-                Color.black
-                    .opacity(0.3)
-                    .ignoresSafeArea()
-                    .onTapGesture {
-                        isShowingClue = false
-                    }
-                mainView
-            }
-//            if showQuestModal {
-//                QuestView(isShowing: $showQuestModal)
-//            }
+            //            if isShowing {
+            Color.black
+                .opacity(0.3)
+                .ignoresSafeArea()
+                .onTapGesture {
+                    isShowing = false
+                }
+            mainView
+            //            }
         }
         .frame(maxWidth: .infinity,maxHeight: .infinity, alignment: .bottom)
         .ignoresSafeArea()
@@ -39,7 +34,7 @@ struct QuestExtendedView: View {
     }
     
     var mainView: some View {
-        VStack(alignment: .leading){
+        VStack{
             ZStack{
                 Capsule()
                     .frame(width: 40, height: 6)
@@ -52,40 +47,22 @@ struct QuestExtendedView: View {
             HStack {
                 VStack (alignment: .leading){
                     HStack{
-                        Image("test_bolagurita")
-                            .resizable()
-                            .frame(width: 55, height: 55)
-                            .padding(.leading,30)
                         VStack(alignment: .leading) {
-                            Text("Bola Gurita").fontWeight(.bold).font(.title2)
-                            Text("Cemilan").fontWeight(.medium).font(.title3)
+                            HStack{
+                                Text("10 mnt").fontWeight(.bold).font(.title).foregroundColor(.blue)
+                                Text("(2.5 km)").fontWeight(.medium).font(.title3)
+                            }
+                            Text("menuju BOLA GURITA").fontWeight(.medium).font(.title3)
                         }
                         Spacer()
                     }
-                    HStack{
-                        Image(systemName: "mappin.and.ellipse")
-                            .foregroundColor(.red)
-                        Text("2.5 km").fontWeight(.medium).font(.body)
-                        Image(systemName: "clock")
-                            .foregroundColor(.blue)
-                        Text("15 mnt").fontWeight(.medium).font(.body)
-                        Image(systemName: "star.fill")
-                            .foregroundColor(.yellow)
-                        Text("4(5)").fontWeight(.medium).font(.body)
-                    }
-                    .padding(.leading,30)
+                    .padding(.leading,20)
                 }
                 Button(action: {
-                    //hide clue
-//                    withAnimation {
-//                        isShowingClue = false
-////                        showQuestModal = true
-//                    }
-                    
-                    withAnimation(.easeOut, {
-                        isShowingClue = false
-                        
-                    })
+                    //hide route clue
+                    withAnimation {
+                        isShowing = false
+                    }
                 }, label: {
                     Image(systemName: "chevron.down")
                         .font(Font.system(size: 33, weight: .bold))
@@ -93,7 +70,6 @@ struct QuestExtendedView: View {
                 .foregroundColor(Color("primary"))
                 .cornerRadius(11)
                 .padding(.trailing,20)
-                
             }
             Divider().frame(maxWidth:UIScreen.main.bounds.width-20, maxHeight:10)
             VStack (alignment: .leading){
@@ -124,13 +100,14 @@ struct QuestExtendedView: View {
                     .padding(5)
                     .fixedSize(horizontal: false, vertical: true)
             }
-            Spacer()
+                        Spacer()
+            Divider().frame(maxWidth:UIScreen.main.bounds.width-20, maxHeight:10)
             HStack{
                 Spacer()
                 Button(action: {
                     //quest
                 }, label: {
-                    Text("PILIH QUEST")
+                    Text("SCAN")
                         .font(.body)
                         .bold()
                 })
@@ -138,6 +115,22 @@ struct QuestExtendedView: View {
                 .multilineTextAlignment(.center)
                 .foregroundColor(.white)
                 .background(Color("primary"))
+                .cornerRadius(20)
+                Spacer()
+            }
+            HStack{
+                Spacer()
+                Button(action: {
+                    //quest
+                }, label: {
+                    Text("AKHIRI PERJALANAN")
+                        .font(.body)
+                        .bold()
+                })
+                .frame(width: UIScreen.main.bounds.width-20, height: 58, alignment: .center)
+                .multilineTextAlignment(.center)
+                .foregroundColor(.white)
+                .background(.red)
                 .cornerRadius(20)
                 Spacer()
             }
@@ -170,7 +163,7 @@ struct QuestExtendedView: View {
                 if curHeight > maxHeight || curHeight < minHeight {
                     curHeight -= dragAmount/6
                 }else{
-                     curHeight -= dragAmount
+                    curHeight -= dragAmount
                 }
                 prevDragTranslation = val.translation
             }
@@ -180,17 +173,18 @@ struct QuestExtendedView: View {
                 if curHeight > maxHeight {
                     curHeight = maxHeight
                 }else if curHeight < minHeight {
-                    curHeight = minHeight
+                    curHeight = curHeight
                     withAnimation {
-                        isShowingClue = false
+                        isShowing = false
                     }
                 }
             }
     }
+    
 }
 
-struct QuestExtendedView_Previews: PreviewProvider {
+struct ToScanExtendedView_Previews: PreviewProvider {
     static var previews: some View {
-        QuestExtendedView(isShowingClue: .constant(true))
+        ToScanExtendedView(isShowing: .constant(true))
     }
 }

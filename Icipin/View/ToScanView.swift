@@ -1,5 +1,5 @@
 //
-//  QuestView.swift
+//  ToScanView.swift
 //  Icipin
 //
 //  Created by Rivaldo Fernandes on 22/08/22.
@@ -7,35 +7,32 @@
 
 import SwiftUI
 
-struct QuestView: View {
+struct ToScanView: View {
     
     @Binding var isShowing: Bool
-    @State private var showQuestExtendedModal = false
+    @State private var showToScanExtendedModal = false
     @State private var isDragging = false
     
     @State private var curHeight: CGFloat = 250
     let minHeight: CGFloat = 250
     let maxHeight: CGFloat = 700
     
-    
     var body: some View {
         ZStack(alignment: .bottom){
-            if isShowing {
-                Color.black
-                    .opacity(0.3)
-                    .ignoresSafeArea()
-                    .onTapGesture {
-                        isShowing = false
-                    }
-                mainView
-            }
-            if showQuestExtendedModal{
-                QuestExtendedView(isShowingClue: $showQuestExtendedModal)
+            Color.black
+                .opacity(0.3)
+                .ignoresSafeArea()
+                .onTapGesture {
+                    isShowing = false
+                }
+            mainView
+            if showToScanExtendedModal{
+                ToScanExtendedView(isShowing: $showToScanExtendedModal)
             }
         }
         .frame(maxWidth: .infinity,maxHeight: .infinity, alignment: .bottom)
         .ignoresSafeArea()
-        .animation(Animation.easeInOut, value: isShowing)
+        //        .animation(Animation.easeInOut, value: 100)
         //        .animation(.easeInOut)
     }
     
@@ -50,40 +47,25 @@ struct QuestView: View {
             .background(Color.white.opacity(0.00001))
             .gesture(dragGesture)
             .padding(.top,2)
-            
-//                Spacer()
             HStack {
                 VStack (alignment: .leading){
                     HStack{
-                        Image("test_bolagurita")
-                            .resizable()
-                            .frame(width: 55, height: 55)
-                            .padding(.leading,30)
                         VStack(alignment: .leading) {
-                            Text("Bola Gurita").fontWeight(.bold).font(.title2)
-                            Text("Cemilan").fontWeight(.medium).font(.title3)
+                            HStack{
+                                Text("10 mnt").fontWeight(.bold).font(.title).foregroundColor(.blue)
+                                Text("(2.5 km)").fontWeight(.medium).font(.title3)
+                            }
+                            Text("menuju BOLA GURITA").fontWeight(.medium).font(.title3)
                         }
                         Spacer()
-                    }
-                    HStack{
-                        Image(systemName: "mappin.and.ellipse")
-                            .foregroundColor(.red)
-                        Text("2.5 km").fontWeight(.medium).font(.body)
-                        Image(systemName: "clock")
-                            .foregroundColor(.blue)
-                        Text("15 mnt").fontWeight(.medium).font(.body)
-                        Image(systemName: "star.fill")
-                            .foregroundColor(.yellow)
-                        Text("4(5)").fontWeight(.medium).font(.body)
                     }
                     .padding(.leading,30)
                 }
                 Button(action: {
                     //show clue
                     withAnimation {
-                        showQuestExtendedModal = true
+                        showToScanExtendedModal = true
                     }
-//                    isShowing = false
                 }, label: {
                     Image(systemName: "key")
                         .font(.title2)
@@ -156,8 +138,10 @@ struct QuestView: View {
     }
 }
 
-struct QuestView_Previews: PreviewProvider {
+
+struct ToScanView_Previews: PreviewProvider {
     static var previews: some View {
-        QuestView(isShowing: .constant(true))
+        ToScanView(isShowing: .constant(true))
     }
 }
+
