@@ -70,7 +70,7 @@ struct ContentView: View {
             HalfASheet(isPresented: $showQuestClueModal) {
                 questClueView
             }
-            .height(.fixed(500))
+            .height(.fixed(550))
             .closeButtonColor(.white)
             .backgroundColor(.white)
             .contentInsets(EdgeInsets(top: 20, leading: 0, bottom: -50, trailing: 0))
@@ -86,7 +86,7 @@ struct ContentView: View {
             HalfASheet(isPresented: $showToScanClueModal) {
                 toScanClueView
             }
-            .height(.fixed(500))
+            .height(.fixed(550))
             .closeButtonColor(.white)
             .backgroundColor(.white)
             .contentInsets(EdgeInsets(top: 20, leading: 0, bottom: -50, trailing: 0))

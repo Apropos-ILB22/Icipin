@@ -35,6 +35,7 @@ struct QuestView: View {
     
     var mainView: some View {
         VStack{
+            Spacer()
             HStack {
                 VStack (alignment: .leading){
                     HStack{
@@ -76,6 +77,7 @@ struct QuestView: View {
                 .padding(.trailing,20)
                 
             }
+            Spacer()
             Button(action: {
                 //quest
             }, label: {

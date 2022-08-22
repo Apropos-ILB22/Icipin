@@ -23,6 +23,7 @@ struct ToScanView: View {
     
     var mainView: some View {
         VStack{
+            Spacer()
             HStack {
                 VStack (alignment: .leading){
                     HStack{
@@ -50,6 +51,7 @@ struct ToScanView: View {
                 .padding(.trailing,20)
                 
             }
+            Spacer()
             Button(action: {
                 //quest
             }, label: {

@@ -23,7 +23,8 @@ struct ToScanExtendedView: View {
     }
     
     var mainView: some View {
-        VStack(alignment: .leading){
+        VStack{
+            Spacer()
             HStack {
                 VStack (alignment: .leading){
                     HStack{
@@ -32,12 +33,12 @@ struct ToScanExtendedView: View {
                                 Text("10 mnt").fontWeight(.bold).font(.title).foregroundColor(.blue)
                                 Text("(2.5 km)").fontWeight(.medium).font(.title3)
                             }
-                            .padding(.bottom,2)
+//                            .padding(.bottom,2)
                             Text("menuju BOLA GURITA").fontWeight(.medium).font(.title3)
                         }
                         Spacer()
                     }
-                    .padding(.leading,30)
+                    .padding(.leading,20)
                 }
                 Button(action: {
                     //hide route clue
@@ -48,36 +49,37 @@ struct ToScanExtendedView: View {
                 .foregroundColor(Color("PrimaryColor"))
                 .cornerRadius(11)
                 .padding(.trailing,20)
-                
             }
             Divider().frame(maxWidth:UIScreen.main.bounds.width-20, maxHeight:10)
             VStack (alignment: .leading){
                 Text("Petunjuk")
                     .fontWeight(.bold).font(.title2)
-                    .padding(.leading,30)
+                    .padding(.leading,20)
                 Text("Makanan Khas Jepang")
                     .font(.title3)
-                    .padding(.leading,30)
-                    .padding(.top,5)
-                    .padding(.bottom,5)
+                    .padding(.leading,15)
+                    .padding(5)
+                //                    .padding(.leading,20)
+                //                    .padding(.top,5)
+                //                    .padding(.bottom,5)
+                    .fixedSize(horizontal: false, vertical: true)
                 Text("Terbuat dari tepung dan gurita")
                     .font(.title3)
-                    .padding(.leading,30)
-                    .padding(.top,5)
-                    .padding(.bottom,5)
+                    .padding(.leading,15)
+                    .padding(5)
+                    .fixedSize(horizontal: false, vertical: true)
                 Text("Bentuknya seperti bola pingpong, biasa di sajikan bersama mayonaise dan serbuk ikan")
                     .font(.title3)
-                    .padding(.leading,30)
-                    .padding(.top,5)
-                    .padding(.bottom,5)
-                    .lineLimit(nil)
+                    .padding(.leading,15)
+                    .padding(5)
+                    .fixedSize(horizontal: false, vertical: true)
                 Text("Rasanya gurih dan agak manis dari mayonaise")
                     .font(.title3)
-                    .padding(.leading,30)
-                    .padding(.top,5)
-                    .padding(.bottom,5)
+                    .padding(.leading,15)
+                    .padding(5)
+                    .fixedSize(horizontal: false, vertical: true)
             }
-            .padding(.bottom,30)
+//            Spacer()
             Divider().frame(maxWidth:UIScreen.main.bounds.width-20, maxHeight:10)
             HStack{
                 Spacer()
@@ -112,7 +114,7 @@ struct ToScanExtendedView: View {
                 Spacer()
             }
         }
-        .padding(.bottom,25)
+//        .padding(.bottom,25)
         .frame(height: 550,alignment: .bottom)
         .frame(maxWidth: .infinity)
         .background(.white)
