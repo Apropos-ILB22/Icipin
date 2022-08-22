@@ -8,9 +8,39 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State private var showWelcomeModal = false
+    @State private var showQuestModal = false
+    @State private var showToScanModal = false
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        ZStack{
+            VStack{
+                Button{
+                    showWelcomeModal = true
+                } label: {
+                    Text("Welcome")
+                }
+                .buttonStyle(.borderedProminent)
+                Button{
+                    showQuestModal = true
+                } label: {
+                    Text("Show Quest")
+                }
+                .buttonStyle(.borderedProminent)
+                Button{
+                    showToScanModal = true
+                } label: {
+                    Text("Show Journey")
+                }
+                .buttonStyle(.borderedProminent)
+            }
+            WelcomeView(isShowing: $showWelcomeModal)
+            QuestView(isShowing: $showQuestModal)
+            if showToScanModal{
+                ToScanView(isShowing: $showToScanModal)
+            }
+        }
     }
 }
 
