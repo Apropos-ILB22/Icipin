@@ -36,7 +36,7 @@ struct MapView: UIViewRepresentable {
     
     @Binding var directions: [String]
     @StateObject var mapQuestViewModel: MapQuestViewModel
-    var currentLocation = CLLocationManager().location?.coordinate
+    var prevLocation = CLLocationManager().location?.coordinate
     
     
     func makeCoordinator() -> MapViewCoordinator {
@@ -89,13 +89,13 @@ struct MapView: UIViewRepresentable {
         }
         
         func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-            let p1 = MKPlacemark(coordinate: parent.currentLocation!)
+            let p1 = MKPlacemark(coordinate: parent.prevLocation!)
             let p2 = MKPlacemark(coordinate: view.annotation!.coordinate)
             
             let request = MKDirections.Request()
             request.source = MKMapItem(placemark: p1)
             request.destination = MKMapItem(placemark: p2)
-            request.transportType = .automobile
+            request.transportType = .walking
 
             let directions = MKDirections(request: request)
             directions.calculate{response, error in
@@ -106,6 +106,7 @@ struct MapView: UIViewRepresentable {
                 mapView.setVisibleMapRect(route.polyline.boundingMapRect,edgePadding: UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20),  animated: true)
             }
             
+            parent.prevLocation = view.annotation!.coordinate
         }
     }
 }
