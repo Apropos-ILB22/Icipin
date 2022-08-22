@@ -25,6 +25,15 @@ class MapQuestViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
         }
     }
     
+    func getQuestByName(title: String) -> Quest? {
+        for quest in quests {
+            if(quest.title == title){
+                return quest
+            }
+        }
+        return nil
+    }
+    
     func getUserLocation(){
         guard let locationManager = locationManager else {
             return

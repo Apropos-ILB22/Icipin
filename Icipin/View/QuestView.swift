@@ -12,6 +12,7 @@ struct QuestView: View {
     @Binding var isShowing: Bool
     @State private var showQuestExtendedModal = false
     @State private var isDragging = false
+    @Binding var titleCurrentQuest: String?
     
     @State private var curHeight: CGFloat = 250
     let minHeight: CGFloat = 250
@@ -122,6 +123,9 @@ struct QuestView: View {
         )
         .animation(isDragging ? nil : .easeInOut(duration: 0.45), value: isDragging)
         .transition(.move(edge: .bottom))
+        .onAppear{
+            print(" debug questview: \(self.titleCurrentQuest)")
+        }
     }
     
     @State private var prevDragTranslation = CGSize.zero
@@ -158,6 +162,6 @@ struct QuestView: View {
 
 struct QuestView_Previews: PreviewProvider {
     static var previews: some View {
-        QuestView(isShowing: .constant(true))
+        QuestView(isShowing: .constant(true), titleCurrentQuest: .constant(""))
     }
 }

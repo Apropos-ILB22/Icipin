@@ -19,11 +19,17 @@ struct MapQuestView: View {
     @State private var directions: [String] = []
     @State private var showDirections = false
     
+    @State private var titleCurrentQuest: String? = nil
+    
     
     var body: some View {
         ZStack {
             VStack {
-                MapView(directions: self.$directions, showQuestModal: self.$showQuestModal , showWelcomeModal: self.$showWelcomeModal ,mapQuestViewModel: self.mapQuestViewModel)
+                MapView(directions: self.$directions,
+                        showQuestModal: self.$showQuestModal,
+                        showWelcomeModal: self.$showWelcomeModal,
+                        titleCurrentQuest: self.$titleCurrentQuest,
+                        mapQuestViewModel: self.mapQuestViewModel)
                     .onAppear{
                         mapQuestViewModel.checkLocationServicedIsEnabled()
     //                                        mapQuestViewModel.saveQuest()
@@ -33,11 +39,8 @@ struct MapQuestView: View {
             .ignoresSafeArea()
             
             WelcomeView(isShowing: $showWelcomeModal)
-            QuestView(isShowing: $showQuestModal)
+            QuestView(isShowing: $showQuestModal, titleCurrentQuest: $titleCurrentQuest)
         }
-        
-        
-        
     }
 }
 
@@ -48,6 +51,7 @@ struct MapView: UIViewRepresentable {
     @Binding var directions: [String]
     @Binding var showQuestModal: Bool
     @Binding var showWelcomeModal: Bool
+    @Binding var titleCurrentQuest: String?
 
     @StateObject var mapQuestViewModel: MapQuestViewModel
     var prevLocation = CLLocationManager().location?.coordinate
@@ -63,12 +67,6 @@ struct MapView: UIViewRepresentable {
         mapView.showsUserLocation = true
         mapView.userTrackingMode = .followWithHeading
         mapView.pointOfInterestFilter = .excludingAll
-        
-        
-//        let locationManager = CLLocationManager()
-//        locationManager.delegate = context.coordinator
-//        locationManager.startUpdatingHeading()
-        
         
         mapQuestViewModel.getAllQuest()
         let quests = mapQuestViewModel.quests
@@ -106,8 +104,8 @@ struct MapView: UIViewRepresentable {
         func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
             
             let renderer = MKPolylineRenderer(overlay: overlay)
-            renderer.strokeColor = .blue
-            renderer.lineWidth = 5
+            renderer.strokeColor = UIColor(Color("primary"))
+            renderer.lineWidth = 3
             return renderer
         }
         
@@ -115,6 +113,10 @@ struct MapView: UIViewRepresentable {
             
             parent.showQuestModal = true
             parent.showWelcomeModal = false
+            parent.titleCurrentQuest = view.annotation!.title!
+            
+            print(" debug mapuikit: \(parent.titleCurrentQuest)")
+            
             
             let p1 = MKPlacemark(coordinate: parent.prevLocation!)
             let p2 = MKPlacemark(coordinate: view.annotation!.coordinate)
