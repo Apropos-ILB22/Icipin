@@ -81,6 +81,13 @@ struct MapView: UIViewRepresentable {
             mapView.setRegion(region, animated: true)
         }
         
+        func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+            let renderer = MKPolylineRenderer(overlay: overlay)
+            renderer.strokeColor = .orange
+            renderer.lineWidth = 5
+            return renderer
+        }
+        
         func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
             let p1 = MKPlacemark(coordinate: parent.currentLocation!)
             let p2 = MKPlacemark(coordinate: view.annotation!.coordinate)

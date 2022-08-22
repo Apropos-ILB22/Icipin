@@ -12,9 +12,10 @@ struct IcipinApp: App {
     var body: some Scene {
         WindowGroup {
 //            ContentView()
-//            MapQuestView()
+            MapQuestView()
+//            MapExplore()
 //            SuccessView()
-            UnsuccessView(status: false)
+//            UnsuccessView(status: false)
         }
     }
 }
