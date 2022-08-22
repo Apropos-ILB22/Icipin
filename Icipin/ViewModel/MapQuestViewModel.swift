@@ -12,6 +12,8 @@ import CoreData
 class MapQuestViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
     var locationManager: CLLocationManager?
     @Published var userLocation = CLLocationManager().location?.coordinate
+    @Published var quest: Quest? = nil
+    
     
     @Published var quests: [Quest] = []
     
@@ -23,15 +25,6 @@ class MapQuestViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
         } else {
             print("alert to activate location permission")
         }
-    }
-    
-    func getQuestByName(title: String) -> Quest? {
-        for quest in quests {
-            if(quest.title == title){
-                return quest
-            }
-        }
-        return nil
     }
     
     func getUserLocation(){
@@ -75,6 +68,18 @@ class MapQuestViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
                         print(clue.title)
                     }
                 }
+    }
+    
+    func getQuestByName(title: String) -> Quest? {
+        let result = CoreDataManager.shared.getQuestByName(titleQuest: title)
+        if(result.isEmpty){
+            return nil
+        }else{
+            for quest in result {
+                return quest
+            }
+        }
+        return nil
     }
     
     func saveQuest() {

@@ -35,6 +35,16 @@ class CoreDataManager {
         }
     }
     
+    func getQuestByName(titleQuest: String) -> [Quest] {
+        let request: NSFetchRequest<Quest> = Quest.fetchRequest()
+        request.predicate = NSPredicate(format: "title = %@", titleQuest)
+        do {
+            return try viewContext.fetch(request)
+        } catch {
+            return []
+        }
+    }
+    
     func saveContext(){
         do {
             try viewContext.save()

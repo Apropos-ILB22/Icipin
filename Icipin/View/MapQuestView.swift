@@ -39,7 +39,7 @@ struct MapQuestView: View {
             .ignoresSafeArea()
             
             WelcomeView(isShowing: $showWelcomeModal)
-            QuestView(isShowing: $showQuestModal, titleCurrentQuest: $titleCurrentQuest)
+            QuestModalView(isShowing: $showQuestModal, titleCurrentQuest: $titleCurrentQuest)
         }
     }
 }

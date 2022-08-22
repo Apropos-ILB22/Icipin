@@ -7,7 +7,9 @@
 
 import SwiftUI
 
-struct QuestView: View {
+struct QuestModalView: View {
+    @StateObject private var mapQuestViewModel = MapQuestViewModel()
+    
     
     @Binding var isShowing: Bool
     @State private var showQuestExtendedModal = false
@@ -124,7 +126,13 @@ struct QuestView: View {
         .animation(isDragging ? nil : .easeInOut(duration: 0.45), value: isDragging)
         .transition(.move(edge: .bottom))
         .onAppear{
-            print(" debug questview: \(self.titleCurrentQuest)")
+            print("debug questview: \(self.titleCurrentQuest)")
+            if(titleCurrentQuest != nil){
+                
+                let quest = mapQuestViewModel.getQuestByName(title: "Gurita")
+                print("debug questview food: \(quest?.food_name)")
+                
+            }
         }
     }
     
@@ -162,6 +170,6 @@ struct QuestView: View {
 
 struct QuestView_Previews: PreviewProvider {
     static var previews: some View {
-        QuestView(isShowing: .constant(true), titleCurrentQuest: .constant(""))
+        QuestModalView(isShowing: .constant(true), titleCurrentQuest: .constant(""))
     }
 }
