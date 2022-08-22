@@ -13,21 +13,32 @@ import MapKit
 struct MapQuestView: View {
     @StateObject private var mapQuestViewModel = MapQuestViewModel()
     
+    @State private var showWelcomeModal = true
+    @State private var showQuestModal = false
+    @State private var showToScanModal = false
     
     @State private var directions: [String] = []
     @State private var showDirections = false
     
     
     var body: some View {
-        VStack {
-            MapView(directions: self.$directions, mapQuestViewModel: self.mapQuestViewModel)
-                .onAppear{
-                    mapQuestViewModel.checkLocationServicedIsEnabled()
-//                                        mapQuestViewModel.saveQuest()
-//                                        mapQuestViewModel.getAllQuest()
-                }
+        ZStack {
+            VStack {
+                MapView(directions: self.$directions, mapQuestViewModel: self.mapQuestViewModel)
+                    .onAppear{
+                        mapQuestViewModel.checkLocationServicedIsEnabled()
+    //                                        mapQuestViewModel.saveQuest()
+    //                                        mapQuestViewModel.getAllQuest()
+                    }
+            }
+            .ignoresSafeArea()
+            
+            WelcomeView(isShowing: $showWelcomeModal)
+            QuestView(isShowing: $showQuestModal)
         }
-        .ignoresSafeArea()
+        
+        
+        
     }
 }
 
