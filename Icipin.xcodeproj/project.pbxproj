@@ -11,7 +11,6 @@
 		7E029BFB28B16E710055C481 /* Icipin.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7E029BF928B16E710055C481 /* Icipin.xcdatamodeld */; };
 		7E029C0128B173030055C481 /* MapQuestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E029C0028B173030055C481 /* MapQuestView.swift */; };
 		7E029C0428B17A000055C481 /* MapQuestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E029C0328B17A000055C481 /* MapQuestViewModel.swift */; };
-		7E0E24E628B3541A00F85A18 /* MapExplore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0E24E528B3541A00F85A18 /* MapExplore.swift */; };
 		7E5B469028B221840086199C /* SuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5B468F28B221840086199C /* SuccessView.swift */; };
 		7E5B469228B23A250086199C /* UnsuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5B469128B23A250086199C /* UnsuccessView.swift */; };
 		7ECF0CC428A9E50C0018C0BA /* IcipinApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ECF0CC328A9E50C0018C0BA /* IcipinApp.swift */; };
@@ -26,7 +25,6 @@
 		7E029C0028B173030055C481 /* MapQuestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapQuestView.swift; sourceTree = "<group>"; };
 		7E029C0328B17A000055C481 /* MapQuestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapQuestViewModel.swift; sourceTree = "<group>"; };
 		7E029C0528B184910055C481 /* Dummy.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Dummy.json; sourceTree = "<group>"; };
-		7E0E24E528B3541A00F85A18 /* MapExplore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapExplore.swift; sourceTree = "<group>"; };
 		7E5B468F28B221840086199C /* SuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessView.swift; sourceTree = "<group>"; };
 		7E5B469128B23A250086199C /* UnsuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsuccessView.swift; sourceTree = "<group>"; };
 		7ECF0CC028A9E50C0018C0BA /* Icipin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Icipin.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -70,7 +68,6 @@
 				7E029C0028B173030055C481 /* MapQuestView.swift */,
 				7E5B468F28B221840086199C /* SuccessView.swift */,
 				7E5B469128B23A250086199C /* UnsuccessView.swift */,
-				7E0E24E528B3541A00F85A18 /* MapExplore.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -194,7 +191,6 @@
 			files = (
 				7E029BF828B16E530055C481 /* CoreDataManager.swift in Sources */,
 				7ECF0CC628A9E50C0018C0BA /* MainView.swift in Sources */,
-				7E0E24E628B3541A00F85A18 /* MapExplore.swift in Sources */,
 				7E029C0428B17A000055C481 /* MapQuestViewModel.swift in Sources */,
 				7E029C0128B173030055C481 /* MapQuestView.swift in Sources */,
 				7ECF0CC428A9E50C0018C0BA /* IcipinApp.swift in Sources */,
@@ -326,6 +322,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Icipin/Preview Content\"";
@@ -346,6 +343,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.apropos.Icipin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -357,6 +355,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Icipin/Preview Content\"";
@@ -377,6 +376,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.apropos.Icipin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

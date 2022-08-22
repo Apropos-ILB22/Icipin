@@ -33,6 +33,8 @@ struct MapQuestView: View {
 
 struct MapView: UIViewRepresentable {
     typealias UIViewType = MKMapView //create alias for easiness
+    let mapView = MKMapView()
+    
     
     @Binding var directions: [String]
     @StateObject var mapQuestViewModel: MapQuestViewModel
@@ -44,10 +46,17 @@ struct MapView: UIViewRepresentable {
     }
     
     func makeUIView(context: Context) -> MKMapView {
-        let mapView = MKMapView()
+        
         mapView.delegate = context.coordinator
         mapView.showsUserLocation = true
+        mapView.userTrackingMode = .followWithHeading
         mapView.pointOfInterestFilter = .excludingAll
+        
+        
+        let locationManager = CLLocationManager()
+//        locationManager.delegate = context.coordinator
+//        locationManager.startUpdatingHeading()
+        
         
         mapQuestViewModel.getAllQuest()
         let quests = mapQuestViewModel.quests
@@ -69,8 +78,9 @@ struct MapView: UIViewRepresentable {
         
     }
     
-    class MapViewCoordinator: NSObject, MKMapViewDelegate {
+    class MapViewCoordinator: NSObject, MKMapViewDelegate{
         var parent: MapView
+        var cameraHeading: CLHeading?
         
         init(customView: MapView) {
             self.parent = customView
@@ -83,7 +93,7 @@ struct MapView: UIViewRepresentable {
         
         func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
             let renderer = MKPolylineRenderer(overlay: overlay)
-            renderer.strokeColor = .orange
+            renderer.strokeColor = .blue
             renderer.lineWidth = 5
             return renderer
         }
