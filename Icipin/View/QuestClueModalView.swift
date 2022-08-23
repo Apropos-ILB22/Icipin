@@ -8,11 +8,15 @@
 import Foundation
 import SwiftUI
 
-struct QuestExtendedView: View {
+struct QuestClueModalView: View {
     
     @Binding var isShowingClue: Bool
     @State private var isDragging = false
     @State private var showQuestModal = false
+    @Binding var currentQuest: Quest?
+    @Binding var currentPlace: Place?
+    @Binding var metricDistance: Double?
+    @Binding var metricDuration: Double?
     
     @State private var curHeight: CGFloat = 550
     let minHeight: CGFloat = 550
@@ -189,8 +193,8 @@ struct QuestExtendedView: View {
     }
 }
 
-struct QuestExtendedView_Previews: PreviewProvider {
-    static var previews: some View {
-        QuestExtendedView(isShowingClue: .constant(true))
-    }
-}
+//struct QuestExtendedView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        QuestClueModalView(isShowingClue: .constant(true))
+//    }
+//}

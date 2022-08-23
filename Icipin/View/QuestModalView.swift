@@ -17,7 +17,7 @@ struct QuestModalView: View {
     @Binding var metricDistance: Double?
     @Binding var metricDuration: Double?
     
-    @State private var showQuestExtendedModal = false
+    @State private var showClueModal = false
     @State private var isDragging = false
 
     
@@ -40,8 +40,8 @@ struct QuestModalView: View {
                     mainView
                 }
             }
-            if showQuestExtendedModal{
-                QuestExtendedView(isShowingClue: $showQuestExtendedModal)
+            if showClueModal{
+                QuestClueModalView(isShowingClue: self.$showClueModal, currentQuest: self.$currentQuest, currentPlace: self.$currentPlace, metricDistance: self.$metricDistance, metricDuration: self.$metricDuration)
             }
         }
         .frame(maxWidth: .infinity,maxHeight: .infinity, alignment: .bottom)
@@ -93,7 +93,7 @@ struct QuestModalView: View {
                 Button(action: {
                     //show clue
                     withAnimation {
-                        showQuestExtendedModal = true
+                        showClueModal = true
                     }
 //                    isShowing = false
                 }, label: {

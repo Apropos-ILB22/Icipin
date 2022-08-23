@@ -27,7 +27,7 @@
 		7ED1DA7A28B37ABA00609519 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED1DA7928B37ABA00609519 /* ContentView.swift */; };
 		7ED1DA7C28B37AFD00609519 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED1DA7B28B37AFD00609519 /* WelcomeView.swift */; };
 		7ED1DA7E28B37B4B00609519 /* QuestModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED1DA7D28B37B4B00609519 /* QuestModalView.swift */; };
-		7ED1DA8028B37BDE00609519 /* QuestExtendedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED1DA7F28B37BDE00609519 /* QuestExtendedView.swift */; };
+		7ED1DA8028B37BDE00609519 /* QuestClueModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED1DA7F28B37BDE00609519 /* QuestClueModalView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,7 +52,7 @@
 		7ED1DA7928B37ABA00609519 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7ED1DA7B28B37AFD00609519 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		7ED1DA7D28B37B4B00609519 /* QuestModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestModalView.swift; sourceTree = "<group>"; };
-		7ED1DA7F28B37BDE00609519 /* QuestExtendedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestExtendedView.swift; sourceTree = "<group>"; };
+		7ED1DA7F28B37BDE00609519 /* QuestClueModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestClueModalView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,7 +94,7 @@
 				7ED1DA7928B37ABA00609519 /* ContentView.swift */,
 				7ED1DA7B28B37AFD00609519 /* WelcomeView.swift */,
 				7ED1DA7D28B37B4B00609519 /* QuestModalView.swift */,
-				7ED1DA7F28B37BDE00609519 /* QuestExtendedView.swift */,
+				7ED1DA7F28B37BDE00609519 /* QuestClueModalView.swift */,
 				1D8E990628B38548007709B8 /* ScanLimitView.swift */,
 				7E3C7C4328B3E8DB00C6107A /* ToScanView.swift */,
 				7E3C7C4528B3E90200C6107A /* ToScanViewExtended.swift */,
@@ -245,7 +245,7 @@
 				7E3C7C4B28B4CF3A00C6107A /* CustomPointAnnotation.swift in Sources */,
 				7ECF0CC428A9E50C0018C0BA /* IcipinApp.swift in Sources */,
 				7ED1DA7C28B37AFD00609519 /* WelcomeView.swift in Sources */,
-				7ED1DA8028B37BDE00609519 /* QuestExtendedView.swift in Sources */,
+				7ED1DA8028B37BDE00609519 /* QuestClueModalView.swift in Sources */,
 				7ED1DA7A28B37ABA00609519 /* ContentView.swift in Sources */,
 				7E029BFB28B16E710055C481 /* Icipin.xcdatamodeld in Sources */,
 				7E5B469228B23A250086199C /* UnsuccessView.swift in Sources */,
