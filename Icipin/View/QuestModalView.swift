@@ -85,7 +85,7 @@ struct QuestModalView: View {
                     HStack{
                         Image(systemName: "mappin.and.ellipse")
                             .foregroundColor(.red)
-                        Text("\(metricDistance ?? 1.0) km").fontWeight(.medium).font(.body)
+                        Text("\(String(format: "%.2f", (metricDistance ?? 1) / 1000)) km").fontWeight(.medium).font(.body)
                         Image(systemName: "clock")
                             .foregroundColor(.blue)
                         Text("\(metricDuration ?? 0) mnt").fontWeight(.medium).font(.body)
