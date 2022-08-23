@@ -83,14 +83,24 @@ class MapQuestViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
     }
     
     func saveQuest() {
-        let quest = Quest(context: CoreDataManager.shared.viewContext)
-        quest.title = "Bola Gurita"
-        quest.food_name = "Takoyaki"
-        quest.status = false
-        quest.story = "Makanan Khas Jakarta"
-        quest.hexcolor = "#AD23B4"
-        quest.icon = "arrow.clockwise.heart.fill"
-        quest.uuid = UUID()
+        let quest1 = Quest(context: CoreDataManager.shared.viewContext)
+        
+        quest1.title = "Bola Gurita"
+        quest1.food_name = "Takoyaki"
+        quest1.status = false
+        quest1.story = "Makanan Khas Jakarta"
+        quest1.hexcolor = "#AD23B4"
+        quest1.icon = "arrow.clockwise.heart.fill"
+        quest1.uuid = UUID()
+        
+        let quest2 = Quest(context: CoreDataManager.shared.viewContext)
+        quest2.title = "Martabak Jepang"
+        quest2.food_name = "Okonomiyaki"
+        quest2.status = false
+        quest2.story = "Makanan Khas Jakarta"
+        quest2.hexcolor = "#0082E3"
+        quest2.icon = "cup.and.saucer.fill"
+        quest2.uuid = UUID()
         
         let clue1 = Clue(context: CoreDataManager.shared.viewContext)
         clue1.title = "Cari makanan kentalnya"
@@ -125,14 +135,19 @@ class MapQuestViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
         place3.rating = 4.5
         place3.name = "Kios Bola"
         
-        quest.addToClues(clue1)
-        quest.addToClues(clue2)
-        quest.addToClues(clue3)
-        quest.addToClues(clue4)
+        quest1.addToClues(clue1)
+        quest1.addToClues(clue2)
+        quest1.addToClues(clue3)
+        quest1.addToClues(clue4)
         
-        quest.addToPlaces(place1)
-        quest.addToPlaces(place2)
-        quest.addToPlaces(place3)
+        quest2.addToClues(clue1)
+        quest2.addToClues(clue2)
+        quest2.addToClues(clue3)
+        quest2.addToClues(clue4)
+        
+        quest1.addToPlaces(place1)
+        quest2.addToPlaces(place2)
+        quest1.addToPlaces(place3)
         
         CoreDataManager.shared.saveContext()
     }

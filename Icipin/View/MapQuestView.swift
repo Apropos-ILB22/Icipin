@@ -122,6 +122,9 @@ struct MapView: UIViewRepresentable {
             if let selectedAnnotate = annotation as? CustomPointAnnotation {
                 print(" debug mapuikit: \(selectedAnnotate.identifier)")
                 markAnnotation.markerTintColor = selectedAnnotate.quest?.color
+                markAnnotation.glyphImage = UIImage(systemName: (selectedAnnotate.quest?.icon)!)
+                
+                
             }
             
             
@@ -131,7 +134,7 @@ struct MapView: UIViewRepresentable {
 //            markAnnotation.image = UIImage(systemName: "arrow.clockwise.heart.fill")
             markAnnotation.canShowCallout = true
             markAnnotation.isDraggable = true
-            markAnnotation.glyphImage = UIImage(systemName: "arrow.clockwise.heart.fill")
+//            markAnnotation.glyphImage = UIImage(systemName: "arrow.clockwise.heart.fill")
 //            markAnnotation.markerTintColor = UIColor(Color("primary"))
             return markAnnotation
             
