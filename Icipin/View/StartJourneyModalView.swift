@@ -27,12 +27,12 @@ struct StartJourneyModalView: View {
     
     var body: some View {
         ZStack(alignment: .bottom){
-            Color.black
-                .opacity(0.3)
-                .ignoresSafeArea()
-                .onTapGesture {
-                    isShowing = false
-                }
+//            Color.black
+//                .opacity(0.3)
+//                .ignoresSafeArea()
+//                .onTapGesture {
+//                    isShowing = false
+//                }
             mainView
         }
         .frame(maxWidth: .infinity,maxHeight: .infinity, alignment: .bottom)
