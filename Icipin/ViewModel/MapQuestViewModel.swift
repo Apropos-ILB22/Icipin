@@ -90,7 +90,7 @@ class MapQuestViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
         quest1.status = false
         quest1.story = "Makanan Khas Jakarta"
         quest1.hexcolor = "#AD23B4"
-        quest1.icon = "arrow.clockwise.heart.fill"
+        quest1.icon = "drink_icon_annotation"
         quest1.uuid = UUID()
         
         let quest2 = Quest(context: CoreDataManager.shared.viewContext)
@@ -99,7 +99,7 @@ class MapQuestViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
         quest2.status = false
         quest2.story = "Makanan Khas Jakarta"
         quest2.hexcolor = "#0082E3"
-        quest2.icon = "cup.and.saucer.fill"
+        quest2.icon = "maincourse_icon_annotation"
         quest2.uuid = UUID()
         
         let clue1 = Clue(context: CoreDataManager.shared.viewContext)

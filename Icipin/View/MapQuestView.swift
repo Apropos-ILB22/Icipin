@@ -137,9 +137,6 @@ struct MapView: UIViewRepresentable {
 //            markAnnotation.glyphImage = UIImage(systemName: "arrow.clockwise.heart.fill")
 //            markAnnotation.markerTintColor = UIColor(Color("primary"))
             return markAnnotation
-            
-            
-            
         }
         
         
