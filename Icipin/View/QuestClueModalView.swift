@@ -10,6 +10,8 @@ import SwiftUI
 
 struct QuestClueModalView: View {
     
+    
+
     @Binding var isShowingClue: Bool
     @State private var isDragging = false
     @State private var showQuestModal = false

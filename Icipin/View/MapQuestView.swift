@@ -15,6 +15,10 @@ struct MapQuestView: View {
     
     @State private var showWelcomeModal = true
     @State private var showQuestModal = false
+    @State var isSelectQuestActive = false
+    @State var isStartJourneyActive = false
+    
+    
     @State private var showToScanModal = false
     @State private var directions: [String] = []
     @State private var showDirections = false
@@ -45,7 +49,14 @@ struct MapQuestView: View {
             .ignoresSafeArea()
             
             WelcomeView(isShowing: $showWelcomeModal)
-            QuestModalView(isShowing: $showQuestModal, currentQuest: self.$currentQuest, currentPlace: self.$currentPlace, metricDistance: self.$metricDistance, metricDuration: self.$metricDuration)
+            QuestModalView(isSelectQuestActive: self.$isSelectQuestActive,
+                           isStartJourneyActive: self.$isStartJourneyActive,
+                           isShowing: self.$showQuestModal,
+                           currentQuest: self.$currentQuest,
+                           currentPlace: self.$currentPlace,
+                           metricDistance: self.$metricDistance,
+                           metricDuration: self.$metricDuration
+            )
         }
     }
 }

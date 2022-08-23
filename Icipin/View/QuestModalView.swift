@@ -10,6 +10,8 @@ import SwiftUI
 struct QuestModalView: View {
     @StateObject private var mapQuestViewModel = MapQuestViewModel()
     
+    @Binding var isSelectQuestActive: Bool
+    @Binding var isStartJourneyActive: Bool
     @Binding var isShowing: Bool
     @Binding var currentQuest: Quest?
     @Binding var currentPlace: Place?
@@ -108,9 +110,18 @@ struct QuestModalView: View {
             }
             Spacer()
             Button(action: {
-                //quest
+                if(isSelectQuestActive == false){
+                    isSelectQuestActive = true
+                }else{
+                    isStartJourneyActive = true
+                    withAnimation{
+                        self.isShowing = false
+                    }
+                }
+                
+                self.isSelectQuestActive = true
             }, label: {
-                Text("PILIH QUEST")
+                Text(self.isSelectQuestActive ? "TAMBAH QUEST" : "PILIH QUEST")
                     .font(.body)
                     .bold()
                     .frame(width: UIScreen .main.bounds.width-20, height: 58, alignment: .center)
