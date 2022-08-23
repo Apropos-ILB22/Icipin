@@ -11,9 +11,11 @@ struct QuestModalView: View {
     @StateObject private var mapQuestViewModel = MapQuestViewModel()
     
     @Binding var isShowing: Bool
-    @Binding var titleCurrentQuest: String?
     @Binding var currentQuest: Quest?
     @Binding var currentPlace: Place?
+//    @Binding var currentPlaceMetric: PlaceMetric?
+    @Binding var metricDistance: Double?
+    @Binding var metricDuration: Double?
     
     @State private var showQuestExtendedModal = false
     @State private var isDragging = false
@@ -78,10 +80,10 @@ struct QuestModalView: View {
                     HStack{
                         Image(systemName: "mappin.and.ellipse")
                             .foregroundColor(.red)
-                        Text("2.5 km").fontWeight(.medium).font(.body)
+                        Text("\(metricDistance ?? 1.0) km").fontWeight(.medium).font(.body)
                         Image(systemName: "clock")
                             .foregroundColor(.blue)
-                        Text("15 mnt").fontWeight(.medium).font(.body)
+                        Text("\(metricDuration ?? 0) mnt").fontWeight(.medium).font(.body)
                         Image(systemName: "star.fill")
                             .foregroundColor(.yellow)
                         Text("4(5)").fontWeight(.medium).font(.body)

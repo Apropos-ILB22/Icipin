@@ -8,7 +8,8 @@
 import SwiftUI
 
 
-struct PlaceMetric {
-    var distance: Double
-    var duration: Int
+class PlaceMetric: Identifiable {
+    var id = UUID()
+    var distance: Double = 0
+    var duration: Double = 0
 }

@@ -21,19 +21,20 @@ struct MapQuestView: View {
     
     @State var currentQuest: Quest?
     @State var currentPlace: Place?
-    
-    @State private var titleCurrentQuest: String? = nil
-    
+    @State var metricDistance: Double?
+    @State var metricDuration: Double?
     
     var body: some View {
         ZStack {
             VStack {
                 MapView(directions: self.$directions,
+                        
                         showQuestModal: self.$showQuestModal,
                         showWelcomeModal: self.$showWelcomeModal,
-                        titleCurrentQuest: self.$titleCurrentQuest,
                         currentQuest: self.$currentQuest,
                         currentPlace: self.$currentPlace,
+                        metricDistance: self.$metricDistance,
+                        metricDuration: self.$metricDuration,
                         mapQuestViewModel: self.mapQuestViewModel)
                     .onAppear{
                         mapQuestViewModel.checkLocationServicedIsEnabled()
@@ -44,7 +45,7 @@ struct MapQuestView: View {
             .ignoresSafeArea()
             
             WelcomeView(isShowing: $showWelcomeModal)
-            QuestModalView(isShowing: $showQuestModal, titleCurrentQuest: $titleCurrentQuest, currentQuest: self.$currentQuest)
+            QuestModalView(isShowing: $showQuestModal, currentQuest: self.$currentQuest, currentPlace: self.$currentPlace, metricDistance: self.$metricDistance, metricDuration: self.$metricDuration)
         }
     }
 }
@@ -54,12 +55,14 @@ struct MapView: UIViewRepresentable {
     let mapView = MKMapView()
     
     @Binding var directions: [String]
+    @State var currentUserLocation: CLLocationCoordinate2D? = nil
     @Binding var showQuestModal: Bool
     @Binding var showWelcomeModal: Bool
-    @Binding var titleCurrentQuest: String?
     
     @Binding var currentQuest: Quest?
     @Binding var currentPlace: Place?
+    @Binding var metricDistance: Double?
+    @Binding var metricDuration: Double?
 
     @StateObject var mapQuestViewModel: MapQuestViewModel
     var prevLocation = CLLocationManager().location?.coordinate
@@ -107,6 +110,7 @@ struct MapView: UIViewRepresentable {
         }
         
         func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
+            parent.currentUserLocation = userLocation.coordinate
             let region = MKCoordinateRegion(center: userLocation.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005))
             mapView.setRegion(region, animated: true)
         }
@@ -156,13 +160,40 @@ struct MapView: UIViewRepresentable {
         //delegate function for selected annotation
         func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
             if let currAnnotation = view.annotation as? CustomPointAnnotation {
-                mapView.setCenter(view.annotation!.coordinate, animated: true)
-                parent.currentQuest = currAnnotation.quest
-                parent.currentPlace = currAnnotation.place
                 
-                parent.showQuestModal = true
-                parent.showWelcomeModal = false
-                parent.titleCurrentQuest = currAnnotation.quest?.title
+                if let userLocation = parent.currentUserLocation {
+                    mapView.setCenter(view.annotation!.coordinate, animated: true)
+                    parent.currentQuest = currAnnotation.quest
+                    parent.currentPlace = currAnnotation.place
+                    
+                    parent.showQuestModal = true
+                    parent.showWelcomeModal = false
+                    
+                    let p1 = MKPlacemark(coordinate: userLocation)
+                    let p2 = MKPlacemark(coordinate: currAnnotation.coordinate)
+        
+                    let request = MKDirections.Request()
+                    request.source = MKMapItem(placemark: p1)
+                    request.destination = MKMapItem(placemark: p2)
+                    request.transportType = .walking
+                    
+                    let directions = MKDirections(request: request)
+                    directions.calculate{response, error in
+                        guard let distance = response?.routes.first?.distance else {return}
+                        guard let duration = response?.routes.first?.expectedTravelTime else {return}
+                            self.parent.metricDistance = distance
+                            self.parent.metricDuration = duration
+                        
+                        
+//                        self.parent.currentPlaceMetric?.distance = distance
+//                        self.parent.currentPlaceMetric?.duration = duration
+//
+//                        print(" debug mapuikit: \(self.parent.currentPlaceMetric?.distance)")
+//                        print(" debug mapuikit: \(self.parent.currentPlaceMetric?.duration)")
+                    }
+                    
+                }
+
             }
             
 //            print(" debug mapuikit: \(parent.titleCurrentQuest)")
