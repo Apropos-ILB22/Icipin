@@ -88,6 +88,8 @@ class MapQuestViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
         quest.food_name = "Takoyaki"
         quest.status = false
         quest.story = "Makanan Khas Jakarta"
+        quest.hexcolor = "AD23B4"
+        quest.icon = "arrow.clockwise.heart.fill"
         quest.uuid = UUID()
         
         let clue1 = Clue(context: CoreDataManager.shared.viewContext)
