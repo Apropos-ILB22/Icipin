@@ -89,7 +89,8 @@ struct MapView: UIViewRepresentable {
     func makeUIView(context: Context) -> MKMapView {
         mapView!.delegate = context.coordinator
         mapView!.showsUserLocation = true
-        mapView!.userTrackingMode = .followWithHeading
+        
+//        mapView!.userTrackingMode = .followWithHeading
         mapView!.pointOfInterestFilter = .excludingAll
         
         mapQuestViewModel.getAllQuest()
@@ -140,6 +141,11 @@ struct MapView: UIViewRepresentable {
         
         //delegate to update the annotation
         func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+            
+            if annotation is MKUserLocation {
+                return nil
+            }
+            
             
 //            let region = MKCoordinateRegion(center: annotation.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005))
 //            mapView.setRegion(region, animated: true)
