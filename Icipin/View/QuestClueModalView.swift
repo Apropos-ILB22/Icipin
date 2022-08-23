@@ -10,8 +10,6 @@ import SwiftUI
 
 struct QuestClueModalView: View {
     
-    
-
     @Binding var isShowingClue: Bool
     @State private var isDragging = false
     @State private var showQuestModal = false
@@ -23,21 +21,7 @@ struct QuestClueModalView: View {
     @State private var curHeight: CGFloat = 550
     let minHeight: CGFloat = 550
     let maxHeight: CGFloat = 700
-    
-//    for quest in quests {
-//        for place in quest.places?.allObjects as! [Place] {
-//            let annotation = CustomPointAnnotation()
-//            annotation.quest = quest
-//            annotation.place = place
-//            annotation.identifier = place.uuid
-//            annotation.title = quest.title!
-//            annotation.coordinate = CLLocationCoordinate2D(latitude: place.latitude, longitude: place.longitude)
-//            mapView.addAnnotation(annotation)
-//
-//            print(quest.title!)
-//        }
-//    }
-    
+
     var body: some View {
         ZStack(alignment: .bottom){
             if isShowingClue {
@@ -51,9 +35,6 @@ struct QuestClueModalView: View {
                     mainView
                 }
             }
-//            if showQuestModal {
-//                QuestView(isShowing: $showQuestModal)
-//            }
         }
         .frame(maxWidth: .infinity,maxHeight: .infinity, alignment: .bottom)
         .ignoresSafeArea()
@@ -79,7 +60,7 @@ struct QuestClueModalView: View {
                             .frame(width: 55, height: 55)
                             .padding(.leading,30)
                         VStack(alignment: .leading) {
-                            Text("Bola Gurita").fontWeight(.bold).font(.title2)
+                            Text((currentQuest?.title)!).fontWeight(.bold).font(.title2)
                             Text("Cemilan").fontWeight(.medium).font(.title3)
                         }
                         Spacer()
@@ -87,13 +68,13 @@ struct QuestClueModalView: View {
                     HStack{
                         Image(systemName: "mappin.and.ellipse")
                             .foregroundColor(.red)
-                        Text("2.5 km").fontWeight(.medium).font(.body)
+                        Text("\(String(format: "%.1f", (metricDistance ?? 1) / 1000)) km").fontWeight(.medium).font(.body)
                         Image(systemName: "clock")
                             .foregroundColor(.blue)
-                        Text("15 mnt").fontWeight(.medium).font(.body)
+                        Text("\(String(format: "%.0f", (metricDuration ?? 1) / 60)) mnt").fontWeight(.medium).font(.body)
                         Image(systemName: "star.fill")
                             .foregroundColor(.yellow)
-                        Text("4(5)").fontWeight(.medium).font(.body)
+                        Text("\(String(format: "%.1f", currentPlace?.rating ?? 0))").fontWeight(.medium).font(.body)
                     }
                     .padding(.leading,30)
                 }

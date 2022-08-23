@@ -6,10 +6,11 @@
 //
 
 import SwiftUI
+import MapKit
 
 struct QuestModalView: View {
     @StateObject private var mapQuestViewModel = MapQuestViewModel()
-    
+    @Binding var mapView: MKMapView?
     @Binding var isSelectQuestActive: Bool
     @Binding var isStartJourneyActive: Bool
     @Binding var isShowing: Bool
@@ -119,11 +120,27 @@ struct QuestModalView: View {
                     isSelectQuestActive = true
                 }else{
                     isStartJourneyActive = true
+
                     withAnimation{
                         self.isShowing = false
                     }
+                    
+                    let p1 = MKPlacemark(coordinate: (mapView?.userLocation.coordinate)!)
+                    let p2 = MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: currentPlace!.latitude, longitude: currentPlace!.longitude))
+        
+                    let request = MKDirections.Request()
+                    request.source = MKMapItem(placemark: p1)
+                    request.destination = MKMapItem(placemark: p2)
+                    request.transportType = .walking
+                    
+                    let directions = MKDirections(request: request)
+                    directions.calculate{response, error in
+                        guard let route = response?.routes.first else {return}
+                        mapView!.addOverlay(route.polyline)
+                        mapView!.setVisibleMapRect(route.polyline.boundingMapRect,edgePadding: UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20),  animated: true)
+                    }
+                    
                 }
-                
                 self.isSelectQuestActive = true
             }, label: {
                 Text(self.isSelectQuestActive ? "TAMBAH QUEST" : "PILIH QUEST")

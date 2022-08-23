@@ -12,13 +12,12 @@ import MapKit
 
 struct MapQuestView: View {
     @StateObject private var mapQuestViewModel = MapQuestViewModel()
+    @State private var chosenQuests : [Quest] = []
     
     @State private var showWelcomeModal = true
     @State private var showQuestModal = false
     @State var isSelectQuestActive = false
     @State var isStartJourneyActive = false
-    
-    
     @State private var showToScanModal = false
     @State private var directions: [String] = []
     @State private var showDirections = false
@@ -27,14 +26,16 @@ struct MapQuestView: View {
     @State var currentPlace: Place?
     @State var metricDistance: Double?
     @State var metricDuration: Double?
+    @State var mapView: MKMapView? = MKMapView()
     
     var body: some View {
         ZStack {
             VStack {
-                MapView(directions: self.$directions,
-                        
+                MapView(mapView: self.$mapView, directions: self.$directions,
                         showQuestModal: self.$showQuestModal,
                         showWelcomeModal: self.$showWelcomeModal,
+                        isSelectQuestActive: self.$isSelectQuestActive,
+                        isStartJourneyActive: self.$isStartJourneyActive,
                         currentQuest: self.$currentQuest,
                         currentPlace: self.$currentPlace,
                         metricDistance: self.$metricDistance,
@@ -49,7 +50,8 @@ struct MapQuestView: View {
             .ignoresSafeArea()
             
             WelcomeView(isShowing: $showWelcomeModal)
-            QuestModalView(isSelectQuestActive: self.$isSelectQuestActive,
+            QuestModalView(mapView: self.$mapView,
+                           isSelectQuestActive: self.$isSelectQuestActive,
                            isStartJourneyActive: self.$isStartJourneyActive,
                            isShowing: self.$showQuestModal,
                            currentQuest: self.$currentQuest,
@@ -63,12 +65,14 @@ struct MapQuestView: View {
 
 struct MapView: UIViewRepresentable {
     typealias UIViewType = MKMapView //create alias for easiness
-    let mapView = MKMapView()
+    @Binding var mapView: MKMapView?
     
     @Binding var directions: [String]
     @State var currentUserLocation: CLLocationCoordinate2D? = nil
     @Binding var showQuestModal: Bool
     @Binding var showWelcomeModal: Bool
+    @Binding var isSelectQuestActive: Bool
+    @Binding var isStartJourneyActive: Bool
     
     @Binding var currentQuest: Quest?
     @Binding var currentPlace: Place?
@@ -83,11 +87,10 @@ struct MapView: UIViewRepresentable {
     }
     
     func makeUIView(context: Context) -> MKMapView {
-        
-        mapView.delegate = context.coordinator
-        mapView.showsUserLocation = true
-        mapView.userTrackingMode = .followWithHeading
-        mapView.pointOfInterestFilter = .excludingAll
+        mapView!.delegate = context.coordinator
+        mapView!.showsUserLocation = true
+        mapView!.userTrackingMode = .followWithHeading
+        mapView!.pointOfInterestFilter = .excludingAll
         
         mapQuestViewModel.getAllQuest()
         let quests = mapQuestViewModel.quests
@@ -100,12 +103,12 @@ struct MapView: UIViewRepresentable {
                 annotation.identifier = place.uuid
                 annotation.title = quest.title!
                 annotation.coordinate = CLLocationCoordinate2D(latitude: place.latitude, longitude: place.longitude)
-                mapView.addAnnotation(annotation)
+                mapView!.addAnnotation(annotation)
                 
                 print(quest.title!)
             }
         }
-        return mapView
+        return mapView!
     }
     
     func updateUIView(_ uiView: MKMapView, context: Context) {
@@ -166,6 +169,7 @@ struct MapView: UIViewRepresentable {
         
         func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
             parent.showQuestModal = false
+            parent.isStartJourneyActive = false
         }
         
         //delegate function for selected annotation
@@ -190,11 +194,11 @@ struct MapView: UIViewRepresentable {
                     
                     let directions = MKDirections(request: request)
                     directions.calculate{response, error in
-                        guard let distance = response?.routes.first?.distance else {return}
-                        guard let duration = response?.routes.first?.expectedTravelTime else {return}
-                            self.parent.metricDistance = distance
-                            self.parent.metricDuration = duration
-                        
+                        guard let route = response?.routes.first else {return}
+                        let distance = route.distance
+                        let duration = route.expectedTravelTime
+                        self.parent.metricDistance = distance
+                        self.parent.metricDuration = duration
                         
 //                        self.parent.currentPlaceMetric?.distance = distance
 //                        self.parent.currentPlaceMetric?.duration = duration
