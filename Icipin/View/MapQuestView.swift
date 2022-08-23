@@ -19,6 +19,9 @@ struct MapQuestView: View {
     @State private var directions: [String] = []
     @State private var showDirections = false
     
+    @State var currentQuest: Quest?
+    @State var currentPlace: Place?
+    
     @State private var titleCurrentQuest: String? = nil
     
     
@@ -29,6 +32,8 @@ struct MapQuestView: View {
                         showQuestModal: self.$showQuestModal,
                         showWelcomeModal: self.$showWelcomeModal,
                         titleCurrentQuest: self.$titleCurrentQuest,
+                        currentQuest: self.$currentQuest,
+                        currentPlace: self.$currentPlace,
                         mapQuestViewModel: self.mapQuestViewModel)
                     .onAppear{
                         mapQuestViewModel.checkLocationServicedIsEnabled()
@@ -52,10 +57,12 @@ struct MapView: UIViewRepresentable {
     @Binding var showQuestModal: Bool
     @Binding var showWelcomeModal: Bool
     @Binding var titleCurrentQuest: String?
+    
+    @Binding var currentQuest: Quest?
+    @Binding var currentPlace: Place?
 
     @StateObject var mapQuestViewModel: MapQuestViewModel
     var prevLocation = CLLocationManager().location?.coordinate
-    
     
     func makeCoordinator() -> MapViewCoordinator {
         return MapViewCoordinator(customView: self)
@@ -104,8 +111,9 @@ struct MapView: UIViewRepresentable {
             mapView.setRegion(region, animated: true)
         }
         
+        
+        //delegate function for route overlay
         func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
-            
             let renderer = MKPolylineRenderer(overlay: overlay)
             renderer.strokeColor = UIColor(Color("primary"))
             renderer.lineWidth = 3
@@ -113,6 +121,10 @@ struct MapView: UIViewRepresentable {
         }
         
         func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+            
+//            let region = MKCoordinateRegion(center: annotation.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005))
+//            mapView.setRegion(region, animated: true)
+            
             
 //            guard let selectedAnnotate = annotation as? CustomPointAnnotation else {
 //                print("fail set data")
@@ -136,18 +148,27 @@ struct MapView: UIViewRepresentable {
             return markAnnotation
         }
         
+        func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
+            parent.showQuestModal = false
+        }
         
+        //delegate function for selected annotation
         func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-            print("select")
-
-            parent.showQuestModal = true
-            parent.showWelcomeModal = false
-            parent.titleCurrentQuest = view.annotation!.title!
-
-            print(" debug mapuikit: \(parent.titleCurrentQuest)")
-
-            let selectedAnnotate = view.annotation as! CustomPointAnnotation
-            print(" debug mapuikit: \(selectedAnnotate.identifier)")
+            mapView.setCenter(view.annotation!.coordinate, animated: true)
+            
+            if let currAnnotation = view.annotation as? CustomPointAnnotation {
+                parent.currentQuest = currAnnotation.quest
+                parent.currentPlace = currAnnotation.place
+                
+                parent.showQuestModal = true
+                parent.showWelcomeModal = false
+                parent.titleCurrentQuest = currAnnotation.quest?.title
+            }
+            
+//            print(" debug mapuikit: \(parent.titleCurrentQuest)")
+//
+//            let selectedAnnotate = view.annotation as! CustomPointAnnotation
+//            print(" debug mapuikit: \(selectedAnnotate.identifier)")
 
 //            let p1 = MKPlacemark(coordinate: parent.prevLocation!)
 //            let p2 = MKPlacemark(coordinate: view.annotation!.coordinate)
