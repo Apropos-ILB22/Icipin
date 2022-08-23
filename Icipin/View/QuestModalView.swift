@@ -26,7 +26,7 @@ struct QuestModalView: View {
         ZStack(alignment: .bottom){
             if isShowing {
                 Color.black
-                    .opacity(0.3)
+                    .opacity(0.0) //mark todo change background
                     .ignoresSafeArea()
                     .onTapGesture {
                         isShowing = false
