@@ -15,6 +15,7 @@ struct QuestModalView: View {
     @State private var showQuestExtendedModal = false
     @State private var isDragging = false
     @Binding var titleCurrentQuest: String?
+    @State private var currentQuest: Quest? = nil
     
     @State private var curHeight: CGFloat = 250
     let minHeight: CGFloat = 250
@@ -30,7 +31,20 @@ struct QuestModalView: View {
                     .onTapGesture {
                         isShowing = false
                     }
-                mainView
+                    .onAppear{
+                        print("debug questview: \(self.titleCurrentQuest)")
+                        if(titleCurrentQuest != nil){
+                            
+                            let quest = mapQuestViewModel.getQuestByName(title: self.titleCurrentQuest!)
+                            self.currentQuest = quest
+                            print("debug questview food: \(quest?.food_name)")
+                            
+                        }
+                    }
+                
+                if (currentQuest != nil){
+                    mainView
+                }
             }
             if showQuestExtendedModal{
                 QuestExtendedView(isShowingClue: $showQuestExtendedModal)
@@ -39,6 +53,7 @@ struct QuestModalView: View {
         .frame(maxWidth: .infinity,maxHeight: .infinity, alignment: .bottom)
         .ignoresSafeArea()
         .animation(Animation.easeInOut, value: isShowing)
+        
         //        .animation(.easeInOut)
     }
     
@@ -63,7 +78,7 @@ struct QuestModalView: View {
                             .frame(width: 55, height: 55)
                             .padding(.leading,30)
                         VStack(alignment: .leading) {
-                            Text("Bola Gurita").fontWeight(.bold).font(.title2)
+                            Text((currentQuest?.title)!).fontWeight(.bold).font(.title2)
                             Text("Cemilan").fontWeight(.medium).font(.title3)
                         }
                         Spacer()
@@ -125,15 +140,7 @@ struct QuestModalView: View {
         )
         .animation(isDragging ? nil : .easeInOut(duration: 0.45), value: isDragging)
         .transition(.move(edge: .bottom))
-        .onAppear{
-            print("debug questview: \(self.titleCurrentQuest)")
-            if(titleCurrentQuest != nil){
-                
-                let quest = mapQuestViewModel.getQuestByName(title: "Gurita")
-                print("debug questview food: \(quest?.food_name)")
-                
-            }
-        }
+        
     }
     
     @State private var prevDragTranslation = CGSize.zero

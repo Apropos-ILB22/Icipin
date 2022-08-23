@@ -73,7 +73,8 @@ struct MapView: UIViewRepresentable {
         
         for quest in quests {
             for place in quest.places?.allObjects as! [Place] {
-                let annotation = MKPointAnnotation()
+                let annotation = CustomPointAnnotation()
+                annotation.identifier = place.uuid
                 annotation.title = quest.title!
                 annotation.coordinate = CLLocationCoordinate2D(latitude: place.latitude, longitude: place.longitude)
                 mapView.addAnnotation(annotation)
@@ -109,33 +110,68 @@ struct MapView: UIViewRepresentable {
             return renderer
         }
         
-        func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
             
-            parent.showQuestModal = true
-            parent.showWelcomeModal = false
-            parent.titleCurrentQuest = view.annotation!.title!
+//            guard let selectedAnnotate = annotation as? CustomPointAnnotation else {
+//                print("fail set data")
+//                return
+//            }
             
-            print(" debug mapuikit: \(parent.titleCurrentQuest)")
-            
-            
-            let p1 = MKPlacemark(coordinate: parent.prevLocation!)
-            let p2 = MKPlacemark(coordinate: view.annotation!.coordinate)
-            
-            let request = MKDirections.Request()
-            request.source = MKMapItem(placemark: p1)
-            request.destination = MKMapItem(placemark: p2)
-            request.transportType = .walking
-
-            let directions = MKDirections(request: request)
-            directions.calculate{response, error in
-                guard let route = response?.routes.first else {return}
-                print(route)
-
-                mapView.addOverlay(route.polyline)
-                mapView.setVisibleMapRect(route.polyline.boundingMapRect,edgePadding: UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20),  animated: true)
+            if let selectedAnnotate = annotation as? CustomPointAnnotation {
+                print(" debug mapuikit: \(selectedAnnotate.identifier)")
             }
             
-            parent.prevLocation = view.annotation!.coordinate
+            
+            
+            
+            let markAnnotation = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: "PIN")
+//            markAnnotation.image = UIImage(systemName: "arrow.clockwise.heart.fill")
+            markAnnotation.canShowCallout = true
+            markAnnotation.isDraggable = true
+            markAnnotation.glyphImage = UIImage(systemName: "arrow.clockwise.heart.fill")
+            markAnnotation.markerTintColor = UIColor(Color("primary"))
+            return markAnnotation
+            
+            
+            
+        }
+        
+        
+        func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+            print("select")
+//
+//            parent.showQuestModal = true
+//            parent.showWelcomeModal = false
+//            parent.titleCurrentQuest = view.annotation!.title!
+//
+//            print(" debug mapuikit: \(parent.titleCurrentQuest)")
+//
+//            let selectedAnnotate = view.annotation as! CustomPointAnnotation
+//            print(" debug mapuikit: \(selectedAnnotate.identifier)")
+//
+//            let p1 = MKPlacemark(coordinate: parent.prevLocation!)
+//            let p2 = MKPlacemark(coordinate: view.annotation!.coordinate)
+//
+//            let request = MKDirections.Request()
+//            request.source = MKMapItem(placemark: p1)
+//            request.destination = MKMapItem(placemark: p2)
+//            request.transportType = .walking
+//
+//            let directions = MKDirections(request: request)
+//            directions.calculate{response, error in
+//                guard let route = response?.routes.first else {return}
+//                print(route)
+//
+//                mapView.addOverlay(route.polyline)
+//                mapView.setVisibleMapRect(route.polyline.boundingMapRect,edgePadding: UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20),  animated: true)
+//            }
+//
+//            parent.prevLocation = view.annotation!.coordinate
         }
     }
+}
+
+class CustomPointAnnotation : MKPointAnnotation {
+    var identifier: UUID?
+    
 }
