@@ -32,8 +32,8 @@ struct MapQuestView: View {
                         mapQuestViewModel: self.mapQuestViewModel)
                     .onAppear{
                         mapQuestViewModel.checkLocationServicedIsEnabled()
-    //                                        mapQuestViewModel.saveQuest()
-    //                                        mapQuestViewModel.getAllQuest()
+//                                            mapQuestViewModel.saveQuest()
+//                                            mapQuestViewModel.getAllQuest()
                     }
             }
             .ignoresSafeArea()
@@ -74,6 +74,8 @@ struct MapView: UIViewRepresentable {
         for quest in quests {
             for place in quest.places?.allObjects as! [Place] {
                 let annotation = CustomPointAnnotation()
+                annotation.quest = quest
+                annotation.place = place
                 annotation.identifier = place.uuid
                 annotation.title = quest.title!
                 annotation.coordinate = CLLocationCoordinate2D(latitude: place.latitude, longitude: place.longitude)
@@ -116,20 +118,21 @@ struct MapView: UIViewRepresentable {
 //                print("fail set data")
 //                return
 //            }
-            
+            let markAnnotation = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: "PIN")
             if let selectedAnnotate = annotation as? CustomPointAnnotation {
                 print(" debug mapuikit: \(selectedAnnotate.identifier)")
+                markAnnotation.markerTintColor = selectedAnnotate.quest?.color
             }
             
             
             
             
-            let markAnnotation = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: "PIN")
+            
 //            markAnnotation.image = UIImage(systemName: "arrow.clockwise.heart.fill")
             markAnnotation.canShowCallout = true
             markAnnotation.isDraggable = true
             markAnnotation.glyphImage = UIImage(systemName: "arrow.clockwise.heart.fill")
-            markAnnotation.markerTintColor = UIColor(Color("primary"))
+//            markAnnotation.markerTintColor = UIColor(Color("primary"))
             return markAnnotation
             
             
@@ -173,6 +176,9 @@ struct MapView: UIViewRepresentable {
 
 class CustomPointAnnotation : MKPointAnnotation {
     var identifier: UUID?
+    var quest: Quest?
+    var place: Place?
+    
     
 }
 
@@ -232,4 +238,19 @@ extension UIColor {
 
             return hex
         }
+}
+
+extension Quest {
+    var color: UIColor? {
+        get {
+            guard let hex = hexcolor else { return nil }
+            return UIColor(hex: hex)
+        }
+        
+        set(newColor){
+            if let newColor = newColor {
+                hexcolor = newColor.toHex
+            }
+        }
+    }
 }
