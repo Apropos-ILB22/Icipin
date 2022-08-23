@@ -10,12 +10,14 @@ import SwiftUI
 struct QuestModalView: View {
     @StateObject private var mapQuestViewModel = MapQuestViewModel()
     
-    
     @Binding var isShowing: Bool
-    @State private var showQuestExtendedModal = false
-    @State private var isDragging = false
     @Binding var titleCurrentQuest: String?
     @Binding var currentQuest: Quest?
+    @Binding var currentPlace: Place?
+    
+    @State private var showQuestExtendedModal = false
+    @State private var isDragging = false
+
     
     @State private var curHeight: CGFloat = 250
     let minHeight: CGFloat = 250
