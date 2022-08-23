@@ -18,6 +18,7 @@
 		7E3C7C4B28B4CF3A00C6107A /* CustomPointAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3C7C4A28B4CF3A00C6107A /* CustomPointAnnotation.swift */; };
 		7E3C7C4D28B4D07E00C6107A /* QuestExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3C7C4C28B4D07E00C6107A /* QuestExtension.swift */; };
 		7E3C7C4F28B4E26100C6107A /* PlaceMetric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3C7C4E28B4E26100C6107A /* PlaceMetric.swift */; };
+		7E3C7C5128B51F5C00C6107A /* StartJourneyModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3C7C5028B51F5C00C6107A /* StartJourneyModalView.swift */; };
 		7E5B469028B221840086199C /* SuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5B468F28B221840086199C /* SuccessView.swift */; };
 		7E5B469228B23A250086199C /* UnsuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5B469128B23A250086199C /* UnsuccessView.swift */; };
 		7ECF0CC428A9E50C0018C0BA /* IcipinApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ECF0CC328A9E50C0018C0BA /* IcipinApp.swift */; };
@@ -43,6 +44,7 @@
 		7E3C7C4A28B4CF3A00C6107A /* CustomPointAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPointAnnotation.swift; sourceTree = "<group>"; };
 		7E3C7C4C28B4D07E00C6107A /* QuestExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestExtension.swift; sourceTree = "<group>"; };
 		7E3C7C4E28B4E26100C6107A /* PlaceMetric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceMetric.swift; sourceTree = "<group>"; };
+		7E3C7C5028B51F5C00C6107A /* StartJourneyModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartJourneyModalView.swift; sourceTree = "<group>"; };
 		7E5B468F28B221840086199C /* SuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessView.swift; sourceTree = "<group>"; };
 		7E5B469128B23A250086199C /* UnsuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsuccessView.swift; sourceTree = "<group>"; };
 		7ECF0CC028A9E50C0018C0BA /* Icipin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Icipin.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -98,6 +100,7 @@
 				1D8E990628B38548007709B8 /* ScanLimitView.swift */,
 				7E3C7C4328B3E8DB00C6107A /* ToScanView.swift */,
 				7E3C7C4528B3E90200C6107A /* ToScanViewExtended.swift */,
+				7E3C7C5028B51F5C00C6107A /* StartJourneyModalView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -237,6 +240,7 @@
 			files = (
 				7E3C7C4428B3E8DB00C6107A /* ToScanView.swift in Sources */,
 				7E029BF828B16E530055C481 /* CoreDataManager.swift in Sources */,
+				7E3C7C5128B51F5C00C6107A /* StartJourneyModalView.swift in Sources */,
 				7E3C7C4928B4CF1700C6107A /* UIColorExtension.swift in Sources */,
 				1D8E990728B38548007709B8 /* ScanLimitView.swift in Sources */,
 				7E029C0428B17A000055C481 /* MapQuestViewModel.swift in Sources */,

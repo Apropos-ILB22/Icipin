@@ -44,6 +44,10 @@ struct QuestModalView: View {
             if showClueModal{
                 QuestClueModalView(isShowingClue: self.$showClueModal, currentQuest: self.$currentQuest, currentPlace: self.$currentPlace, metricDistance: self.$metricDistance, metricDuration: self.$metricDuration)
             }
+            
+            if isStartJourneyActive{
+                StartJourneyModalView(isShowing: self.$isStartJourneyActive)
+            }
         }
         .frame(maxWidth: .infinity,maxHeight: .infinity, alignment: .bottom)
         .ignoresSafeArea()
