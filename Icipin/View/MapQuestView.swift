@@ -44,7 +44,7 @@ struct MapQuestView: View {
             .ignoresSafeArea()
             
             WelcomeView(isShowing: $showWelcomeModal)
-            QuestModalView(isShowing: $showQuestModal, titleCurrentQuest: $titleCurrentQuest)
+            QuestModalView(isShowing: $showQuestModal, titleCurrentQuest: $titleCurrentQuest, currentQuest: self.$currentQuest)
         }
     }
 }
@@ -120,6 +120,7 @@ struct MapView: UIViewRepresentable {
             return renderer
         }
         
+        //delegate to update the annotation
         func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
             
 //            let region = MKCoordinateRegion(center: annotation.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005))
@@ -154,9 +155,8 @@ struct MapView: UIViewRepresentable {
         
         //delegate function for selected annotation
         func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-            mapView.setCenter(view.annotation!.coordinate, animated: true)
-            
             if let currAnnotation = view.annotation as? CustomPointAnnotation {
+                mapView.setCenter(view.annotation!.coordinate, animated: true)
                 parent.currentQuest = currAnnotation.quest
                 parent.currentPlace = currAnnotation.place
                 

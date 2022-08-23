@@ -15,7 +15,7 @@ struct QuestModalView: View {
     @State private var showQuestExtendedModal = false
     @State private var isDragging = false
     @Binding var titleCurrentQuest: String?
-    @State private var currentQuest: Quest? = nil
+    @Binding var currentQuest: Quest?
     
     @State private var curHeight: CGFloat = 250
     let minHeight: CGFloat = 250
@@ -30,16 +30,6 @@ struct QuestModalView: View {
                     .ignoresSafeArea()
                     .onTapGesture {
                         isShowing = false
-                    }
-                    .onAppear{
-                        print("debug questview: \(self.titleCurrentQuest)")
-                        if(titleCurrentQuest != nil){
-                            
-                            let quest = mapQuestViewModel.getQuestByName(title: self.titleCurrentQuest!)
-                            self.currentQuest = quest
-                            print("debug questview food: \(quest?.food_name)")
-                            
-                        }
                     }
                 
                 if (currentQuest != nil){
@@ -176,8 +166,8 @@ struct QuestModalView: View {
     }
 }
 
-struct QuestView_Previews: PreviewProvider {
-    static var previews: some View {
-        QuestModalView(isShowing: .constant(true), titleCurrentQuest: .constant(""))
-    }
-}
+//struct QuestView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        QuestModalView(isShowing: .constant(true), titleCurrentQuest: .constant(""))
+//    }
+//}
