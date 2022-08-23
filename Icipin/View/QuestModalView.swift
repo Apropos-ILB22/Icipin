@@ -19,7 +19,6 @@ struct QuestModalView: View {
     
     @State private var showClueModal = false
     @State private var isDragging = false
-
     
     @State private var curHeight: CGFloat = 250
     let minHeight: CGFloat = 250

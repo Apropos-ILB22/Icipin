@@ -104,15 +104,24 @@ class MapQuestViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
         
         let clue1 = Clue(context: CoreDataManager.shared.viewContext)
         clue1.title = "Cari makanan kentalnya"
-        
         let clue2 = Clue(context: CoreDataManager.shared.viewContext)
         clue2.title = "Cari Soto kentalnya"
-        
         let clue3 = Clue(context: CoreDataManager.shared.viewContext)
         clue3.title = "Cari Tempat kentalnya"
-        
         let clue4 = Clue(context: CoreDataManager.shared.viewContext)
         clue4.title = "Cari Minuman kentalnya"
+        
+        let clue5 = Clue(context: CoreDataManager.shared.viewContext)
+        clue5.title = "Ku tak tau"
+        
+        let clue6 = Clue(context: CoreDataManager.shared.viewContext)
+        clue6.title = "dah pusing"
+        
+        let clue7 = Clue(context: CoreDataManager.shared.viewContext)
+        clue7.title = "semoga selesai"
+        
+        let clue8 = Clue(context: CoreDataManager.shared.viewContext)
+        clue8.title = "dahlah"
         
         let place1 = Place(context: CoreDataManager.shared.viewContext)
         place1.uuid = UUID()
@@ -140,10 +149,10 @@ class MapQuestViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
         quest1.addToClues(clue3)
         quest1.addToClues(clue4)
         
-        quest2.addToClues(clue1)
-        quest2.addToClues(clue2)
-        quest2.addToClues(clue3)
-        quest2.addToClues(clue4)
+        quest2.addToClues(clue5)
+        quest2.addToClues(clue6)
+        quest2.addToClues(clue7)
+        quest2.addToClues(clue8)
         
         quest1.addToPlaces(place1)
         quest2.addToPlaces(place2)

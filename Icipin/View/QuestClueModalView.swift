@@ -22,6 +22,20 @@ struct QuestClueModalView: View {
     let minHeight: CGFloat = 550
     let maxHeight: CGFloat = 700
     
+//    for quest in quests {
+//        for place in quest.places?.allObjects as! [Place] {
+//            let annotation = CustomPointAnnotation()
+//            annotation.quest = quest
+//            annotation.place = place
+//            annotation.identifier = place.uuid
+//            annotation.title = quest.title!
+//            annotation.coordinate = CLLocationCoordinate2D(latitude: place.latitude, longitude: place.longitude)
+//            mapView.addAnnotation(annotation)
+//
+//            print(quest.title!)
+//        }
+//    }
+    
     var body: some View {
         ZStack(alignment: .bottom){
             if isShowingClue {
@@ -31,7 +45,9 @@ struct QuestClueModalView: View {
                     .onTapGesture {
                         isShowingClue = false
                     }
-                mainView
+                if(currentQuest != nil){
+                    mainView
+                }
             }
 //            if showQuestModal {
 //                QuestView(isShowing: $showQuestModal)
@@ -104,29 +120,14 @@ struct QuestClueModalView: View {
                 Text("Petunjuk")
                     .fontWeight(.bold).font(.title2)
                     .padding(.leading,20)
-                Text("Makanan Khas Jepang")
-                    .font(.title3)
-                    .padding(.leading,15)
-                    .padding(5)
-                //                    .padding(.leading,20)
-                //                    .padding(.top,5)
-                //                    .padding(.bottom,5)
-                    .fixedSize(horizontal: false, vertical: true)
-                Text("Terbuat dari tepung dan gurita")
-                    .font(.title3)
-                    .padding(.leading,15)
-                    .padding(5)
-                    .fixedSize(horizontal: false, vertical: true)
-                Text("Bentuknya seperti bola pingpong, biasa di sajikan bersama mayonaise dan serbuk ikan")
-                    .font(.title3)
-                    .padding(.leading,15)
-                    .padding(5)
-                    .fixedSize(horizontal: false, vertical: true)
-                Text("Rasanya gurih dan agak manis dari mayonaise")
-                    .font(.title3)
-                    .padding(.leading,15)
-                    .padding(5)
-                    .fixedSize(horizontal: false, vertical: true)
+                
+                ForEach(self.currentQuest?.clues?.allObjects as! [Clue], id: \.id){ clue in
+                    Text(clue.title!)
+                        .font(.title3)
+                        .padding(.leading,15)
+                        .padding(5)
+                        .fixedSize(horizontal: false, vertical: true)
+                }
             }
             Spacer()
             HStack{
