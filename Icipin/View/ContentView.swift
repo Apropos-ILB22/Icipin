@@ -35,8 +35,8 @@
 //                }
 //                .buttonStyle(.borderedProminent)
 //            }
-//            WelcomeView(isShowing: $showWelcomeModal)
-//            QuestView(isShowing: $showQuestModal)
+////            WelcomeView(isShowing: $showWelcomeModal)
+////            QuestView(isShowing: $showQuestModal)
 //            if showToScanModal{
 //                ToScanView(isShowing: $showToScanModal)
 //            }
