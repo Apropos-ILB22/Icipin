@@ -90,8 +90,9 @@ struct MapView: UIViewRepresentable {
         mapView!.delegate = context.coordinator
         mapView!.showsUserLocation = true
         
-//        mapView!.userTrackingMode = .followWithHeading
+        mapView!.userTrackingMode = .followWithHeading
         mapView!.pointOfInterestFilter = .excludingAll
+        mapView!.isRotateEnabled = true
         
         mapQuestViewModel.getAllQuest()
         let quests = mapQuestViewModel.quests
@@ -129,7 +130,6 @@ struct MapView: UIViewRepresentable {
             let region = MKCoordinateRegion(center: userLocation.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005))
             mapView.setRegion(region, animated: true)
         }
-        
         
         //delegate function for route overlay
         func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
