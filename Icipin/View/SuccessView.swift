@@ -87,7 +87,7 @@ struct SuccessView: View {
                 }
             }
             if showStoryOfFood {
-                StoryFoodView(isShowing: self.$showStoryOfFood)
+                StoryFoodView(currentQuest: self.$currentQuest, isShowing: self.$showStoryOfFood)
             }
         }
     }

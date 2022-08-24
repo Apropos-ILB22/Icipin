@@ -51,7 +51,7 @@ struct ScanpageView: View {
                 }
                 
                 Spacer()
-                Text(predict == nil ? "Gerakan Kamera Ke Makanan" : "\(predict!.label) Ditemukan!")
+                Text(predict == nil ? "Gerakan Kamera Ke Makanan" : "Makanan Ditemukan!")
                     .font(.system(.title3).bold())
                     .foregroundColor(.white)
                     .frame(width: UIScreen.main.bounds.width, height: 70)
@@ -91,11 +91,13 @@ struct ScanpageView: View {
                     }
                 }
             }
-            Image("scan_placeholder")
-                .resizable()
-                .frame(width: 300, height: 300)
-                .foregroundColor(.gray.opacity(0.5))
             VStack{
+                Spacer()
+                Image("scan_placeholder")
+                    .resizable()
+                    .frame(width: 300, height: 300)
+                    .foregroundColor(.gray.opacity(0.5))
+                Spacer()
                 Text("How to Scan the Food")
                     .fontWeight(.semibold)
                     .foregroundColor(.white)
@@ -107,7 +109,7 @@ struct ScanpageView: View {
             }.padding(.bottom,80)
         }
         .ignoresSafeArea()
-        .navigationBarHidden(true)
+//        .navigationBarHidden(true)
     }
 }
 

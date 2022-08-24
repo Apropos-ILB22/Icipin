@@ -8,7 +8,7 @@ import Foundation
 import SwiftUI
 
 struct StoryFoodView: View {
-    
+    @Binding var currentQuest: Quest?
     @Binding var isShowing: Bool
     @State private var isDragging = false
     @State private var showQuestModal = false
@@ -28,9 +28,7 @@ struct StoryFoodView: View {
                     }
                 mainView
             }
-//            if showQuestModal {
-//                QuestView(isShowing: $showQuestModal)
-//            }
+
         }
         .frame(maxWidth: .infinity,maxHeight: .infinity, alignment: .bottom)
         .ignoresSafeArea()
@@ -50,12 +48,12 @@ struct StoryFoodView: View {
             .padding(.top,2)
             
             VStack{
-                Text("TAKOYAKI")
+                Text((currentQuest?.food_name?.uppercased())!)
                     .fontWeight(.bold).font(.title2)
                     .multilineTextAlignment(.center)
                     .frame(width: 358, alignment: .center)
                     
-                Text("Di zaman Taisho sudah dijumpai kios pasar kaget yang menjual Choboyaki berupa goreng tepung terigu dengan isi konnyaku yang merupakan cikal bakal takoyaki. \n \nChoboyaki berkembang menjadi Rajioyaki yang berisi urat sapi dan bagian daging murah yang lain. Penganan disebut rajioyaki karena bentuknya yang bulat-bulat seperti tombol radio transistor pada waktu itu.")
+                Text((currentQuest?.story!)!)
                     .font(.body)
                     .padding(.leading,15)
                     .padding(5)
@@ -126,8 +124,3 @@ struct StoryFoodView: View {
     }
 }
 
-struct StoryFoodView_Previews: PreviewProvider {
-    static var previews: some View {
-        StoryFoodView(isShowing: .constant(true))
-    }
-}
