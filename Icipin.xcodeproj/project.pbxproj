@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D3A7CD928B46FB0003BB101 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3A7CD828B46FB0003BB101 /* OnboardingView.swift */; };
 		1D8E990728B38548007709B8 /* ScanLimitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D8E990628B38548007709B8 /* ScanLimitView.swift */; };
+		1D93EB1D28B5B00D00C3FD13 /* StoryFoodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D93EB1C28B5B00C00C3FD13 /* StoryFoodView.swift */; };
 		7E029BF828B16E530055C481 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E029BF728B16E530055C481 /* CoreDataManager.swift */; };
 		7E029BFB28B16E710055C481 /* Icipin.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7E029BF928B16E710055C481 /* Icipin.xcdatamodeld */; };
 		7E029C0128B173030055C481 /* MapQuestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E029C0028B173030055C481 /* MapQuestView.swift */; };
@@ -32,7 +34,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1D3A7CD828B46FB0003BB101 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		1D8E990628B38548007709B8 /* ScanLimitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanLimitView.swift; sourceTree = "<group>"; };
+		1D93EB1C28B5B00C00C3FD13 /* StoryFoodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryFoodView.swift; sourceTree = "<group>"; };
 		7E029BF728B16E530055C481 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		7E029BFA28B16E710055C481 /* Icipin.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Icipin.xcdatamodel; sourceTree = "<group>"; };
 		7E029C0028B173030055C481 /* MapQuestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapQuestView.swift; sourceTree = "<group>"; };
@@ -98,6 +102,8 @@
 				7ED1DA7D28B37B4B00609519 /* QuestModalView.swift */,
 				7ED1DA7F28B37BDE00609519 /* QuestClueModalView.swift */,
 				1D8E990628B38548007709B8 /* ScanLimitView.swift */,
+				1D3A7CD828B46FB0003BB101 /* OnboardingView.swift */,
+				1D93EB1C28B5B00C00C3FD13 /* StoryFoodView.swift */,
 				7E3C7C4328B3E8DB00C6107A /* ToScanView.swift */,
 				7E3C7C4528B3E90200C6107A /* ToScanViewExtended.swift */,
 				7E3C7C5028B51F5C00C6107A /* StartJourneyModalView.swift */,
@@ -243,6 +249,7 @@
 				7E3C7C5128B51F5C00C6107A /* StartJourneyModalView.swift in Sources */,
 				7E3C7C4928B4CF1700C6107A /* UIColorExtension.swift in Sources */,
 				1D8E990728B38548007709B8 /* ScanLimitView.swift in Sources */,
+				1D93EB1D28B5B00D00C3FD13 /* StoryFoodView.swift in Sources */,
 				7E029C0428B17A000055C481 /* MapQuestViewModel.swift in Sources */,
 				7E029C0128B173030055C481 /* MapQuestView.swift in Sources */,
 				7ED1DA7E28B37B4B00609519 /* QuestModalView.swift in Sources */,
@@ -253,6 +260,7 @@
 				7ED1DA7A28B37ABA00609519 /* ContentView.swift in Sources */,
 				7E029BFB28B16E710055C481 /* Icipin.xcdatamodeld in Sources */,
 				7E5B469228B23A250086199C /* UnsuccessView.swift in Sources */,
+				1D3A7CD928B46FB0003BB101 /* OnboardingView.swift in Sources */,
 				7E3C7C4D28B4D07E00C6107A /* QuestExtension.swift in Sources */,
 				7E5B469028B221840086199C /* SuccessView.swift in Sources */,
 				7E3C7C4628B3E90200C6107A /* ToScanViewExtended.swift in Sources */,
