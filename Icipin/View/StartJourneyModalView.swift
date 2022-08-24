@@ -42,7 +42,9 @@ struct StartJourneyModalView: View {
         .ignoresSafeArea()
         
         if(showToScan){
-            ToScanView(isShowing: self.$showToScan)
+//            ToScanView(isShowing: self.$showToScan)
+            
+            ToScanView(chosenQuestList: self.$chosenQuestList, chosenPlaceList: self.$chosenPlaceList, chosenRouteDistance: self.$chosenRouteDistance, currentQuest: self.$currentQuest, currentPlace: self.$currentPlace, metricDistance: self.$metricDistance, metricDuration: self.$metricDuration, isShowing: self.$showToScan)
         }
     }
     
