@@ -13,7 +13,7 @@ struct StoryFoodView: View {
     @State private var isDragging = false
     @State private var showQuestModal = false
     
-    @State private var curHeight: CGFloat = 650
+    @State private var curHeight: CGFloat = 450
     let minHeight: CGFloat = 550
     let maxHeight: CGFloat = 700
     
