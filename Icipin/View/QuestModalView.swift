@@ -11,6 +11,8 @@ import MapKit
 struct QuestModalView: View {
     @StateObject private var mapQuestViewModel = MapQuestViewModel()
     @Binding var mapView: MKMapView?
+    @Binding var chosenQuestList : [Quest]
+    @Binding var chosenPlaceList : [Place]
     @Binding var isSelectQuestActive: Bool
     @Binding var isStartJourneyActive: Bool
     @Binding var isShowing: Bool
@@ -126,8 +128,6 @@ struct QuestModalView: View {
                     withAnimation{
                         self.isShowing = false
                     }
-                    
-                    
                     let p2 = MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: currentPlace!.latitude, longitude: currentPlace!.longitude))
                     
                     if(prevPlace != nil){
@@ -135,20 +135,26 @@ struct QuestModalView: View {
                         
                         print("debuh quest modal view : route prev place")
                         
-                        drawRoute(p1: p1, p2: p2)
+//                        drawRoute(p1: p1, p2: p2)
                     }else{
                         let p1 = MKPlacemark(coordinate: (mapView?.userLocation.coordinate)!)
                         
                         print("debuh quest modal view : route current user location")
                         
-                        drawRoute(p1: p1, p2: p2)
+//                        drawRoute(p1: p1, p2: p2)
                     }
-
+                    self.chosenQuestList.append(currentQuest!)
+                    self.chosenPlaceList.append(currentPlace!)
+                    
+                    print("Debug quest modal : \(chosenPlaceList.count)")
+                    print("Debug quest modal : \(chosenQuestList.count)")
+                    
+                    
+                    
+                    
+                    
                     self.prevQuest = currentQuest
                     self.prevPlace = currentPlace
-                    
-                    print(prevQuest?.title)
-                    
                 }
                 self.isSelectQuestActive = true
             }, label: {

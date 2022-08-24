@@ -12,7 +12,8 @@ import MapKit
 
 struct MapQuestView: View {
     @StateObject private var mapQuestViewModel = MapQuestViewModel()
-    @State private var chosenQuests : [Quest] = []
+    @State private var chosenQuestList : [Quest] = []
+    @State private var chosenPlaceList : [Place] = []
     
     @State private var showWelcomeModal = true
     @State private var showQuestModal = false
@@ -21,7 +22,6 @@ struct MapQuestView: View {
     @State private var showToScanModal = false
     @State private var directions: [String] = []
     @State private var showDirections = false
-    
     @State var currentQuest: Quest?
     @State var currentPlace: Place?
     @State var prevQuest: Quest?
@@ -55,6 +55,8 @@ struct MapQuestView: View {
             
             WelcomeView(isShowing: $showWelcomeModal)
             QuestModalView(mapView: self.$mapView,
+                           chosenQuestList: self.$chosenQuestList,
+                           chosenPlaceList: self.$chosenPlaceList,
                            isSelectQuestActive: self.$isSelectQuestActive,
                            isStartJourneyActive: self.$isStartJourneyActive,
                            isShowing: self.$showQuestModal,
