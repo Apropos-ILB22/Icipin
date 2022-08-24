@@ -12,7 +12,9 @@ struct IcipinApp: App {
     var body: some Scene {
         WindowGroup {
 //            OnboardingView()
-            MapQuestView()
+            NavigationView{
+                ScanpageView()
+            }
         }
     }
 }

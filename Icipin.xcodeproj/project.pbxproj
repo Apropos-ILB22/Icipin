@@ -31,6 +31,10 @@
 		7ED1DA7C28B37AFD00609519 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED1DA7B28B37AFD00609519 /* WelcomeView.swift */; };
 		7ED1DA7E28B37B4B00609519 /* QuestModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED1DA7D28B37B4B00609519 /* QuestModalView.swift */; };
 		7ED1DA8028B37BDE00609519 /* QuestClueModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED1DA7F28B37BDE00609519 /* QuestClueModalView.swift */; };
+		AC03DB2328B60FB0000B59C3 /* HalfASheet in Frameworks */ = {isa = PBXBuildFile; productRef = AC03DB2228B60FB0000B59C3 /* HalfASheet */; };
+		AC03DB2528B61058000B59C3 /* ScanPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC03DB2428B61058000B59C3 /* ScanPageView.swift */; };
+		AC03DB2728B61099000B59C3 /* Predict.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC03DB2628B61099000B59C3 /* Predict.swift */; };
+		AC03DB2A28B6168D000B59C3 /* IcipinDetector.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = AC03DB2928B6168D000B59C3 /* IcipinDetector.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +63,9 @@
 		7ED1DA7B28B37AFD00609519 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		7ED1DA7D28B37B4B00609519 /* QuestModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestModalView.swift; sourceTree = "<group>"; };
 		7ED1DA7F28B37BDE00609519 /* QuestClueModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestClueModalView.swift; sourceTree = "<group>"; };
+		AC03DB2428B61058000B59C3 /* ScanPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanPageView.swift; sourceTree = "<group>"; };
+		AC03DB2628B61099000B59C3 /* Predict.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Predict.swift; sourceTree = "<group>"; };
+		AC03DB2928B6168D000B59C3 /* IcipinDetector.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = IcipinDetector.mlmodel; path = "../../../../ML Icipin/IcipinDetector.mlmodel"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +74,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7ED1DA7828B37A9C00609519 /* HalfASheet in Frameworks */,
+				AC03DB2328B60FB0000B59C3 /* HalfASheet in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,8 +84,10 @@
 		7E029BF528B16E340055C481 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				AC03DB2928B6168D000B59C3 /* IcipinDetector.mlmodel */,
 				7E029BF928B16E710055C481 /* Icipin.xcdatamodeld */,
 				7E3C7C4E28B4E26100C6107A /* PlaceMetric.swift */,
+				AC03DB2628B61099000B59C3 /* Predict.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -107,6 +117,7 @@
 				7E3C7C4328B3E8DB00C6107A /* ToScanView.swift */,
 				7E3C7C4528B3E90200C6107A /* ToScanViewExtended.swift */,
 				7E3C7C5028B51F5C00C6107A /* StartJourneyModalView.swift */,
+				AC03DB2428B61058000B59C3 /* ScanPageView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -186,6 +197,7 @@
 			name = Icipin;
 			packageProductDependencies = (
 				7ED1DA7728B37A9C00609519 /* HalfASheet */,
+				AC03DB2228B60FB0000B59C3 /* HalfASheet */,
 			);
 			productName = Icipin;
 			productReference = 7ECF0CC028A9E50C0018C0BA /* Icipin.app */;
@@ -217,6 +229,7 @@
 			mainGroup = 7ECF0CB728A9E50C0018C0BA;
 			packageReferences = (
 				7ED1DA7628B37A9C00609519 /* XCRemoteSwiftPackageReference "HalfASheet" */,
+				AC03DB2128B60FB0000B59C3 /* XCRemoteSwiftPackageReference "HalfASheet" */,
 			);
 			productRefGroup = 7ECF0CC128A9E50C0018C0BA /* Products */;
 			projectDirPath = "";
@@ -248,14 +261,17 @@
 				7E029BF828B16E530055C481 /* CoreDataManager.swift in Sources */,
 				7E3C7C5128B51F5C00C6107A /* StartJourneyModalView.swift in Sources */,
 				7E3C7C4928B4CF1700C6107A /* UIColorExtension.swift in Sources */,
+				AC03DB2A28B6168D000B59C3 /* IcipinDetector.mlmodel in Sources */,
 				1D8E990728B38548007709B8 /* ScanLimitView.swift in Sources */,
 				1D93EB1D28B5B00D00C3FD13 /* StoryFoodView.swift in Sources */,
 				7E029C0428B17A000055C481 /* MapQuestViewModel.swift in Sources */,
 				7E029C0128B173030055C481 /* MapQuestView.swift in Sources */,
 				7ED1DA7E28B37B4B00609519 /* QuestModalView.swift in Sources */,
 				7E3C7C4B28B4CF3A00C6107A /* CustomPointAnnotation.swift in Sources */,
+				AC03DB2528B61058000B59C3 /* ScanPageView.swift in Sources */,
 				7ECF0CC428A9E50C0018C0BA /* IcipinApp.swift in Sources */,
 				7ED1DA7C28B37AFD00609519 /* WelcomeView.swift in Sources */,
+				AC03DB2728B61099000B59C3 /* Predict.swift in Sources */,
 				7ED1DA8028B37BDE00609519 /* QuestClueModalView.swift in Sources */,
 				7ED1DA7A28B37ABA00609519 /* ContentView.swift in Sources */,
 				7E029BFB28B16E710055C481 /* Icipin.xcdatamodeld in Sources */,
@@ -394,9 +410,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Icipin/Preview Content\"";
-				DEVELOPMENT_TEAM = 3F8C4P2T95;
+				DEVELOPMENT_TEAM = C8VS35NTZ7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "The app want to access camera";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Icipin apps needs your location to show the map.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -427,9 +444,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Icipin/Preview Content\"";
-				DEVELOPMENT_TEAM = 3F8C4P2T95;
+				DEVELOPMENT_TEAM = C8VS35NTZ7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "The app want to access camera";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Icipin apps needs your location to show the map.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -483,12 +501,25 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		AC03DB2128B60FB0000B59C3 /* XCRemoteSwiftPackageReference "HalfASheet" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/franklynw/HalfASheet";
+			requirement = {
+				branch = develop;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
 		7ED1DA7728B37A9C00609519 /* HalfASheet */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 7ED1DA7628B37A9C00609519 /* XCRemoteSwiftPackageReference "HalfASheet" */;
+			productName = HalfASheet;
+		};
+		AC03DB2228B60FB0000B59C3 /* HalfASheet */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AC03DB2128B60FB0000B59C3 /* XCRemoteSwiftPackageReference "HalfASheet" */;
 			productName = HalfASheet;
 		};
 /* End XCSwiftPackageProductDependency section */
