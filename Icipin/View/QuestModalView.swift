@@ -128,33 +128,26 @@ struct QuestModalView: View {
                     withAnimation{
                         self.isShowing = false
                     }
-                    let p2 = MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: currentPlace!.latitude, longitude: currentPlace!.longitude))
                     
-                    if(prevPlace != nil){
-                        let p1 = MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: prevPlace!.latitude, longitude: prevPlace!.longitude))
-                        
-                        print("debuh quest modal view : route prev place")
-                        
-//                        drawRoute(p1: p1, p2: p2)
-                    }else{
-                        let p1 = MKPlacemark(coordinate: (mapView?.userLocation.coordinate)!)
-                        
-                        print("debuh quest modal view : route current user location")
-                        
-//                        drawRoute(p1: p1, p2: p2)
-                    }
                     self.chosenQuestList.append(currentQuest!)
                     self.chosenPlaceList.append(currentPlace!)
                     
                     print("Debug quest modal : \(chosenPlaceList.count)")
                     print("Debug quest modal : \(chosenQuestList.count)")
                     
-                    
-                    
-                    
-                    
                     self.prevQuest = currentQuest
                     self.prevPlace = currentPlace
+                    
+                    drawRoute()
+                    
+//                    if let index = chosenPlaceList.firstIndex(of: currentPlace!) {
+//                      chosenPlaceList.remove(at: index) // array is now ["world", "hello"]
+//                    }
+//                    
+//                    if let index1 = chosenQuestList.firstIndex(of: currentQuest!) {
+//                      chosenQuestList.remove(at: index1) // array is now ["world", "hello"]
+//                    }
+                    
                 }
                 self.isSelectQuestActive = true
             }, label: {
@@ -185,7 +178,25 @@ struct QuestModalView: View {
         
     }
     
-    func drawRoute(p1: MKPlacemark, p2: MKPlacemark){
+    func drawRoute(){
+        mapView!.removeOverlays(mapView!.overlays)
+        var currPlace = mapView?.userLocation.coordinate
+        var prePlace = mapView?.userLocation.coordinate
+        
+        for place in self.chosenPlaceList {
+            currPlace = CLLocationCoordinate2D(latitude: place.latitude, longitude: place.longitude)
+                let p1 = MKPlacemark(coordinate: prePlace!)
+                let p2 = MKPlacemark(coordinate: currPlace!)
+                createPolyline(p1: p1, p2: p2)
+            prePlace = currPlace
+            
+            print("debug drawing \(prePlace) kdlj \(currPlace)")
+        }
+        mapView!.removeOverlays(mapView!.overlays)
+    }
+    
+    
+    func createPolyline(p1: MKPlacemark, p2: MKPlacemark){
         let request = MKDirections.Request()
         request.source = MKMapItem(placemark: p1)
         request.destination = MKMapItem(placemark: p2)

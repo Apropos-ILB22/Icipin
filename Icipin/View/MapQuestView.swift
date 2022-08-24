@@ -14,7 +14,7 @@ struct MapQuestView: View {
     @StateObject private var mapQuestViewModel = MapQuestViewModel()
     @State private var chosenQuestList : [Quest] = []
     @State private var chosenPlaceList : [Place] = []
-    
+
     @State private var showWelcomeModal = true
     @State private var showQuestModal = false
     @State var isSelectQuestActive = false
@@ -146,6 +146,8 @@ struct MapView: UIViewRepresentable {
             let renderer = MKPolylineRenderer(overlay: overlay)
             renderer.strokeColor = UIColor(Color("primary"))
             renderer.lineWidth = 3
+            
+            print("renderer overlay")
             return renderer
         }
         
