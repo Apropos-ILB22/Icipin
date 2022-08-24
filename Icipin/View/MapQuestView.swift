@@ -164,31 +164,12 @@ struct MapView: UIViewRepresentable {
             if annotation is MKUserLocation {
                 return nil
             }
-            
-            
-//            let region = MKCoordinateRegion(center: annotation.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005))
-//            mapView.setRegion(region, animated: true)
-            
-            
-//            guard let selectedAnnotate = annotation as? CustomPointAnnotation else {
-//                print("fail set data")
-//                return
-//            }
             let markAnnotation = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: "PIN")
             if let selectedAnnotate = annotation as? CustomPointAnnotation {
-                print(" debug mapuikit: \(selectedAnnotate.identifier)")
                 markAnnotation.markerTintColor = selectedAnnotate.quest?.color
-//                markAnnotation.glyphImage = UIImage(named: (selectedAnnotate.quest?.icon)!)
+                markAnnotation.glyphImage = UIImage(named: (selectedAnnotate.quest?.icon)!)
+                print(selectedAnnotate.quest?.icon)
             }
-            
-            markAnnotation.glyphImage = UIImage(named:"test")
-            
-//            markAnnotation.glyphImage = UIImage(named: "test")
-//            markAnnotation.canShowCallout = true
-//            markAnnotation.isDraggable = true
-//            markAnnotation.glyphTintColor = UIColor(Color.cyan.opacity(0.0))
-//            markAnnotation.glyphImage = UIImage(named: "drink_icon_annotation")
-//            markAnnotation.markerTintColor = UIColor(Color("primary").opacity(0.0))
             return markAnnotation
         }
         

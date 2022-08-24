@@ -81,7 +81,7 @@ struct QuestModalView: View {
             HStack {
                 VStack (alignment: .leading){
                     HStack{
-                        Image("test_bolagurita")
+                        Image((currentQuest?.category!)!)
                             .resizable()
                             .frame(width: 55, height: 55)
                             .padding(.leading,30)

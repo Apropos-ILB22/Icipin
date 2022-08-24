@@ -15,6 +15,7 @@
     </entity>
     <entity name="Quest" representedClassName="Quest" syncable="YES" codeGenerationType="class">
         <attribute name="category" optional="YES" attributeType="String"/>
+        <attribute name="food_img" optional="YES" attributeType="String"/>
         <attribute name="food_name" optional="YES" attributeType="String"/>
         <attribute name="hexcolor" optional="YES" attributeType="String"/>
         <attribute name="icon" optional="YES" attributeType="String"/>
@@ -29,6 +30,6 @@
     <elements>
         <element name="Clue" positionX="-21.8125" positionY="-67.91015625" width="128" height="74"/>
         <element name="Place" positionX="414.8125" positionY="101.5703125" width="128" height="133"/>
-        <element name="Quest" positionX="13.32421875" positionY="118.90625" width="128" height="194"/>
+        <element name="Quest" positionX="13.32421875" positionY="118.90625" width="128" height="209"/>
     </elements>
 </model>

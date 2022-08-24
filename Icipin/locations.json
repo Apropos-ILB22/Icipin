@@ -4,9 +4,10 @@
         {
             "category": "Makanan Berat",
             "food_name": "Udon",
+            "food_image": "img_udon",
             "hexcolor": "#A01BA8",
             "labelml": "udon",
-            "icon": "ic_quest_udon",
+            "icon": "ic_quest_food",
             "status": 0,
             "story": "Di zaman kuno, udon dilafalkan sebagai \"undon\". Konon orang Jepang mengenalnya pada abad pertengahan sebagai makanan asal Tiongkok. Sampai sekarang, pangsit (wonton) dalam dialek Wu ditulis sebagai 餛飩 dan dibaca sebagai undon. Dalam kitab Engishiki, \"undon\" diperkenalkan sebagai salah satu jenis makanan dari dinasti Tang. Tapi \"undon\" zaman itu mungkin lebih dekat dengan pangsit, karena berupa daging dibungkus lembaran tepung yang digilas tipis. Udon yang dikenal sekarang ini dulunya disebut Kirimugi, dan baru disebut \"udon\" sejak zaman Edo. Pada waktu itu, \"udon\" adalah nama untuk sejenis masakan berupa kirimugi yang dimakan dengan kuah hangat, atau didinginkan dengan air es setelah direbus.",
             "title": "Mie Gemuk",
@@ -52,9 +53,10 @@
         {
             "category": "Makanan Berat",
             "food_name": "Ramen",
+            "food_image": "img_ramen",
             "hexcolor": "#A01BA8",
             "labelml": "ramen",
-            "icon": "ic_quest_ramen",
+            "icon": "ic_quest_food",
             "status": 0,
             "story": "Menurut catatan sejarah Tokugawa Mitsukuni (Mito Komon) sering disebut sebagai orang Jepang yang pertama kali makan ramen. Masakan mi kuah ala Cina pertama kali dihidangkan untuk Tokugawa Mitsukuni. Pembuatnya adalah seorang ilmuwan Konghucu dalam pengasingan dari Dinasti Ming yang diundang untuk datang ke Domain Mito. Ramen diperkirakan mulai dinikmati rakyat banyak pada zaman dahulu. Pada waktu itu, ramen sudah masuk ke dalam menu berbagai rumah makan di kawasan permukiman keturunan Tionghoa di Kobe dan Yokohama. Setelah itu, pada zaman Taisho, penjual mi di Hokkaido sudah menjual ramen seperti ramen yang dikenal orang sekarang ini.",
             "title": "Mie Naruto",
@@ -100,9 +102,10 @@
         {
             "category": "Makanan Berat",
             "food_name": "Soto Betawi",
+            "food_image": "img_sotobetawi",
             "hexcolor": "#A01BA8",
             "labelml": "sotobetawi",
-            "icon": "ic_quest_sotobetawi",
+            "icon": "ic_quest_food",
             "status": 0,
             "story": " Istilah soto Betawi hadir dalam kuliner masakan Indonesia sekitar tahun 1977-1978, tetapi bukan berarti tidak ada soto sebelum tahun tersebut. Yang memopulerkan dan yang pertama memakai kata soto Betawi adalah penjual soto bernama Lie Boen Po di THR Lokasari / Prinsen Park, tentunya dengan ciri khas cita rasa sendiri.Banyak penjual soto pada masa tahun-tahun tersebut, biasanya menyebut dengan soto kaki Pak \"X\" atau sebutan lainnya. Istilah soto Betawi mulai menyebar menjadi istilah umum ketika penjual soto tersebut tutup sekitar tahun 1991.\n",
             "title": "Sup Susu Santan",
@@ -142,9 +145,10 @@
         {
             "category": "Cemilan",
             "food_name": "Takoyaki",
+            "food_image": "img_takoyaki",
             "hexcolor": "#FF3B30",
             "labelml": "takoyaki",
-            "icon": "ic_quest_takoyaki",
+            "icon": "ic_quest_snack",
             "status": 0,
             "story": "Di zaman Taisho sudah dijumpai kios pasar kaget yang menjual Choboyaki berupa goreng tepung terigu dengan isi konnyaku yang merupakan cikal bakal takoyaki. Choboyaki berkembang menjadi Rajioyaki yang berisi urat sapi dan bagian daging murah yang lain. Penganan disebut \"rajioyaki\" karena bentuknya yang bulat-bulat seperti tombol radio transistor pada waktu itu. Pada tahun 1933, kios takoyaki bernama Aizuya menjual Nikuyaki yang merupakan variasi rajioyaki yang diisi dengan daging sapi. Pada tahun 1935, kios Aizuya yang mengambil ide dari Akashiyaki mulai mengisikan gurita dan telur ke dalam rajioyaki dan menyebutnya sebagai takoyaki. Di sekitar tahun 1965-an, kios pasar kaget yang menjual takoyaki mulai bermunculan di daerah Kanto. Di pertengahan dekade 1990-an, Tokyo mengalami demam takoyaki yang dimulai oleh kios takoyaki bernama Kyōtako di daerah Shibuya. Di daerah Kyushu, perusahaan bernama Hatchandō menjual takoyaki secara keliling tetapi sekarang berubah menjadi perusahaan penjual takoyaki sebagai makanan beku",
             "title": "Bola Gurita",
@@ -190,9 +194,10 @@
         {
             "category": "Cemilan",
             "food_name": "Okonomiyaki",
+            "food_image": "food_image",
             "hexcolor": "#FF3B30",
             "labelml": "okonomiyaki",
-            "icon": "ic_quest_okonomiyaki",
+            "icon": "ic_quest_snack",
             "status": 0,
             "story": " Makanan khas jepang, bahan utamanya adalah tepung, telur dan berbagai macam sayuran, bentuknya bulat lebar dan pipih seperti pizza, disajikan bersama mayonaise, Katsuobushi (serbuk ikan) dan saus khas, rasanya gurih dan agak manis yang berasal dari mayonaise, Katsuobushi dan saus khas.",
             "title": "Martabak Jepang",
@@ -238,9 +243,10 @@
         {
             "category": "Minuman",
             "food_name": "Ocha",
+            "food_image": "img_ocha",
             "hexcolor": "#0073DF",
             "labelml": "ocha",
-            "icon": "ic_quest_ocha",
+            "icon": "ic_quest_drink",
             "status": 0,
             "story": "Teh hijau (Hanzi:绿茶 Hanzi tradisional: 綠茶 pinyin:Lǜ chá) adalah nama teh yang dibuat dari daun tanaman teh (Camellia sinensis) yang dipetik dan mengalami proses pemanasan untuk mencegah oksidasi, atau bisa juga berarti minuman yang dihasilkan dari menyeduh daun teh tersebut. Teh hijau merupakan minuman populer di daratan Tiongkok, Taiwan, Hong Kong, Jepang, Timur Tengah, Asia Tenggara dan semakin dikenal juga di negara Barat yang dulunya merupakan peminum teh hitam.",
             "title": "Daun Seduh",
@@ -292,9 +298,10 @@
         {
             "category": "Minuman",
             "food_name": "Ramune",
+            "food_image": "img_ramune",
             "labelml": "ramune",
             "hexcolor": "#0073DF",
-            "icon": "ic_quest_ramune",
+            "icon": "ic_quest_drink",
             "status": 0,
             "story": "Ramune (ラムネ) adalah minuman ringan berkarbonasi yang mulut botolnya disumbat dengan sebuah kelereng. Minuman ini diproduksi di Jepang oleh beberapa produsen minuman ringan tanpa diberi merek tertentu, dan hanya disebut ramune. Minuman ini dibuat dari campuran gula atau sirup jagung fruktosa tinggi ditambah asidulan dan citarasa sitrun atau jeruk nipis. Sejak diperkenalkan di Jepang pada zaman Meiji, ramune telah menjadi simbol modern musim panas di Jepang. Ramune dengan bentuk leher botol menyempit dan sumbat kelereng pertama kali diproduksi di Jepang sekitar tahun 1888. Ketika minuman bersoda dialirkan ke dalam botol, kelereng berada di leher botol.[1] Setelah botol diputar hingga mulut botol menghadap ke bawah, tekanan karbondioksida menyebabkan kelereng terdorong ke mulut botol. Kelereng tertahan di mulut botol karena adanya karet di mulut botol yang berfungsi sebagai gasket. Ketika ramune hendak diminum, kelereng ditekan ke bawah hingga jatuh tertahan di leher botol. Bagian dari tutup botol juga berfungsi sebagai alat untuk menekan kelereng. Ketika diminum, kelereng di leher botol mengeluarkan bunyi bergerincing.",
             "title": "Soda Buah",
@@ -327,5 +334,3 @@
         }
     ]
 }
-
-
