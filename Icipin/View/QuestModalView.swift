@@ -13,6 +13,7 @@ struct QuestModalView: View {
     @Binding var mapView: MKMapView?
     @Binding var chosenQuestList : [Quest]
     @Binding var chosenPlaceList : [Place]
+    @Binding var chosenRouteDistance: [Double]
     @Binding var isSelectQuestActive: Bool
     @Binding var isStartJourneyActive: Bool
     @Binding var isShowing: Bool
@@ -84,7 +85,7 @@ struct QuestModalView: View {
                             .padding(.leading,30)
                         VStack(alignment: .leading) {
                             Text((currentQuest?.title)!).fontWeight(.bold).font(.title2)
-                            Text("Cemilan").fontWeight(.medium).font(.title3)
+                            Text((currentQuest?.category)!).fontWeight(.medium).font(.title3)
                         }
                         Spacer()
                     }
@@ -133,6 +134,7 @@ struct QuestModalView: View {
 
                         self.chosenQuestList.append(currentQuest!)
                         self.chosenPlaceList.append(currentPlace!)
+                        self.chosenRouteDistance.append(metricDistance!)
 
                         print("Debug quest modal : \(chosenPlaceList.count)")
                         print("Debug quest modal : \(chosenQuestList.count)")
@@ -153,6 +155,7 @@ struct QuestModalView: View {
                         
                         self.chosenQuestList.append(currentQuest!)
                         self.chosenPlaceList.append(currentPlace!)
+                        self.chosenRouteDistance.append(metricDistance!)
                         
                         print("Debug quest modal : \(chosenPlaceList.count)")
                         print("Debug quest modal : \(chosenQuestList.count)")
@@ -163,12 +166,14 @@ struct QuestModalView: View {
                         drawRoute()
                     }else{
                         if let indexPlace = chosenPlaceList.firstIndex(of: currentPlace!) {
-                          chosenPlaceList.remove(at: indexPlace) // array is now ["world", "hello"]
+                          chosenPlaceList.remove(at: indexPlace)
+                            self.chosenRouteDistance.append(metricDistance!)
                         }
 
                         if let indexQuest = chosenQuestList.firstIndex(of: currentQuest!) {
-                          chosenQuestList.remove(at: indexQuest) // array is now ["world", "hello"]
+                          chosenQuestList.remove(at: indexQuest)
                         }
+                        
                         
                         drawRoute()
                     }
