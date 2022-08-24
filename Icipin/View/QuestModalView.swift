@@ -26,6 +26,7 @@ struct QuestModalView: View {
     
     @State private var showClueModal = false
     @State private var isDragging = false
+    @State private var buttonText = ""
     
     @State private var curHeight: CGFloat = 250
     let minHeight: CGFloat = 250
@@ -143,7 +144,7 @@ struct QuestModalView: View {
 //                    if let index = chosenPlaceList.firstIndex(of: currentPlace!) {
 //                      chosenPlaceList.remove(at: index) // array is now ["world", "hello"]
 //                    }
-//                    
+//
 //                    if let index1 = chosenQuestList.firstIndex(of: currentQuest!) {
 //                      chosenQuestList.remove(at: index1) // array is now ["world", "hello"]
 //                    }
@@ -151,7 +152,7 @@ struct QuestModalView: View {
                 }
                 self.isSelectQuestActive = true
             }, label: {
-                Text(self.isSelectQuestActive ? "TAMBAH QUEST" : "PILIH QUEST")
+                Text(self.isSelectQuestActive ? (chosenPlaceList.contains(currentPlace!) ? "HAPUS QUEST" : "TAMBAH QUEST") : "PILIH QUEST")
                     .font(.body)
                     .bold()
                     .frame(width: UIScreen .main.bounds.width-20, height: 58, alignment: .center)
