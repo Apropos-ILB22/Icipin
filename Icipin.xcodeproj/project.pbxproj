@@ -14,6 +14,7 @@
 		7E029BFB28B16E710055C481 /* Icipin.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7E029BF928B16E710055C481 /* Icipin.xcdatamodeld */; };
 		7E029C0128B173030055C481 /* MapQuestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E029C0028B173030055C481 /* MapQuestView.swift */; };
 		7E029C0428B17A000055C481 /* MapQuestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E029C0328B17A000055C481 /* MapQuestViewModel.swift */; };
+		7E275D0428B65B7700302C54 /* IcipinDetector.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 7E275D0328B65B7700302C54 /* IcipinDetector.mlmodel */; };
 		7E3C7C4428B3E8DB00C6107A /* ToScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3C7C4328B3E8DB00C6107A /* ToScanView.swift */; };
 		7E3C7C4628B3E90200C6107A /* ToScanViewExtended.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3C7C4528B3E90200C6107A /* ToScanViewExtended.swift */; };
 		7E3C7C4928B4CF1700C6107A /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3C7C4828B4CF1700C6107A /* UIColorExtension.swift */; };
@@ -34,7 +35,6 @@
 		AC03DB2328B60FB0000B59C3 /* HalfASheet in Frameworks */ = {isa = PBXBuildFile; productRef = AC03DB2228B60FB0000B59C3 /* HalfASheet */; };
 		AC03DB2528B61058000B59C3 /* ScanPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC03DB2428B61058000B59C3 /* ScanPageView.swift */; };
 		AC03DB2728B61099000B59C3 /* Predict.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC03DB2628B61099000B59C3 /* Predict.swift */; };
-		AC03DB2A28B6168D000B59C3 /* IcipinDetector.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = AC03DB2928B6168D000B59C3 /* IcipinDetector.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +46,7 @@
 		7E029C0028B173030055C481 /* MapQuestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapQuestView.swift; sourceTree = "<group>"; };
 		7E029C0328B17A000055C481 /* MapQuestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapQuestViewModel.swift; sourceTree = "<group>"; };
 		7E029C0528B184910055C481 /* Dummy.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Dummy.json; sourceTree = "<group>"; };
+		7E275D0328B65B7700302C54 /* IcipinDetector.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = IcipinDetector.mlmodel; sourceTree = "<group>"; };
 		7E3C7C4328B3E8DB00C6107A /* ToScanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToScanView.swift; sourceTree = "<group>"; };
 		7E3C7C4528B3E90200C6107A /* ToScanViewExtended.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToScanViewExtended.swift; sourceTree = "<group>"; };
 		7E3C7C4828B4CF1700C6107A /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
@@ -65,7 +66,6 @@
 		7ED1DA7F28B37BDE00609519 /* QuestClueModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestClueModalView.swift; sourceTree = "<group>"; };
 		AC03DB2428B61058000B59C3 /* ScanPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanPageView.swift; sourceTree = "<group>"; };
 		AC03DB2628B61099000B59C3 /* Predict.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Predict.swift; sourceTree = "<group>"; };
-		AC03DB2928B6168D000B59C3 /* IcipinDetector.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = IcipinDetector.mlmodel; path = "../../../../ML Icipin/IcipinDetector.mlmodel"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,7 +84,6 @@
 		7E029BF528B16E340055C481 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				AC03DB2928B6168D000B59C3 /* IcipinDetector.mlmodel */,
 				7E029BF928B16E710055C481 /* Icipin.xcdatamodeld */,
 				7E3C7C4E28B4E26100C6107A /* PlaceMetric.swift */,
 				AC03DB2628B61099000B59C3 /* Predict.swift */,
@@ -130,6 +129,14 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		7E275D0228B65B5D00302C54 /* MLModel */ = {
+			isa = PBXGroup;
+			children = (
+				7E275D0328B65B7700302C54 /* IcipinDetector.mlmodel */,
+			);
+			path = MLModel;
+			sourceTree = "<group>";
+		};
 		7E3C7C4728B4CEC300C6107A /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
@@ -159,6 +166,7 @@
 		7ECF0CC228A9E50C0018C0BA /* Icipin */ = {
 			isa = PBXGroup;
 			children = (
+				7E275D0228B65B5D00302C54 /* MLModel */,
 				7E029C0528B184910055C481 /* Dummy.json */,
 				7E029C0228B179EE0055C481 /* ViewModel */,
 				7E029BFE28B1729C0055C481 /* View */,
@@ -261,7 +269,7 @@
 				7E029BF828B16E530055C481 /* CoreDataManager.swift in Sources */,
 				7E3C7C5128B51F5C00C6107A /* StartJourneyModalView.swift in Sources */,
 				7E3C7C4928B4CF1700C6107A /* UIColorExtension.swift in Sources */,
-				AC03DB2A28B6168D000B59C3 /* IcipinDetector.mlmodel in Sources */,
+				7E275D0428B65B7700302C54 /* IcipinDetector.mlmodel in Sources */,
 				1D8E990728B38548007709B8 /* ScanLimitView.swift in Sources */,
 				1D93EB1D28B5B00D00C3FD13 /* StoryFoodView.swift in Sources */,
 				7E029C0428B17A000055C481 /* MapQuestViewModel.swift in Sources */,
