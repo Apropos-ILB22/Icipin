@@ -14,7 +14,8 @@ struct IcipinApp: App {
 //            ContentView()
 //            MapQuestView()
 //            SuccessView()
-            UnsuccessView(status: false)
+//           UnsuccessView(status: false)
+            OnboardingView()
         }
     }
 }
