@@ -15,11 +15,12 @@ struct MapQuestView: View {
     @State private var chosenQuestList : [Quest] = []
     @State private var chosenPlaceList : [Place] = []
     @State private var chosenRouteDistance: [Double] = []
-
+    
     @State private var showWelcomeModal = true
     @State private var showQuestModal = false
     @State var isSelectQuestActive = false
     @State var isStartJourneyActive = false
+    @State var isShowToScan = false
     @State private var showToScanModal = false
     @State private var directions: [String] = []
     @State private var showDirections = false
@@ -61,6 +62,7 @@ struct MapQuestView: View {
                            chosenRouteDistance: self.$chosenRouteDistance,
                            isSelectQuestActive: self.$isSelectQuestActive,
                            isStartJourneyActive: self.$isStartJourneyActive,
+                           isShowToScan: self.$isShowToScan,
                            isShowing: self.$showQuestModal,
                            currentQuest: self.$currentQuest,
                            currentPlace: self.$currentPlace,

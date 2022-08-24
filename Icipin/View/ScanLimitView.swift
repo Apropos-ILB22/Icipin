@@ -26,7 +26,6 @@ struct ScanLimitView: View {
                     .font(.subheadline)
                     .foregroundColor(.white)
                     .multilineTextAlignment(.center)
-
             }
         }
     }
