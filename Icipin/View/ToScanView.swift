@@ -89,7 +89,7 @@ struct ToScanView: View {
             Button(action: {
                 //quest
             }, label: {
-                Text("PILIH QUEST")
+                Text("SCAN")
                     .font(.body)
                     .bold()
             })
