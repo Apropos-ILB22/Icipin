@@ -22,6 +22,7 @@ struct ToScanView: View {
     @Binding var isShowing: Bool
     @State private var showToScanExtendedModal = false
     @State private var isDragging = false
+    @State private var showScanPageView = false
     
     @State private var curHeight: CGFloat = 250
     let minHeight: CGFloat = 250
@@ -87,9 +88,13 @@ struct ToScanView: View {
                 .padding(.trailing,20)
                 
             }
+            NavigationLink(destination: ScanpageView(), isActive: self.$showScanPageView){
+            }
             Spacer()
             Button(action: {
                 //quest
+                self.showScanPageView = true
+                
             }, label: {
                 Text("SCAN")
                     .font(.body)
