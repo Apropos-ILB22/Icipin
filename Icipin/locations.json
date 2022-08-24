@@ -1,68 +1,99 @@
 {
     "name": "Rivaldo",
-    "uuid": 100,
     "quest": [
         {
-            "uuid": 200,
-            "title": "Santan Kental",
-            "food_name": "Soto Betawi",
-            "story": "lorem ipsum dolor sit amet",
+            "category": "Makanan Utama",
+            "food_name": "Udon",
+            "hexcolor": "#AD23B4",
+            "icon": "ic_quest_udon",
             "status": 0,
+            "story": "Di zaman kuno, udon dilafalkan sebagai \"undon\". Konon orang Jepang mengenalnya pada abad pertengahan sebagai makanan asal Tiongkok. Sampai sekarang, pangsit (wonton) dalam dialek Wu ditulis sebagai 餛飩 dan dibaca sebagai undon. Dalam kitab Engishiki, \"undon\" diperkenalkan sebagai salah satu jenis makanan dari dinasti Tang. Tapi \"undon\" zaman itu mungkin lebih dekat dengan pangsit, karena berupa daging dibungkus lembaran tepung yang digilas tipis. Udon yang dikenal sekarang ini dulunya disebut Kirimugi, dan baru disebut \"udon\" sejak zaman Edo. Pada waktu itu, \"udon\" adalah nama untuk sejenis masakan berupa kirimugi yang dimakan dengan kuah hangat, atau didinginkan dengan air es setelah direbus.",
+            "title": "Mie Gemuk",
+            "clue": [
+                {
+                    "title" : "Makanan khas Jepang"
+
+                },
+                {
+                    "title" : "Bahan utamanya adalah tepung & bentuknya tebal dan panjang"
+
+                },
+                {
+                    "title" : "Disajikan dengan kuah kaldu atau kari dan berbagai toping"
+
+                },
+                {
+                    "title" : "Rasanya gurih yang berasal dari kuah kaldu atau kari."
+
+                }
+            ],
             "places": [
                 {
-                    "uuid": 301,
-                    "name": "Rumah Santan",
-                    "latitude": -4.2387462,
-                    "longitude": 151.58748975,
+                    "name": "Kashiwa",
+                    "latitude": -6.244652603646891,
+                    "longitude": 106.79883451622216,
                     "rating": 4.5
                 },
                 {
-                    "uuid": 302,
-                    "name": "Rumah Santan",
-                    "latitude": -4.2387462,
-                    "longitude": 151.58748975,
-                    "rating": 4.5
+                    "name": "Kaihomaru",
+                    "latitude": -6.24469832886767,
+                    "longitude": 106.79882296326792,
+                    "rating": 4.4
                 },
                 {
-                    "uuid": 303,
-                    "name": "Rumah Santan",
-                    "latitude": -4.2387462,
-                    "longitude": 151.58748975,
-                    "rating": 4.5
+                    "name": "Yagiya",
+                    "latitude": -6.244467612410853,
+                    "longitude": 106.79940007177358,
+                    "rating": 4.4
                 }
-                
             ]
         },
         {
-            "uuid": 201,
-            "title": "Santan Kental",
-            "food_name": "Soto Betawi",
-            "story": "lorem ipsum dolor sit amet",
+            "category": "Makanan Utama",
+            "food_name": "Ramen",
+            "hexcolor": "#AD23B4",
+            "icon": "ic_quest_ramen",
             "status": 0,
+            "story": "Menurut catatan sejarah Tokugawa Mitsukuni (Mito Komon) sering disebut sebagai orang Jepang yang pertama kali makan ramen. Masakan mi kuah ala Cina pertama kali dihidangkan untuk Tokugawa Mitsukuni. Pembuatnya adalah seorang ilmuwan Konghucu dalam pengasingan dari Dinasti Ming yang diundang untuk datang ke Domain Mito. Ramen diperkirakan mulai dinikmati rakyat banyak pada zaman dahulu. Pada waktu itu, ramen sudah masuk ke dalam menu berbagai rumah makan di kawasan permukiman keturunan Tionghoa di Kobe dan Yokohama. Setelah itu, pada zaman Taisho, penjual mi di Hokkaido sudah menjual ramen seperti ramen yang dikenal orang sekarang ini.",
+            "title": "Mie Naruto",
+            "clue": [
+                {
+                    "title" : "Makanan khas Jepang"
+
+                },
+                {
+                    "title" : "Bahan utamanya adalah tepung & bentuknya tipis dan panjang"
+
+                },
+                {
+                    "title" : "Disajikan dengan kuah kaldu dan berbagai toping"
+
+                },
+                {
+                    "title" : "Rasanya gurih yang berasal dari kuah kaldu."
+
+                }
+            ],
             "places": [
                 {
-                    "uuid": 304,
-                    "name": "Rumah Santan",
-                    "latitude": -4.2387462,
-                    "longitude": 151.58748975,
+                    "name": "Kashiwa",
+                    "latitude": -6.244652603646891,
+                    "longitude": 106.79883451622216,
                     "rating": 4.5
                 },
                 {
-                    "uuid": 305,
-                    "name": "Rumah Santan",
-                    "latitude": -4.2387462,
-                    "longitude": 151.58748975,
-                    "rating": 4.5
+                    "name": "Kaihomaru",
+                    "latitude": -6.24469832886767,
+                    "longitude": 106.79882296326792,
+                    "rating": 4.4
                 },
                 {
-                    "uuid": 306,
-                    "name": "Rumah Santan",
-                    "latitude": -4.2387462,
-                    "longitude": 151.58748975,
-                    "rating": 4.5
+                    "name": "Yagiya",
+                    "latitude": -6.244467612410853,
+                    "longitude": 106.79940007177358,
+                    "rating": 4.4
                 }
-                
             ]
-        },
+        }
     ]
 }
