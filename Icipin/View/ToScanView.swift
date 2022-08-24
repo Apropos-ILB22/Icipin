@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import MapKit
 
 struct ToScanView: View {
     
@@ -14,6 +15,7 @@ struct ToScanView: View {
     @Binding var chosenRouteDistance: [Double]
     @Binding var currentQuest: Quest?
     @Binding var currentPlace: Place?
+    @Binding var currentUserLocation: CLLocationCoordinate2D?
     @Binding var metricDistance: Double?
     @Binding var metricDuration: Double?
     

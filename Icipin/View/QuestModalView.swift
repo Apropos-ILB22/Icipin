@@ -20,6 +20,7 @@ struct QuestModalView: View {
     @Binding var isShowing: Bool
     @Binding var currentQuest: Quest?
     @Binding var currentPlace: Place?
+    @Binding var currentUserLocation: CLLocationCoordinate2D?
     @Binding var prevQuest: Quest?
     @Binding var prevPlace: Place?
 //    @Binding var currentPlaceMetric: PlaceMetric?
@@ -54,7 +55,7 @@ struct QuestModalView: View {
             }
             
             if isStartJourneyActive{
-                StartJourneyModalView(chosenQuestList: self.$chosenQuestList, chosenPlaceList: self.$chosenPlaceList, chosenRouteDistance: self.$chosenRouteDistance, currentQuest: self.$currentQuest, currentPlace: self.$currentPlace, metricDistance: self.$metricDistance, metricDuration: self.$metricDuration, showToScan: self.$isShowToScan, isShowing: self.$isStartJourneyActive)
+                StartJourneyModalView(chosenQuestList: self.$chosenQuestList, chosenPlaceList: self.$chosenPlaceList, chosenRouteDistance: self.$chosenRouteDistance, currentQuest: self.$currentQuest, currentPlace: self.$currentPlace, currentUserLocation: self.$currentUserLocation ,metricDistance: self.$metricDistance, metricDuration: self.$metricDuration, showToScan: self.$isShowToScan, isShowing: self.$isStartJourneyActive)
             }
         }
         .frame(maxWidth: .infinity,maxHeight: .infinity, alignment: .bottom)

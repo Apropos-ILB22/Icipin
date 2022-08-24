@@ -15,6 +15,7 @@ import Foundation
 //
 
 import SwiftUI
+import MapKit
 
 struct StartJourneyModalView: View {
     
@@ -23,6 +24,7 @@ struct StartJourneyModalView: View {
     @Binding var chosenRouteDistance: [Double]
     @Binding var currentQuest: Quest?
     @Binding var currentPlace: Place?
+    @Binding var currentUserLocation: CLLocationCoordinate2D?
     @Binding var metricDistance: Double?
     @Binding var metricDuration: Double?
     @Binding var showToScan: Bool
@@ -44,7 +46,7 @@ struct StartJourneyModalView: View {
         if(showToScan){
 //            ToScanView(isShowing: self.$showToScan)
             
-            ToScanView(chosenQuestList: self.$chosenQuestList, chosenPlaceList: self.$chosenPlaceList, chosenRouteDistance: self.$chosenRouteDistance, currentQuest: self.$currentQuest, currentPlace: self.$currentPlace, metricDistance: self.$metricDistance, metricDuration: self.$metricDuration, isShowing: self.$showToScan)
+            ToScanView(chosenQuestList: self.$chosenQuestList, chosenPlaceList: self.$chosenPlaceList, chosenRouteDistance: self.$chosenRouteDistance, currentQuest: self.$currentQuest, currentPlace: self.$currentPlace, currentUserLocation: self.$currentUserLocation, metricDistance: self.$metricDistance, metricDuration: self.$metricDuration, isShowing: self.$showToScan)
         }
     }
     
