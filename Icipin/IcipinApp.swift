@@ -11,7 +11,10 @@ import SwiftUI
 struct IcipinApp: App {
     var body: some Scene {
         WindowGroup {
-            OnboardingView()
+//            OnboardingView()
+            NavigationView{
+                ScanpageView()
+            }
         }
     }
 }
