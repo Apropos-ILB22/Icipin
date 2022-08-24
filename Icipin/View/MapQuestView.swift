@@ -24,6 +24,8 @@ struct MapQuestView: View {
     
     @State var currentQuest: Quest?
     @State var currentPlace: Place?
+    @State var prevQuest: Quest?
+    @State var prevPlace: Place?
     @State var metricDistance: Double?
     @State var metricDuration: Double?
     @State var mapView: MKMapView? = MKMapView()
@@ -38,6 +40,8 @@ struct MapQuestView: View {
                         isStartJourneyActive: self.$isStartJourneyActive,
                         currentQuest: self.$currentQuest,
                         currentPlace: self.$currentPlace,
+                        prevQuest: self.$prevQuest,
+                        prevPlace: self.$prevPlace,
                         metricDistance: self.$metricDistance,
                         metricDuration: self.$metricDuration,
                         mapQuestViewModel: self.mapQuestViewModel)
@@ -56,6 +60,8 @@ struct MapQuestView: View {
                            isShowing: self.$showQuestModal,
                            currentQuest: self.$currentQuest,
                            currentPlace: self.$currentPlace,
+                           prevQuest: self.$prevQuest,
+                           prevPlace: self.$prevPlace,
                            metricDistance: self.$metricDistance,
                            metricDuration: self.$metricDuration
             )
@@ -76,6 +82,8 @@ struct MapView: UIViewRepresentable {
     
     @Binding var currentQuest: Quest?
     @Binding var currentPlace: Place?
+    @Binding var prevQuest: Quest?
+    @Binding var prevPlace: Place?
     @Binding var metricDistance: Double?
     @Binding var metricDuration: Double?
 

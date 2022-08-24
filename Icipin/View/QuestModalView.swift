@@ -16,6 +16,8 @@ struct QuestModalView: View {
     @Binding var isShowing: Bool
     @Binding var currentQuest: Quest?
     @Binding var currentPlace: Place?
+    @Binding var prevQuest: Quest?
+    @Binding var prevPlace: Place?
 //    @Binding var currentPlaceMetric: PlaceMetric?
     @Binding var metricDistance: Double?
     @Binding var metricDuration: Double?
@@ -125,20 +127,27 @@ struct QuestModalView: View {
                         self.isShowing = false
                     }
                     
-                    let p1 = MKPlacemark(coordinate: (mapView?.userLocation.coordinate)!)
-                    let p2 = MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: currentPlace!.latitude, longitude: currentPlace!.longitude))
-        
-                    let request = MKDirections.Request()
-                    request.source = MKMapItem(placemark: p1)
-                    request.destination = MKMapItem(placemark: p2)
-                    request.transportType = .walking
                     
-                    let directions = MKDirections(request: request)
-                    directions.calculate{response, error in
-                        guard let route = response?.routes.first else {return}
-                        mapView!.addOverlay(route.polyline)
-                        mapView!.setVisibleMapRect(route.polyline.boundingMapRect,edgePadding: UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20),  animated: true)
+                    let p2 = MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: currentPlace!.latitude, longitude: currentPlace!.longitude))
+                    
+                    if(prevPlace != nil){
+                        let p1 = MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: prevPlace!.latitude, longitude: prevPlace!.longitude))
+                        
+                        print("debuh quest modal view : route prev place")
+                        
+                        drawRoute(p1: p1, p2: p2)
+                    }else{
+                        let p1 = MKPlacemark(coordinate: (mapView?.userLocation.coordinate)!)
+                        
+                        print("debuh quest modal view : route current user location")
+                        
+                        drawRoute(p1: p1, p2: p2)
                     }
+
+                    self.prevQuest = currentQuest
+                    self.prevPlace = currentPlace
+                    
+                    print(prevQuest?.title)
                     
                 }
                 self.isSelectQuestActive = true
@@ -168,6 +177,20 @@ struct QuestModalView: View {
         .animation(isDragging ? nil : .easeInOut(duration: 0.45), value: isDragging)
         .transition(.move(edge: .bottom))
         
+    }
+    
+    func drawRoute(p1: MKPlacemark, p2: MKPlacemark){
+        let request = MKDirections.Request()
+        request.source = MKMapItem(placemark: p1)
+        request.destination = MKMapItem(placemark: p2)
+        request.transportType = .walking
+        
+        let directions = MKDirections(request: request)
+        directions.calculate{response, error in
+            guard let route = response?.routes.first else {return}
+            mapView!.addOverlay(route.polyline)
+            mapView!.setVisibleMapRect(route.polyline.boundingMapRect,edgePadding: UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20),  animated: true)
+        }
     }
     
     @State private var prevDragTranslation = CGSize.zero
