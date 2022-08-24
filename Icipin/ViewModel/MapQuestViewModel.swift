@@ -50,6 +50,7 @@ class MapQuestViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
                 questCoreData.story = questResponse.story
                 questCoreData.labelml = questResponse.labelml
                 questCoreData.food_img = questResponse.food_image
+                questCoreData.food_name = questResponse.foodName
                 
                 for clueResponse in questResponse.clue {
                     let clueCoreData = Clue(context: CoreDataManager.shared.viewContext)

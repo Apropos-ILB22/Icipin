@@ -9,7 +9,7 @@ import SwiftUI
 
 struct StoryFoodView: View {
     
-    @Binding var isShowingClue: Bool
+    @Binding var isShowing: Bool
     @State private var isDragging = false
     @State private var showQuestModal = false
     
@@ -19,12 +19,12 @@ struct StoryFoodView: View {
     
     var body: some View {
         ZStack(alignment: .bottom){
-            if isShowingClue {
+            if isShowing {
                 Color.black
                     .opacity(0.3)
                     .ignoresSafeArea()
                     .onTapGesture {
-                        isShowingClue = false
+                        isShowing = false
                     }
                 mainView
             }
@@ -119,7 +119,7 @@ struct StoryFoodView: View {
                 }else if curHeight < minHeight {
                     curHeight = minHeight
                     withAnimation {
-                        isShowingClue = false
+                        isShowing = false
                     }
                 }
             }
@@ -128,6 +128,6 @@ struct StoryFoodView: View {
 
 struct StoryFoodView_Previews: PreviewProvider {
     static var previews: some View {
-        StoryFoodView(isShowingClue: .constant(true))
+        StoryFoodView(isShowing: .constant(true))
     }
 }

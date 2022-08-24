@@ -65,7 +65,7 @@ struct ScanpageView: View {
                         }
                     }
                 
-                NavigationLink(destination: SuccessView(), isActive: self.$showVerifiedPage){
+                NavigationLink(destination: SuccessView(currentQuest: self.$currentQuest), isActive: self.$showVerifiedPage){
                 }
                 .onReceive(timer){_ in
                     if(predict?.confidence ?? 0 > 0.8 && predict?.label == currentQuest?.labelml && timeRemaining < 12){

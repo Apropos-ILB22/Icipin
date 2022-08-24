@@ -55,13 +55,13 @@ struct QuestClueModalView: View {
             HStack {
                 VStack (alignment: .leading){
                     HStack{
-                        Image("test_bolagurita")
+                        Image((currentQuest?.category!)!)
                             .resizable()
                             .frame(width: 55, height: 55)
                             .padding(.leading,30)
                         VStack(alignment: .leading) {
                             Text((currentQuest?.title)!).fontWeight(.bold).font(.title2)
-                            Text("Cemilan").fontWeight(.medium).font(.title3)
+                            Text((currentQuest?.category)!).fontWeight(.medium).font(.title3)
                         }
                         Spacer()
                     }

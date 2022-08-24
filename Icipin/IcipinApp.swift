@@ -35,7 +35,7 @@ struct IcipinApp: App {
                 }
                 
                
-            }
+            }.preferredColorScheme(.light)
         }
     }
 }
