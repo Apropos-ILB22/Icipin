@@ -29,7 +29,9 @@ struct WelcomeView: View {
         .frame(maxWidth: .infinity,maxHeight: .infinity, alignment: .bottom)
         .ignoresSafeArea()
         .onTapGesture {
-            isShowing = false
+            withAnimation{
+                isShowing = false
+            }
         }
         
     }
