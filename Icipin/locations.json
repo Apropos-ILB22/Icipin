@@ -30,20 +30,20 @@
             "places": [
                 {
                     "name": "Kashiwa",
-                    "latitude": -6.244652603646891,
-                    "longitude": 106.79883451622216,
+                    "latitude": -6.244652603646899,
+                    "longitude": 106.79883451622219,
                     "rating": 4.5
                 },
                 {
                     "name": "Kaihomaru",
-                    "latitude": -6.24469832886767,
-                    "longitude": 106.79882296326792,
+                    "latitude": -6.24469832886769,
+                    "longitude": 106.79882296326799,
                     "rating": 4.4
                 },
                 {
                     "name": "Yagiya",
-                    "latitude": -6.244467612410853,
-                    "longitude": 106.79940007177358,
+                    "latitude": -6.244467612410859,
+                    "longitude": 106.79940007177359,
                     "rating": 4.4
                 }
             ]
