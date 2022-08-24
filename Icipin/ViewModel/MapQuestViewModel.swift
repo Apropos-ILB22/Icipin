@@ -27,6 +27,19 @@ class MapQuestViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
         }
     }
     
+    func loadJSONData(){
+        guard let url = Bundle.main.url(forResource: "db", withExtension: "json")
+        else {
+            fatalError("File not found")
+        }
+        
+        guard let data = try? Data(contentsOf: url) else {
+            return
+        }
+        
+        print(data)
+    }
+    
     func getUserLocation(){
         guard let locationManager = locationManager else {
             return

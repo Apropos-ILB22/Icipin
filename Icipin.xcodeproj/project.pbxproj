@@ -45,7 +45,7 @@
 		7E029BFA28B16E710055C481 /* Icipin.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Icipin.xcdatamodel; sourceTree = "<group>"; };
 		7E029C0028B173030055C481 /* MapQuestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapQuestView.swift; sourceTree = "<group>"; };
 		7E029C0328B17A000055C481 /* MapQuestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapQuestViewModel.swift; sourceTree = "<group>"; };
-		7E029C0528B184910055C481 /* Dummy.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Dummy.json; sourceTree = "<group>"; };
+		7E029C0528B184910055C481 /* db.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = db.json; sourceTree = "<group>"; };
 		7E275D0328B65B7700302C54 /* IcipinDetector.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = IcipinDetector.mlmodel; sourceTree = "<group>"; };
 		7E3C7C4328B3E8DB00C6107A /* ToScanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToScanView.swift; sourceTree = "<group>"; };
 		7E3C7C4528B3E90200C6107A /* ToScanViewExtended.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToScanViewExtended.swift; sourceTree = "<group>"; };
@@ -167,7 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				7E275D0228B65B5D00302C54 /* MLModel */,
-				7E029C0528B184910055C481 /* Dummy.json */,
+				7E029C0528B184910055C481 /* db.json */,
 				7E029C0228B179EE0055C481 /* ViewModel */,
 				7E029BFE28B1729C0055C481 /* View */,
 				7E029BF628B16E450055C481 /* CoreData */,
