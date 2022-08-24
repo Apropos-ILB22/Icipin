@@ -13,9 +13,15 @@ struct OnboardingView: View {
               UIPageControl.appearance().pageIndicatorTintColor = UIColor.systemTeal.withAlphaComponent(0.2)
            }
     
+    let userDefaults = UserDefaults.standard
+    
     @State var selectedItem = 0
+    @State var showMapViewQuest = false
+    
     var body: some View {
         VStack {
+            NavigationLink(destination: MapQuestView(), isActive: self.$showMapViewQuest){
+            }
             TabView(selection: $selectedItem){
                 PageView(
                     title: "Pilih Quest",
@@ -39,18 +45,22 @@ struct OnboardingView: View {
                     .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
             )
         .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
-            if selectedItem == 2{
-                Button(action: {
-                    
-                }, label: {
-                    Text("Mulai Perjalanan")
-                        .foregroundColor(.white)
-                        .frame(width: 358, height: 58)
-                        .background(Color("Color1"))
-                        .cornerRadius(20)
-                })
-            }
+                if selectedItem == 2{
+                    Button(action: {
+                        userDefaults.set(true, forKey: "onboard")
+                        self.showMapViewQuest = true
+                        print("pressed")
+                    }, label: {
+                        Text("Mulai Perjalanan")
+                            .foregroundColor(.white)
+                            .frame(width: 358, height: 58)
+                            .background(Color("Color1"))
+                            .cornerRadius(20)
+                    })
+                }
         }
+        
+        
     }
 }
 
