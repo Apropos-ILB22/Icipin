@@ -88,7 +88,7 @@ struct ToScanView: View {
                 .padding(.trailing,20)
                 
             }
-            NavigationLink(destination: ScanpageView(), isActive: self.$showScanPageView){
+            NavigationLink(destination: ScanpageView(currentQuest: self.$currentQuest, currentPlace: self.$currentPlace), isActive: self.$showScanPageView){
             }
             Spacer()
             Button(action: {
@@ -99,12 +99,13 @@ struct ToScanView: View {
                 Text("SCAN")
                     .font(.body)
                     .bold()
+                    .frame(width: UIScreen .main.bounds.width-20, height: 58, alignment: .center)
+                    .multilineTextAlignment(.center)
+                    .foregroundColor(.white)
+                    .background(Color("primary"))
+                    .cornerRadius(20)
             })
-            .frame(width: UIScreen .main.bounds.width-20, height: 58, alignment: .center)
-            .multilineTextAlignment(.center)
-            .foregroundColor(.white)
-            .background(Color("primary"))
-            .cornerRadius(20)
+            
         }
         .padding(.bottom,25)
         .frame(height: curHeight)

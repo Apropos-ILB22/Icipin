@@ -15,7 +15,7 @@ struct UserModel: Codable {
 
 // MARK: - Quest
 struct QuestModel: Codable {
-    let category, foodName, hexcolor, icon: String
+    let category, foodName, hexcolor, icon, labelml: String
     let status: Int
     let story, title: String
     let clue: [ClueModel]
@@ -24,7 +24,7 @@ struct QuestModel: Codable {
     enum CodingKeys: String, CodingKey {
         case category
         case foodName = "food_name"
-        case hexcolor, icon, status, story, title, clue, places
+        case hexcolor, icon, status, story, title, clue, places, labelml
     }
 }
 

@@ -47,7 +47,8 @@ class MapQuestViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
                 questCoreData.hexcolor = questResponse.hexcolor
                 questCoreData.icon = questResponse.icon
                 questCoreData.status = (questResponse.status != 0)
-                questCoreData.story = questCoreData.story
+                questCoreData.story = questResponse.story
+                questCoreData.labelml = questResponse.labelml
                 
                 for clueResponse in questResponse.clue {
                     let clueCoreData = Clue(context: CoreDataManager.shared.viewContext)

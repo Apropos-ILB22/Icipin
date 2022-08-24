@@ -10,7 +10,9 @@ import AVKit
 import Vision
 
 struct ScanpageView: View {
-//    @State var questItem: QuestItem
+    @Binding var currentQuest: Quest?
+    @Binding var currentPlace: Place?
+    
     @State var timeRemaining = 15
     @State var isShow = false
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
@@ -19,8 +21,6 @@ struct ScanpageView: View {
     @State var failedPage = false
     @State var predict : Predict? = nil
     let userDefaults = UserDefaults.standard
-    
-    var labelML = "takoyaki"
 
     var body: some View {
         //call UIKit VC
@@ -68,11 +68,11 @@ struct ScanpageView: View {
                 NavigationLink(destination: SuccessView(), isActive: self.$showVerifiedPage){
                 }
                 .onReceive(timer){_ in
-                    if(predict?.confidence ?? 0 > 0.8 && predict?.label == labelML && timeRemaining < 12){
+                    if(predict?.confidence ?? 0 > 0.8 && predict?.label == currentQuest?.labelml && timeRemaining < 12){
                         let fetchDict = userDefaults.object(forKey: "dictQuest") as? [String:Bool]
                         var updateDict = [String:Bool]()
                         fetchDict?.forEach{
-                            if($0.key == labelML){
+                            if($0.key == currentQuest?.labelml!){
                                 updateDict[$0.key] = true
                             }else{
                                 updateDict[$0.key] = $0.value

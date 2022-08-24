@@ -29,9 +29,12 @@ struct IcipinApp: App {
                 }else{
                     OnboardingView()
                 }
-                MapQuestView()
             }.onAppear{
-                mapQuestViewModel.loadJSONData()
+                if (userDefaults.bool(forKey: "onboard") == false){
+                    mapQuestViewModel.loadJSONData()
+                }
+                
+               
             }
         }
     }

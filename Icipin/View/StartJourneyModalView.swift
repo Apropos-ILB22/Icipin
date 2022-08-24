@@ -76,12 +76,13 @@ struct StartJourneyModalView: View {
                 Text("MULAI PETUALANGAN")
                     .font(.body)
                     .bold()
+                    .frame(width: UIScreen .main.bounds.width-20, height: 58, alignment: .center)
+                    .multilineTextAlignment(.center)
+                    .foregroundColor(.white)
+                    .background(Color("primary"))
+                    .cornerRadius(20)
             })
-            .frame(width: UIScreen .main.bounds.width-20, height: 58, alignment: .center)
-            .multilineTextAlignment(.center)
-            .foregroundColor(.white)
-            .background(Color("primary"))
-            .cornerRadius(20)
+           
         }
         .padding(.bottom,25)
         .frame(height: curHeight)
