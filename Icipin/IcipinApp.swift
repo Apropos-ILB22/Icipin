@@ -22,7 +22,6 @@ struct IcipinApp: App {
     
     var body: some Scene {
         WindowGroup {
-            
             NavigationView{
                 if isOnboardShowed {
                     MapQuestView()

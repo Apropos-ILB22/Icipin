@@ -26,6 +26,7 @@ struct QuestModalView: View {
     
     @State private var showClueModal = false
     @State private var isDragging = false
+    @State private var buttonText = ""
     
     @State private var curHeight: CGFloat = 250
     let minHeight: CGFloat = 250
@@ -122,43 +123,60 @@ struct QuestModalView: View {
             Button(action: {
                 if(isSelectQuestActive == false){
                     isSelectQuestActive = true
-                }else{
-                    isStartJourneyActive = true
+                    
+                    if(chosenPlaceList.count == 0){
+                        isStartJourneyActive = true
 
-                    withAnimation{
-                        self.isShowing = false
+                        withAnimation{
+                            self.isShowing = false
+                        }
+
+                        self.chosenQuestList.append(currentQuest!)
+                        self.chosenPlaceList.append(currentPlace!)
+
+                        print("Debug quest modal : \(chosenPlaceList.count)")
+                        print("Debug quest modal : \(chosenQuestList.count)")
+
+                        self.prevQuest = currentQuest
+                        self.prevPlace = currentPlace
+
+                        drawRoute()
                     }
-                    let p2 = MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: currentPlace!.latitude, longitude: currentPlace!.longitude))
+                }else{
                     
-                    if(prevPlace != nil){
-                        let p1 = MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: prevPlace!.latitude, longitude: prevPlace!.longitude))
+                    if(!chosenPlaceList.contains(currentPlace!)){
+                        isStartJourneyActive = true
+
+                        withAnimation{
+                            self.isShowing = false
+                        }
                         
-                        print("debuh quest modal view : route prev place")
+                        self.chosenQuestList.append(currentQuest!)
+                        self.chosenPlaceList.append(currentPlace!)
                         
-//                        drawRoute(p1: p1, p2: p2)
+                        print("Debug quest modal : \(chosenPlaceList.count)")
+                        print("Debug quest modal : \(chosenQuestList.count)")
+                        
+                        self.prevQuest = currentQuest
+                        self.prevPlace = currentPlace
+                        
+                        drawRoute()
                     }else{
-                        let p1 = MKPlacemark(coordinate: (mapView?.userLocation.coordinate)!)
+                        if let indexPlace = chosenPlaceList.firstIndex(of: currentPlace!) {
+                          chosenPlaceList.remove(at: indexPlace) // array is now ["world", "hello"]
+                        }
+
+                        if let indexQuest = chosenQuestList.firstIndex(of: currentQuest!) {
+                          chosenQuestList.remove(at: indexQuest) // array is now ["world", "hello"]
+                        }
                         
-                        print("debuh quest modal view : route current user location")
-                        
-//                        drawRoute(p1: p1, p2: p2)
+                        drawRoute()
                     }
-                    self.chosenQuestList.append(currentQuest!)
-                    self.chosenPlaceList.append(currentPlace!)
                     
-                    print("Debug quest modal : \(chosenPlaceList.count)")
-                    print("Debug quest modal : \(chosenQuestList.count)")
-                    
-                    
-                    
-                    
-                    
-                    self.prevQuest = currentQuest
-                    self.prevPlace = currentPlace
                 }
                 self.isSelectQuestActive = true
             }, label: {
-                Text(self.isSelectQuestActive ? "TAMBAH QUEST" : "PILIH QUEST")
+                Text(self.isSelectQuestActive ? (chosenPlaceList.contains(currentPlace!) ? "HAPUS QUEST" : "TAMBAH QUEST") : "PILIH QUEST")
                     .font(.body)
                     .bold()
                     .frame(width: UIScreen .main.bounds.width-20, height: 58, alignment: .center)
@@ -185,7 +203,24 @@ struct QuestModalView: View {
         
     }
     
-    func drawRoute(p1: MKPlacemark, p2: MKPlacemark){
+    func drawRoute(){
+        mapView!.removeOverlays(mapView!.overlays)
+        var currPlace = mapView?.userLocation.coordinate
+        var prePlace = mapView?.userLocation.coordinate
+        
+        for place in self.chosenPlaceList {
+            currPlace = CLLocationCoordinate2D(latitude: place.latitude, longitude: place.longitude)
+                let p1 = MKPlacemark(coordinate: prePlace!)
+                let p2 = MKPlacemark(coordinate: currPlace!)
+                createPolyline(p1: p1, p2: p2)
+            prePlace = currPlace
+            
+            print("debug drawing \(prePlace) kdlj \(currPlace)")
+        }
+        mapView!.removeOverlays(mapView!.overlays)
+    }
+    
+    func createPolyline(p1: MKPlacemark, p2: MKPlacemark){
         let request = MKDirections.Request()
         request.source = MKMapItem(placemark: p1)
         request.destination = MKMapItem(placemark: p2)
