@@ -13,6 +13,7 @@
         <relationship name="quest" toMany="YES" deletionRule="Nullify" destinationEntity="Quest" inverseName="places" inverseEntity="Quest"/>
     </entity>
     <entity name="Quest" representedClassName="Quest" syncable="YES" codeGenerationType="class">
+        <attribute name="category" optional="YES" attributeType="String"/>
         <attribute name="food_name" optional="YES" attributeType="String"/>
         <attribute name="hexcolor" optional="YES" attributeType="String"/>
         <attribute name="icon" optional="YES" attributeType="String"/>
@@ -26,6 +27,6 @@
     <elements>
         <element name="Clue" positionX="-21.8125" positionY="-67.91015625" width="128" height="59"/>
         <element name="Place" positionX="414.8125" positionY="101.5703125" width="128" height="133"/>
-        <element name="Quest" positionX="13.32421875" positionY="118.90625" width="128" height="164"/>
+        <element name="Quest" positionX="13.32421875" positionY="118.90625" width="128" height="179"/>
     </elements>
 </model>
