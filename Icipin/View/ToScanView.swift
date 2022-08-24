@@ -6,12 +6,23 @@
 //
 
 import SwiftUI
+import MapKit
 
 struct ToScanView: View {
+    
+    @Binding var chosenQuestList : [Quest]
+    @Binding var chosenPlaceList : [Place]
+    @Binding var chosenRouteDistance: [Double]
+    @Binding var currentQuest: Quest?
+    @Binding var currentPlace: Place?
+    @Binding var currentUserLocation: CLLocationCoordinate2D?
+    @Binding var metricDistance: Double?
+    @Binding var metricDuration: Double?
     
     @Binding var isShowing: Bool
     @State private var showToScanExtendedModal = false
     @State private var isDragging = false
+    @State private var showScanPageView = false
     
     @State private var curHeight: CGFloat = 250
     let minHeight: CGFloat = 250
@@ -52,10 +63,10 @@ struct ToScanView: View {
                     HStack{
                         VStack(alignment: .leading) {
                             HStack{
-                                Text("10 mnt").fontWeight(.bold).font(.title).foregroundColor(.blue)
-                                Text("(2.5 km)").fontWeight(.medium).font(.title3)
+                                Text("\(String(format: "%.0f", (metricDuration ?? 1) / 60)) mnt").fontWeight(.bold).font(.title).foregroundColor(.blue)
+                                Text("(\(String(format: "%.1f", (metricDistance ?? 1) / 1000)) km)").fontWeight(.medium).font(.title3)
                             }
-                            Text("menuju BOLA GURITA").fontWeight(.medium).font(.title3)
+                            Text("menuju \((currentQuest?.title?.uppercased())!)").fontWeight(.medium).font(.title3)
                         }
                         Spacer()
                     }
@@ -77,11 +88,15 @@ struct ToScanView: View {
                 .padding(.trailing,20)
                 
             }
+            NavigationLink(destination: ScanpageView(), isActive: self.$showScanPageView){
+            }
             Spacer()
             Button(action: {
                 //quest
+                self.showScanPageView = true
+                
             }, label: {
-                Text("PILIH QUEST")
+                Text("SCAN")
                     .font(.body)
                     .bold()
             })
@@ -139,9 +154,9 @@ struct ToScanView: View {
 }
 
 
-struct ToScanView_Previews: PreviewProvider {
-    static var previews: some View {
-        ToScanView(isShowing: .constant(true))
-    }
-}
+//struct ToScanView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ToScanView(isShowing: .constant(true))
+//    }
+//}
 

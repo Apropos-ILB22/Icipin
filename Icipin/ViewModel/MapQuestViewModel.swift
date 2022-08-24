@@ -27,6 +27,54 @@ class MapQuestViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
         }
     }
     
+    func loadJSONData(){
+        guard let url = Bundle.main.url(forResource: "locations", withExtension: "json") else {
+            fatalError("File json not found")
+        }
+        
+        guard let data = try? Data(contentsOf: url) else {
+            return
+        }
+        
+        do {
+            let userData = try JSONDecoder().decode(UserModel.self, from: data)
+            
+            for questResponse in userData.quest {
+                let questCoreData = Quest(context: CoreDataManager.shared.viewContext)
+                questCoreData.uuid = UUID()
+                questCoreData.title = questResponse.title
+                questCoreData.category = questResponse.category
+                questCoreData.hexcolor = questResponse.hexcolor
+                questCoreData.icon = questResponse.icon
+                questCoreData.status = (questResponse.status != 0)
+                questCoreData.story = questCoreData.story
+                
+                for clueResponse in questResponse.clue {
+                    let clueCoreData = Clue(context: CoreDataManager.shared.viewContext)
+                    clueCoreData.uuid = UUID()
+                    clueCoreData.title = clueResponse.title
+                    questCoreData.addToClues(clueCoreData)
+                }
+                
+                for placeResponse in questResponse.places {
+                    let placeCoreData = Place(context: CoreDataManager.shared.viewContext)
+                    placeCoreData.uuid = UUID()
+                    placeCoreData.longitude = placeResponse.longitude
+                    placeCoreData.latitude = placeResponse.latitude
+                    placeCoreData.name = placeResponse.name
+                    placeCoreData.rating = Float(placeResponse.rating)
+                    
+                    questCoreData.addToPlaces(placeCoreData)
+                }
+            }
+            CoreDataManager.shared.saveContext()
+            
+        }catch{
+            fatalError("error while parsing json file")
+        }
+        
+    }
+    
     func getUserLocation(){
         guard let locationManager = locationManager else {
             return

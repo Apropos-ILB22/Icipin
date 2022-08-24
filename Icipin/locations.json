@@ -1,0 +1,369 @@
+{
+    "name": "Rivaldo",
+    "quest": [
+        {
+            "category": "Makanan Utama",
+            "food_name": "Udon",
+            "hexcolor": "#AD23B4",
+            "icon": "ic_quest_udon",
+            "status": 0,
+            "story": "Di zaman kuno, udon dilafalkan sebagai \"undon\". Konon orang Jepang mengenalnya pada abad pertengahan sebagai makanan asal Tiongkok. Sampai sekarang, pangsit (wonton) dalam dialek Wu ditulis sebagai 餛飩 dan dibaca sebagai undon. Dalam kitab Engishiki, \"undon\" diperkenalkan sebagai salah satu jenis makanan dari dinasti Tang. Tapi \"undon\" zaman itu mungkin lebih dekat dengan pangsit, karena berupa daging dibungkus lembaran tepung yang digilas tipis. Udon yang dikenal sekarang ini dulunya disebut Kirimugi, dan baru disebut \"udon\" sejak zaman Edo. Pada waktu itu, \"udon\" adalah nama untuk sejenis masakan berupa kirimugi yang dimakan dengan kuah hangat, atau didinginkan dengan air es setelah direbus.",
+            "title": "Mie Gemuk",
+            "clue": [
+                {
+                    "title" : "Makanan khas Jepang"
+
+                },
+                {
+                    "title" : "Bahan utamanya adalah tepung & bentuknya tebal dan panjang"
+
+                },
+                {
+                    "title" : "Disajikan dengan kuah kaldu atau kari dan berbagai toping"
+
+                },
+                {
+                    "title" : "Rasanya gurih yang berasal dari kuah kaldu atau kari."
+
+                }
+            ],
+            "places": [
+                {
+                    "name": "Kashiwa",
+                    "latitude": -6.244652603646891,
+                    "longitude": 106.79883451622216,
+                    "rating": 4.5
+                },
+                {
+                    "name": "Kaihomaru",
+                    "latitude": -6.24469832886767,
+                    "longitude": 106.79882296326792,
+                    "rating": 4.4
+                },
+                {
+                    "name": "Yagiya",
+                    "latitude": -6.244467612410853,
+                    "longitude": 106.79940007177358,
+                    "rating": 4.4
+                }
+            ]
+        },
+        {
+            "category": "Makanan Utama",
+            "food_name": "Ramen",
+            "hexcolor": "#AD23B4",
+            "icon": "ic_quest_ramen",
+            "status": 0,
+            "story": "Menurut catatan sejarah Tokugawa Mitsukuni (Mito Komon) sering disebut sebagai orang Jepang yang pertama kali makan ramen. Masakan mi kuah ala Cina pertama kali dihidangkan untuk Tokugawa Mitsukuni. Pembuatnya adalah seorang ilmuwan Konghucu dalam pengasingan dari Dinasti Ming yang diundang untuk datang ke Domain Mito. Ramen diperkirakan mulai dinikmati rakyat banyak pada zaman dahulu. Pada waktu itu, ramen sudah masuk ke dalam menu berbagai rumah makan di kawasan permukiman keturunan Tionghoa di Kobe dan Yokohama. Setelah itu, pada zaman Taisho, penjual mi di Hokkaido sudah menjual ramen seperti ramen yang dikenal orang sekarang ini.",
+            "title": "Mie Naruto",
+            "clue": [
+                {
+                    "title" : "Makanan khas Jepang"
+
+                },
+                {
+                    "title" : "Bahan utamanya adalah tepung & bentuknya tipis dan panjang"
+
+                },
+                {
+                    "title" : "Disajikan dengan kuah kaldu dan berbagai toping"
+
+                },
+                {
+                    "title" : "Rasanya gurih yang berasal dari kuah kaldu."
+
+                }
+            ],
+            "places": [
+                {
+                    "name": "Kashiwa",
+                    "latitude": -6.244652603646891,
+                    "longitude": 106.79883451622216,
+                    "rating": 4.5
+                },
+                {
+                    "name": "Kaihomaru",
+                    "latitude": -6.24469832886767,
+                    "longitude": 106.79882296326792,
+                    "rating": 4.4
+                },
+                {
+                    "name": "Yagiya",
+                    "latitude": -6.244467612410853,
+                    "longitude": 106.79940007177358,
+                    "rating": 4.4
+                }
+            ]
+        },
+        {
+            "category": "Makanan Utama",
+            "food_name": "Ramen",
+            "hexcolor": "#AD23B4",
+            "icon": "ic_quest_ramen",
+            "status": 0,
+            "story": "Menurut catatan sejarah Tokugawa Mitsukuni (Mito Komon) sering disebut sebagai orang Jepang yang pertama kali makan ramen. Masakan mi kuah ala Cina pertama kali dihidangkan untuk Tokugawa Mitsukuni. Pembuatnya adalah seorang ilmuwan Konghucu dalam pengasingan dari Dinasti Ming yang diundang untuk datang ke Domain Mito. Ramen diperkirakan mulai dinikmati rakyat banyak pada zaman dahulu. Pada waktu itu, ramen sudah masuk ke dalam menu berbagai rumah makan di kawasan permukiman keturunan Tionghoa di Kobe dan Yokohama. Setelah itu, pada zaman Taisho, penjual mi di Hokkaido sudah menjual ramen seperti ramen yang dikenal orang sekarang ini.",
+            "title": "Mie Naruto",
+            "clue": [
+                {
+                    "title" : "Makanan khas Jepang"
+
+                },
+                {
+                    "title" : "Bahan utamanya adalah tepung & bentuknya tipis dan panjang"
+
+                },
+                {
+                    "title" : "Disajikan dengan kuah kaldu dan berbagai toping"
+
+                },
+                {
+                    "title" : "Rasanya gurih yang berasal dari kuah kaldu."
+
+                }
+            ],
+            "places": [
+                {
+                    "name": "Kashiwa",
+                    "latitude": -6.244652603646891,
+                    "longitude": 106.79883451622216,
+                    "rating": 4.5
+                },
+                {
+                    "name": "Kaihomaru",
+                    "latitude": -6.24469832886767,
+                    "longitude": 106.79882296326792,
+                    "rating": 4.4
+                },
+                {
+                    "name": "Yagiya",
+                    "latitude": -6.244467612410853,
+                    "longitude": 106.79940007177358,
+                    "rating": 4.4
+                }
+            ]
+        },
+        {
+            "category": "Makanan Utama",
+            "food_name": "Soto Betawi",
+            "hexcolor": "#AD23B4",
+            "icon": "ic_quest_sotobetawi",
+            "status": 0,
+            "story": " Istilah soto Betawi hadir dalam kuliner masakan Indonesia sekitar tahun 1977-1978, tetapi bukan berarti tidak ada soto sebelum tahun tersebut. Yang memopulerkan dan yang pertama memakai kata soto Betawi adalah penjual soto bernama Lie Boen Po di THR Lokasari / Prinsen Park, tentunya dengan ciri khas cita rasa sendiri.Banyak penjual soto pada masa tahun-tahun tersebut, biasanya menyebut dengan soto kaki Pak \"X\" atau sebutan lainnya. Istilah soto Betawi mulai menyebar menjadi istilah umum ketika penjual soto tersebut tutup sekitar tahun 1991.\n",
+            "title": "Sup Susu Santan",
+            "clue": [
+                {
+                    "title" : "Makanan khas betawi"
+
+                },
+                {
+                    "title" : "Bahan utamanya adalah daging ayam/sapi,santan,susu, dan berbagai rempah khas"
+
+                },
+                {
+                    "title" : "Disajikan dengan mangkok sup lengkap dengan nasi dan sambal"
+
+                },
+                {
+                    "title" : "Rasanya sangat gurih dan kental"
+
+                }
+            ],
+            "places": [
+                {
+                    "name": "Sop Iga Buntut & Soto Betawi ",
+                    "latitude": -6.244995057642209,
+                    "longitude": 106.80060670833691,
+                    "rating": 4.4
+                },
+                {
+                    "name": "Soto Betawi Mak Pyar",
+                    "latitude": -6.244808764998777,
+                    "longitude": 106.80136153280397,
+                    "rating": 4.5
+                }
+            ]
+        },
+        {
+            "category": "Cemilan",
+            "food_name": "Takoyaki",
+            "hexcolor": "#AD23B4",
+            "icon": "ic_quest_takoyaki",
+            "status": 0,
+            "story": "Di zaman Taisho sudah dijumpai kios pasar kaget yang menjual Choboyaki berupa goreng tepung terigu dengan isi konnyaku yang merupakan cikal bakal takoyaki. Choboyaki berkembang menjadi Rajioyaki yang berisi urat sapi dan bagian daging murah yang lain. Penganan disebut \"rajioyaki\" karena bentuknya yang bulat-bulat seperti tombol radio transistor pada waktu itu. Pada tahun 1933, kios takoyaki bernama Aizuya menjual Nikuyaki yang merupakan variasi rajioyaki yang diisi dengan daging sapi. Pada tahun 1935, kios Aizuya yang mengambil ide dari Akashiyaki mulai mengisikan gurita dan telur ke dalam rajioyaki dan menyebutnya sebagai takoyaki. Di sekitar tahun 1965-an, kios pasar kaget yang menjual takoyaki mulai bermunculan di daerah Kanto. Di pertengahan dekade 1990-an, Tokyo mengalami demam takoyaki yang dimulai oleh kios takoyaki bernama Kyōtako di daerah Shibuya. Di daerah Kyushu, perusahaan bernama Hatchandō menjual takoyaki secara keliling tetapi sekarang berubah menjadi perusahaan penjual takoyaki sebagai makanan beku",
+            "title": "Bola Gurita",
+            "clue": [
+                {
+                    "title" : "Makanan khas Jepang"
+
+                },
+                {
+                    "title" : "Bahan utamanya adalah tepung dan gurita"
+
+                },
+                {
+                    "title" : "Bentuknya seperti bola pingpong, disajikan bersama mayonaise dan serbuk ikan"
+
+                },
+                {
+                    "title" : "Rasanya gurih dan agak manis yang berasal dari mayonaise"
+
+                }
+            ],
+            "places": [
+                {
+                    "name": "Kashiwa",
+                    "latitude": -6.244652603646891,
+                    "longitude":  106.79883451622216,
+                    "rating": 4.5
+                },
+                {
+                    "name": "Tamba Anbai",
+                    "latitude": -6.244856506444743,
+                    "longitude": 106.79882783171358,
+                    "rating": 4.4
+                },
+                {
+                    "name": "Naruto Takoyaki",
+                    "latitude": -6.244442547505861,
+                    "longitude": 106.79874378281835,
+                    "rating": 4.5
+                }
+            ]
+        },
+        {
+            "category": "Cemilan",
+            "food_name": "Okonomiyaki",
+            "hexcolor": "#AD23B4",
+            "icon": "ic_quest_okonomiyaki",
+            "status": 0,
+            "story": " Makanan khas jepang, bahan utamanya adalah tepung, telur dan berbagai macam sayuran, bentuknya bulat lebar dan pipih seperti pizza, disajikan bersama mayonaise, Katsuobushi (serbuk ikan) dan saus khas, rasanya gurih dan agak manis yang berasal dari mayonaise, Katsuobushi dan saus khas.",
+            "title": "Martabak Jepang",
+            "clue": [
+                {
+                    "title" : "Makanan khas Jepang"
+
+                },
+                {
+                    "title" : "Bahan utamanya adalah tepung, telur, berbagai macam sayuran dan aneka seafood"
+
+                },
+                {
+                    "title" : "Bentuknya bulat lebar dan pipih seperti pancake / martabak"
+
+                },
+                {
+                    "title" : "Disajikan bersama mayonaise, Katsuobushi (serbuk ikan) dan saus khas, rasanya gurih dan agak pedas manis yang berasal dari mayonaise, Katsuobushi dan saus khas"
+
+                }
+            ],
+            "places": [
+                {
+                    "name": "Kashiwa",
+                    "latitude": -6.244652603646891,
+                    "longitude":  106.79883451622216,
+                    "rating": 4.5
+                },
+                {
+                    "name": "Tamba Anbai",
+                    "latitude": -6.244856506444743,
+                    "longitude": 106.79882783171358,
+                    "rating": 4.4
+                },
+                {
+                    "name": "RESTO & BAR \"B\" (JAPANESE & BAR JEPANG)",
+                    "latitude": -6.244321134399763,
+                    "longitude": 106.7982825269808,
+                    "rating": 4.8
+                }
+            ]
+        },
+        {
+            "category": "Minuman",
+            "food_name": "Ocha",
+            "hexcolor": "#AD23B4",
+            "icon": "ic_quest_ocha",
+            "status": 0,
+            "story": "Teh hijau (Hanzi:绿茶 Hanzi tradisional: 綠茶 pinyin:Lǜ chá) adalah nama teh yang dibuat dari daun tanaman teh (Camellia sinensis) yang dipetik dan mengalami proses pemanasan untuk mencegah oksidasi, atau bisa juga berarti minuman yang dihasilkan dari menyeduh daun teh tersebut. Teh hijau merupakan minuman populer di daratan Tiongkok, Taiwan, Hong Kong, Jepang, Timur Tengah, Asia Tenggara dan semakin dikenal juga di negara Barat yang dulunya merupakan peminum teh hitam.",
+            "title": "Daun Seduh",
+            "clue": [
+                {
+                    "title" : "Minuman khas Jepang"
+
+                },
+                {
+                    "title" : "Minuman ini adalah hasil seduhan dari sebuah daun"
+
+                },
+                {
+                    "title" : "Warnanya coklat kemerahan dan bisa disajikan hangat atau dingin"
+
+                },
+                {
+                    "title" : "Rasa aslinya agak pahit"
+
+                }
+            ],
+            "places": [
+                {
+                    "name": "Kashiwa",
+                    "latitude": -6.244652603646891,
+                    "longitude":  106.79883451622216,
+                    "rating": 4.5
+                },
+                {
+                    "name": "Kaihomaru",
+                    "latitude": -6.24469832886767,
+                    "longitude": 106.79882296326792,
+                    "rating": 4.4
+                },
+                {
+                    "name": "Yagiya",
+                    "latitude": -6.244321134399763,
+                    "longitude": 106.79940007177358,
+                    "rating": 4.4
+                },
+                {
+                    "name": "Papaya Fresh Gallery - BlokM",
+                    "latitude": 6.2456028621820865,
+                    "longitude": 106.79881853200425,
+                    "rating": 4.6
+                }
+            ]
+        },
+        {
+            "category": "Minuman",
+            "food_name": "Ramune",
+            "hexcolor": "#AD23B4",
+            "icon": "ic_quest_ramune",
+            "status": 0,
+            "story": "Ramune (ラムネ) adalah minuman ringan berkarbonasi yang mulut botolnya disumbat dengan sebuah kelereng. Minuman ini diproduksi di Jepang oleh beberapa produsen minuman ringan tanpa diberi merek tertentu, dan hanya disebut ramune. Minuman ini dibuat dari campuran gula atau sirup jagung fruktosa tinggi ditambah asidulan dan citarasa sitrun atau jeruk nipis. Sejak diperkenalkan di Jepang pada zaman Meiji, ramune telah menjadi simbol modern musim panas di Jepang. Ramune dengan bentuk leher botol menyempit dan sumbat kelereng pertama kali diproduksi di Jepang sekitar tahun 1888. Ketika minuman bersoda dialirkan ke dalam botol, kelereng berada di leher botol.[1] Setelah botol diputar hingga mulut botol menghadap ke bawah, tekanan karbondioksida menyebabkan kelereng terdorong ke mulut botol. Kelereng tertahan di mulut botol karena adanya karet di mulut botol yang berfungsi sebagai gasket. Ketika ramune hendak diminum, kelereng ditekan ke bawah hingga jatuh tertahan di leher botol. Bagian dari tutup botol juga berfungsi sebagai alat untuk menekan kelereng. Ketika diminum, kelereng di leher botol mengeluarkan bunyi bergerincing.",
+            "title": "Soda Buah",
+            "clue": [
+                {
+                    "title" : "Minuman soda khas Jepang"
+
+                },
+                {
+                    "title" : "Minuman ini adalah minuman bersoda yang memiliki rasa buah (umumnya lemon)"
+
+                },
+                {
+                    "title" : "Warnanya berbagai macam tergantung rasa buahnya dan dikemas dengan botol kaca dan kelereng dileher botol"
+
+                },
+                {
+                    "title" : "Rasanya manis dan tergantung jenis buah"
+
+                }
+            ],
+            "places": [
+                {
+                    "name": "Papaya Fresh Gallery - BlokM",
+                    "latitude": 6.2456028621820865,
+                    "longitude": 106.79881853200425,
+                    "rating": 4.6
+                }
+            ]
+        }
+    ]
+}

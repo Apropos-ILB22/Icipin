@@ -14,11 +14,13 @@ struct MapQuestView: View {
     @StateObject private var mapQuestViewModel = MapQuestViewModel()
     @State private var chosenQuestList : [Quest] = []
     @State private var chosenPlaceList : [Place] = []
-
+    @State private var chosenRouteDistance: [Double] = []
+    
     @State private var showWelcomeModal = true
     @State private var showQuestModal = false
     @State var isSelectQuestActive = false
     @State var isStartJourneyActive = false
+    @State var isShowToScan = false
     @State private var showToScanModal = false
     @State private var directions: [String] = []
     @State private var showDirections = false
@@ -29,11 +31,13 @@ struct MapQuestView: View {
     @State var metricDistance: Double?
     @State var metricDuration: Double?
     @State var mapView: MKMapView? = MKMapView()
+    @State var currentUserLocation: CLLocationCoordinate2D? = nil
     
     var body: some View {
         ZStack {
             VStack {
                 MapView(mapView: self.$mapView, directions: self.$directions,
+                        currentUserLocation: self.$currentUserLocation,
                         showQuestModal: self.$showQuestModal,
                         showWelcomeModal: self.$showWelcomeModal,
                         isSelectQuestActive: self.$isSelectQuestActive,
@@ -57,11 +61,14 @@ struct MapQuestView: View {
             QuestModalView(mapView: self.$mapView,
                            chosenQuestList: self.$chosenQuestList,
                            chosenPlaceList: self.$chosenPlaceList,
+                           chosenRouteDistance: self.$chosenRouteDistance,
                            isSelectQuestActive: self.$isSelectQuestActive,
                            isStartJourneyActive: self.$isStartJourneyActive,
+                           isShowToScan: self.$isShowToScan,
                            isShowing: self.$showQuestModal,
                            currentQuest: self.$currentQuest,
                            currentPlace: self.$currentPlace,
+                           currentUserLocation: self.$currentUserLocation,
                            prevQuest: self.$prevQuest,
                            prevPlace: self.$prevPlace,
                            metricDistance: self.$metricDistance,
@@ -76,7 +83,7 @@ struct MapView: UIViewRepresentable {
     @Binding var mapView: MKMapView?
     
     @Binding var directions: [String]
-    @State var currentUserLocation: CLLocationCoordinate2D? = nil
+    @Binding var currentUserLocation: CLLocationCoordinate2D?
     @Binding var showQuestModal: Bool
     @Binding var showWelcomeModal: Bool
     @Binding var isSelectQuestActive: Bool

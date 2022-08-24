@@ -15,11 +15,22 @@ import Foundation
 //
 
 import SwiftUI
+import MapKit
 
 struct StartJourneyModalView: View {
     
+    @Binding var chosenQuestList : [Quest]
+    @Binding var chosenPlaceList : [Place]
+    @Binding var chosenRouteDistance: [Double]
+    @Binding var currentQuest: Quest?
+    @Binding var currentPlace: Place?
+    @Binding var currentUserLocation: CLLocationCoordinate2D?
+    @Binding var metricDistance: Double?
+    @Binding var metricDuration: Double?
+    @Binding var showToScan: Bool
     @Binding var isShowing: Bool
     @State private var isDragging = false
+    
     
     @State private var curHeight: CGFloat = 250
     let minHeight: CGFloat = 250
@@ -27,18 +38,16 @@ struct StartJourneyModalView: View {
     
     var body: some View {
         ZStack(alignment: .bottom){
-//            Color.black
-//                .opacity(0.3)
-//                .ignoresSafeArea()
-//                .onTapGesture {
-//                    isShowing = false
-//                }
             mainView
         }
         .frame(maxWidth: .infinity,maxHeight: .infinity, alignment: .bottom)
         .ignoresSafeArea()
-        //        .animation(Animation.easeInOut, value: 100)
-        //        .animation(.easeInOut)
+        
+        if(showToScan){
+//            ToScanView(isShowing: self.$showToScan)
+            
+            ToScanView(chosenQuestList: self.$chosenQuestList, chosenPlaceList: self.$chosenPlaceList, chosenRouteDistance: self.$chosenRouteDistance, currentQuest: self.$currentQuest, currentPlace: self.$currentPlace, currentUserLocation: self.$currentUserLocation, metricDistance: self.$metricDistance, metricDuration: self.$metricDuration, isShowing: self.$showToScan)
+        }
     }
     
     var mainView: some View {
@@ -57,9 +66,14 @@ struct StartJourneyModalView: View {
                 .padding(10)
             Spacer()
             Button(action: {
-                //quest
+                
+                withAnimation{
+                    self.showToScan = true
+//                    self.isShowing = false
+                }
+                
             }, label: {
-                Text("MULAI PERJALANAN")
+                Text("MULAI PETUALANGAN")
                     .font(.body)
                     .bold()
             })

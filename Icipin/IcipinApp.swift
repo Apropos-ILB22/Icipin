@@ -9,6 +9,7 @@ import SwiftUI
 
 @main
 struct IcipinApp: App {
+    @StateObject private var mapQuestViewModel = MapQuestViewModel()
     let userDefaults = UserDefaults.standard
     @State var isOnboardShowed: Bool
     
@@ -28,6 +29,9 @@ struct IcipinApp: App {
                 }else{
                     OnboardingView()
                 }
+                MapQuestView()
+            }.onAppear{
+                mapQuestViewModel.loadJSONData()
             }
         }
     }
