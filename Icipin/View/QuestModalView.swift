@@ -14,6 +14,7 @@ struct QuestModalView: View {
     @Binding var chosenQuestList : [Quest]
     @Binding var chosenPlaceList : [Place]
     @Binding var chosenRouteDistance: [Double]
+    @Binding var chosenRouteDuration: [Double]
     @Binding var isSelectQuestActive: Bool
     @Binding var isStartJourneyActive: Bool
     @Binding var isShowToScan: Bool
@@ -23,7 +24,6 @@ struct QuestModalView: View {
     @Binding var currentUserLocation: CLLocationCoordinate2D?
     @Binding var prevQuest: Quest?
     @Binding var prevPlace: Place?
-//    @Binding var currentPlaceMetric: PlaceMetric?
     @Binding var metricDistance: Double?
     @Binding var metricDuration: Double?
     
@@ -55,7 +55,7 @@ struct QuestModalView: View {
             }
             
             if isStartJourneyActive{
-                StartJourneyModalView(chosenQuestList: self.$chosenQuestList, chosenPlaceList: self.$chosenPlaceList, chosenRouteDistance: self.$chosenRouteDistance, currentQuest: self.$currentQuest, currentPlace: self.$currentPlace, currentUserLocation: self.$currentUserLocation ,metricDistance: self.$metricDistance, metricDuration: self.$metricDuration, showToScan: self.$isShowToScan, isShowing: self.$isStartJourneyActive)
+                StartJourneyModalView(chosenQuestList: self.$chosenQuestList, chosenPlaceList: self.$chosenPlaceList, chosenRouteDistance: self.$chosenRouteDistance, chosenRouteDuration: self.$chosenRouteDuration, currentQuest: self.$currentQuest, currentPlace: self.$currentPlace, currentUserLocation: self.$currentUserLocation ,metricDistance: self.$metricDistance, metricDuration: self.$metricDuration, showToScan: self.$isShowToScan, isShowing: self.$isStartJourneyActive)
             }
         }
         .frame(maxWidth: .infinity,maxHeight: .infinity, alignment: .bottom)
@@ -137,6 +137,7 @@ struct QuestModalView: View {
                         self.chosenQuestList.append(currentQuest!)
                         self.chosenPlaceList.append(currentPlace!)
                         self.chosenRouteDistance.append(metricDistance!)
+                        self.chosenRouteDuration.append(metricDuration!)
 
                         print("Debug quest modal : \(chosenPlaceList.count)")
                         print("Debug quest modal : \(chosenQuestList.count)")
@@ -158,6 +159,7 @@ struct QuestModalView: View {
                         self.chosenQuestList.append(currentQuest!)
                         self.chosenPlaceList.append(currentPlace!)
                         self.chosenRouteDistance.append(metricDistance!)
+                        self.chosenRouteDuration.append(metricDuration!)
                         
                         print("Debug quest modal : \(chosenPlaceList.count)")
                         print("Debug quest modal : \(chosenQuestList.count)")
@@ -170,6 +172,7 @@ struct QuestModalView: View {
                         if let indexPlace = chosenPlaceList.firstIndex(of: currentPlace!) {
                           chosenPlaceList.remove(at: indexPlace)
                             self.chosenRouteDistance.append(metricDistance!)
+                            self.chosenRouteDuration.append(metricDuration!)
                         }
 
                         if let indexQuest = chosenQuestList.firstIndex(of: currentQuest!) {

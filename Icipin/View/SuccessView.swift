@@ -9,7 +9,14 @@ import SwiftUI
 
 struct SuccessView: View {
     @Binding var currentQuest: Quest?
+    @Binding var currentPlace: Place?
+    @Binding var chosenQuestList : [Quest]
+    @Binding var chosenPlaceList : [Place]
+    @Binding var chosenRouteDistance: [Double]
+    @Binding var chosenRouteDuration: [Double]
+    @State var showNextQuest = false
     @State var animate = false
+    @State var index: Int = 0
     @State var showStoryOfFood = false
     
     var body: some View {
@@ -69,9 +76,9 @@ struct SuccessView: View {
                 Spacer()
                 
                 Button(action: {
-                    
+        
                 }){
-                    Text("Lanjut Petualangan")
+                    Text("LANJUT PETUALANGAN")
                         .font(.body).bold()
                         .foregroundColor(.white)
                         .frame(width: UIScreen.main.bounds.width - 40, height: 58)

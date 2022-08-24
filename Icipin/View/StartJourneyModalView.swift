@@ -22,6 +22,7 @@ struct StartJourneyModalView: View {
     @Binding var chosenQuestList : [Quest]
     @Binding var chosenPlaceList : [Place]
     @Binding var chosenRouteDistance: [Double]
+    @Binding var chosenRouteDuration: [Double]
     @Binding var currentQuest: Quest?
     @Binding var currentPlace: Place?
     @Binding var currentUserLocation: CLLocationCoordinate2D?
@@ -46,7 +47,7 @@ struct StartJourneyModalView: View {
         if(showToScan){
 //            ToScanView(isShowing: self.$showToScan)
             
-            ToScanView(chosenQuestList: self.$chosenQuestList, chosenPlaceList: self.$chosenPlaceList, chosenRouteDistance: self.$chosenRouteDistance, currentQuest: self.$currentQuest, currentPlace: self.$currentPlace, currentUserLocation: self.$currentUserLocation, metricDistance: self.$metricDistance, metricDuration: self.$metricDuration, isShowing: self.$showToScan)
+            ToScanView(chosenQuestList: self.$chosenQuestList, chosenPlaceList: self.$chosenPlaceList, chosenRouteDistance: self.$chosenRouteDistance,chosenRouteDuration: self.$chosenRouteDuration, currentQuest: self.$currentQuest, currentPlace: self.$currentPlace, currentUserLocation: self.$currentUserLocation, metricDistance: self.$metricDistance, metricDuration: self.$metricDuration, isShowing: self.$showToScan)
         }
     }
     

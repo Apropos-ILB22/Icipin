@@ -15,6 +15,7 @@ struct MapQuestView: View {
     @State private var chosenQuestList : [Quest] = []
     @State private var chosenPlaceList : [Place] = []
     @State private var chosenRouteDistance: [Double] = []
+    @State private var chosenRouteDuration: [Double] = []
     
     @State private var showWelcomeModal = true
     @State private var showQuestModal = false
@@ -61,7 +62,7 @@ struct MapQuestView: View {
             QuestModalView(mapView: self.$mapView,
                            chosenQuestList: self.$chosenQuestList,
                            chosenPlaceList: self.$chosenPlaceList,
-                           chosenRouteDistance: self.$chosenRouteDistance,
+                           chosenRouteDistance: self.$chosenRouteDistance, chosenRouteDuration: self.$chosenRouteDuration,
                            isSelectQuestActive: self.$isSelectQuestActive,
                            isStartJourneyActive: self.$isStartJourneyActive,
                            isShowToScan: self.$isShowToScan,

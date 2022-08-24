@@ -12,6 +12,10 @@ import Vision
 struct ScanpageView: View {
     @Binding var currentQuest: Quest?
     @Binding var currentPlace: Place?
+    @Binding var chosenQuestList : [Quest]
+    @Binding var chosenPlaceList : [Place]
+    @Binding var chosenRouteDistance: [Double]
+    @Binding var chosenRouteDuration: [Double]
     
     @State var timeRemaining = 15
     @State var isShow = false
@@ -65,7 +69,7 @@ struct ScanpageView: View {
                         }
                     }
                 
-                NavigationLink(destination: SuccessView(currentQuest: self.$currentQuest), isActive: self.$showVerifiedPage){
+                NavigationLink(destination: SuccessView(currentQuest: self.$currentQuest, currentPlace: self.$currentPlace, chosenQuestList: self.$chosenQuestList, chosenPlaceList: self.$chosenPlaceList, chosenRouteDistance: self.$chosenRouteDistance,chosenRouteDuration: self.$chosenRouteDuration), isActive: self.$showVerifiedPage){
                 }
                 .onReceive(timer){_ in
                     if(predict?.confidence ?? 0 > 0.8 && predict?.label == currentQuest?.labelml && timeRemaining < 12){

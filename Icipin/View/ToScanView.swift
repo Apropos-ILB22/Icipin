@@ -13,6 +13,7 @@ struct ToScanView: View {
     @Binding var chosenQuestList : [Quest]
     @Binding var chosenPlaceList : [Place]
     @Binding var chosenRouteDistance: [Double]
+    @Binding var chosenRouteDuration: [Double]
     @Binding var currentQuest: Quest?
     @Binding var currentPlace: Place?
     @Binding var currentUserLocation: CLLocationCoordinate2D?
@@ -88,7 +89,12 @@ struct ToScanView: View {
                 .padding(.trailing,20)
                 
             }
-            NavigationLink(destination: ScanpageView(currentQuest: self.$currentQuest, currentPlace: self.$currentPlace), isActive: self.$showScanPageView){
+            NavigationLink(destination: ScanpageView(currentQuest: self.$currentQuest,
+                                                     currentPlace: self.$currentPlace,
+                                                     chosenQuestList: self.$chosenQuestList,
+                                                     chosenPlaceList: self.$chosenPlaceList,
+                                                     chosenRouteDistance: self.$chosenRouteDistance,
+                                                     chosenRouteDuration: self.$chosenRouteDuration), isActive: self.$showScanPageView){
             }
             Spacer()
             Button(action: {
