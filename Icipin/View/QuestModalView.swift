@@ -124,30 +124,35 @@ struct QuestModalView: View {
                 if(isSelectQuestActive == false){
                     isSelectQuestActive = true
                 }else{
-                    isStartJourneyActive = true
+                    
+                    if(!chosenPlaceList.contains(currentPlace!)){
+                        isStartJourneyActive = true
 
-                    withAnimation{
-                        self.isShowing = false
+                        withAnimation{
+                            self.isShowing = false
+                        }
+                        
+                        self.chosenQuestList.append(currentQuest!)
+                        self.chosenPlaceList.append(currentPlace!)
+                        
+                        print("Debug quest modal : \(chosenPlaceList.count)")
+                        print("Debug quest modal : \(chosenQuestList.count)")
+                        
+                        self.prevQuest = currentQuest
+                        self.prevPlace = currentPlace
+                        
+                        drawRoute()
+                    }else{
+                        if let indexPlace = chosenPlaceList.firstIndex(of: currentPlace!) {
+                          chosenPlaceList.remove(at: indexPlace) // array is now ["world", "hello"]
+                        }
+
+                        if let indexQuest = chosenQuestList.firstIndex(of: currentQuest!) {
+                          chosenQuestList.remove(at: indexQuest) // array is now ["world", "hello"]
+                        }
+                        
+                        drawRoute()
                     }
-                    
-                    self.chosenQuestList.append(currentQuest!)
-                    self.chosenPlaceList.append(currentPlace!)
-                    
-                    print("Debug quest modal : \(chosenPlaceList.count)")
-                    print("Debug quest modal : \(chosenQuestList.count)")
-                    
-                    self.prevQuest = currentQuest
-                    self.prevPlace = currentPlace
-                    
-                    drawRoute()
-                    
-//                    if let index = chosenPlaceList.firstIndex(of: currentPlace!) {
-//                      chosenPlaceList.remove(at: index) // array is now ["world", "hello"]
-//                    }
-//
-//                    if let index1 = chosenQuestList.firstIndex(of: currentQuest!) {
-//                      chosenQuestList.remove(at: index1) // array is now ["world", "hello"]
-//                    }
                     
                 }
                 self.isSelectQuestActive = true
