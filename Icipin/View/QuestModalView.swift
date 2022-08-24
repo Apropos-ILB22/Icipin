@@ -123,6 +123,25 @@ struct QuestModalView: View {
             Button(action: {
                 if(isSelectQuestActive == false){
                     isSelectQuestActive = true
+                    
+                    if(chosenPlaceList.count == 0){
+                        isStartJourneyActive = true
+
+                        withAnimation{
+                            self.isShowing = false
+                        }
+
+                        self.chosenQuestList.append(currentQuest!)
+                        self.chosenPlaceList.append(currentPlace!)
+
+                        print("Debug quest modal : \(chosenPlaceList.count)")
+                        print("Debug quest modal : \(chosenQuestList.count)")
+
+                        self.prevQuest = currentQuest
+                        self.prevPlace = currentPlace
+
+                        drawRoute()
+                    }
                 }else{
                     
                     if(!chosenPlaceList.contains(currentPlace!)){
@@ -200,7 +219,6 @@ struct QuestModalView: View {
         }
         mapView!.removeOverlays(mapView!.overlays)
     }
-    
     
     func createPolyline(p1: MKPlacemark, p2: MKPlacemark){
         let request = MKDirections.Request()
