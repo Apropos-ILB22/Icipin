@@ -9,11 +9,25 @@ import SwiftUI
 
 @main
 struct IcipinApp: App {
+    let userDefaults = UserDefaults.standard
+    @State var isOnboardShowed: Bool
+    
+    init(){
+        if (userDefaults.bool(forKey: "onboard") == true){
+            isOnboardShowed = true
+        }else{
+            isOnboardShowed = false
+        }
+    }
+    
     var body: some Scene {
         WindowGroup {
-//            OnboardingView()
             NavigationView{
-                ScanpageView()
+                if isOnboardShowed {
+                    MapQuestView()
+                }else{
+                    OnboardingView()
+                }
             }
         }
     }
