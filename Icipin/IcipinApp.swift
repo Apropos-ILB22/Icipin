@@ -15,7 +15,7 @@ struct IcipinApp: App {
         WindowGroup {
 //            OnboardingView()
             NavigationView{
-                ScanpageView()
+//                ScanpageView()
             }.onAppear{
                 mapQuestViewModel.loadJSONData()
             }
