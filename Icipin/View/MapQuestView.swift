@@ -145,8 +145,8 @@ struct MapView: UIViewRepresentable {
         
         func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
             parent.currentUserLocation = userLocation.coordinate
-//            let region = MKCoordinateRegion(center: userLocation.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005))
-//            mapView.setRegion(region, animated: true)
+            let region = MKCoordinateRegion(center: userLocation.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005))
+            mapView.setRegion(region, animated: true)
         }
         
         //delegate function for route overlay
